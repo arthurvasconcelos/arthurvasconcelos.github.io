@@ -17,5 +17,6 @@ public/assets
 www
 
 # Dependency directory
+bower_components
 node_modules
 npm-debug.log
