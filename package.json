@@ -1,0 +1,23 @@
+{
+  "name": "arthurvasconcelos.github.io",
+  "version": "1.0.0",
+  "description": ":metal: My personal site.",
+  "main": "index.ejs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthurvasconcelos/arthurvasconcelos.github.io.git"
+  },
+  "keywords": [
+    "personal",
+    "portifolio"
+  ],
+  "author": "Arthur Vasconcelos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arthurvasconcelos/arthurvasconcelos.github.io/issues"
+  },
+  "homepage": "https://github.com/arthurvasconcelos/arthurvasconcelos.github.io#readme"
+}
