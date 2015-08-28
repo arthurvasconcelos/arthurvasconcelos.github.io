@@ -10,7 +10,10 @@ pids
 # node-waf configuration
 .lock-wscript
 
-# HARP BUILD FOLDER
+# GULP generated files
+public/assets
+
+# HARPJS build folder
 www
 
 # Dependency directory
