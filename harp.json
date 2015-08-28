@@ -1,0 +1,51 @@
+{
+  "globals": {
+    "base"             : "./",
+    "url"              : "http://arthurvasconcelos.com.br",
+    "name"             : "Arthur Vasconcelos",
+    "email"            : "vasconcelos.arthur@gmail.com",
+    "title"            : "Arthur Vasconcelos",
+    "subtitle"         : "Full-Stack Developer",
+    "description"      : "COLOCAR DESCRIÇÃO",
+    "twitter"          : "@jookeringa",
+    "linkedin"         : "arthurvasconcelos",
+    "github"           : "arthurvasconcelos",
+    "disqus"           : "arthurvasconcelos",
+    "googleAnalytics"  : "UA-5427757-17",
+    "startedAt"        : "2005",
+    "year"             : "2015",
+
+    "menu": [{
+      "title"  : "Home",
+      "link"   : ""
+    }, {
+      "title"  : "Blog",
+      "link"   : "blog"
+    }, {
+      "title"  : "Projetos",
+      "link"   : "projetos"
+    }, {
+      "title"  : "Portfolio",
+      "link"   : "portfolio"
+    }, {
+      "title"  : "Talks",
+      "link"   : "talks"
+    }],
+
+    "menuActive": "Home",
+
+    "social": [{
+      "title"     : "GitHub",
+      "link"      : "https://github.com/arthurvasconcelos",
+      "external"  : true
+    }, {
+      "title"     : "LinkedIn",
+      "link"      : "http://www.linkedin.com/in/arthurvasconcelos",
+      "external"  : true
+    }, {
+      "title"     : "Twitter",
+      "link"      : "https://twitter.com/@jookeringa",
+      "external"  : true
+    }]
+  }
+}
