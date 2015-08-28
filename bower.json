@@ -1,0 +1,32 @@
+{
+  "name": "arthurvasconcelos.github.io",
+  "version": "1.0.0",
+  "homepage": "https://github.com/arthurvasconcelos/arthurvasconcelos.github.io",
+  "authors": [
+    "Arthur Vasconcelos <vasconcelos.arthur@gmail.com>"
+  ],
+  "description": ":metal: My personal site.",
+  "main": "public/index.ejs",
+  "moduleType": [
+    "es6",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "portfolio",
+    "personal",
+    "website"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "scrollreveal": "scrollReveal.js#~2.3.2"
+  }
+}
