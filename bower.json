@@ -26,7 +26,9 @@
     "tests"
   ],
   "dependencies": {
+    "bourbon": "~4.2.4",
     "jquery": "~2.1.4",
+    "neat": "~1.7.2",
     "scrollreveal": "scrollReveal.js#~2.3.2"
   }
 }
