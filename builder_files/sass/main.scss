@@ -1,22 +1,15 @@
+// FONTS
+@import 'fonts';
+@import 'font-awesome';
+
+// LIBS
 @import "bourbon";
 @import "neat";
 
-body{
-  font-family: "Helvetica";
-  text-align: center;
-  padding: 50px 20px 0;
-  background: #f4f4f7;
-  color: #444;
-  margin: 0;
-}
+// HELPERS
+@import 'variables';
+@import 'normalize';
+@import 'helpers';
 
-h1{
-  font-size: 65px;
-  line-height: 1.2em;
-  border-bottom: #CCC solid 1px;
-  padding: 20px 0;
-}
-
-h3{
-  font-weight: 300;
-}
+// LAYOUT
+@import 'layout';
