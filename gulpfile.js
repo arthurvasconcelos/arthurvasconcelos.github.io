@@ -1,6 +1,6 @@
 // load plugins
 var gulp            = require('gulp');
-var less            = require('gulp-less');
+var sass            = require('gulp-ruby-sass');
 var autoPrefixer    = require('gulp-autoprefixer');
 var minifyCSS       = require('gulp-minify-css');
 var uglify          = require('gulp-uglify');
@@ -28,9 +28,10 @@ var plumberErrorHandler = {
 // paths
 var paths = {
 	assets: 'public/assets/',
-	styles: 'builder_files/less/**/*.less',
+	styles: 'builder_files/sass/',
 	stylesIncludes: [
-		path.join(__dirname, 'less', 'includes')
+		'bower_components/bourbon/app/assets/stylesheets/',
+		'bower_components/neat/app/assets/stylesheets/'
 	],
 	scripts: 'builder_files/js/**/*.js',
 	scriptsPlugins: [
@@ -41,11 +42,11 @@ var paths = {
 
 // styles
 gulp.task('styles', function() {
-	return gulp.src(paths.styles)
+	return sass(paths.styles + 'main.scss', {
+			style: 'expanded',
+			loadPath: paths.stylesIncludes
+		})
 		.pipe(plumber(plumberErrorHandler))
-		.pipe(less({
-	      paths: paths.stylesIncludes
-	    }))
 		.pipe(autoPrefixer('last 2 version', 'safari 5', 'ie 7', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 		.pipe(gulp.dest(paths.assets + 'css'))
 		.pipe(rename({ suffix: '.min' }))
@@ -77,8 +78,8 @@ gulp.task('scriptsPlugins', function() {
 
 // watch
 gulp.task('watch', function() {
-	gulp.watch(paths.styles, ['styles']);
-	gulp.watch(paths.stylesIncludes, ['styles']);
+	gulp.watch(paths.styles + '**/*.scss', ['styles']);
+	gulp.watch(paths.stylesIncludes + '**/*.scss', ['styles']);
 	gulp.watch(paths.scripts, ['scripts']);
 	gulp.watch(paths.scriptsPlugins, ['scriptsPlugins']);
 });
