@@ -1,11 +1,15 @@
 # Logs
 logs
+npm-debug.log
 *.log
 
 # Runtime data
 pids
 *.pid
 *.seed
+
+# Caches
+.sass-cache
 
 # node-waf configuration
 .lock-wscript
@@ -19,4 +23,3 @@ www
 # Dependency directory
 bower_components
 node_modules
-npm-debug.log
