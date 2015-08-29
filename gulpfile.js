@@ -9,6 +9,7 @@ var concat          = require('gulp-concat');
 var notify          = require('gulp-notify');
 var plumber         = require('gulp-plumber');
 var path            = require('path');
+var del             = require('del');
 
 // the title and icon that will be used for the Gulp notifications
 var notifyInfo = {
@@ -31,7 +32,9 @@ var paths = {
 	styles: 'builder_files/sass/',
 	stylesIncludes: [
 		'bower_components/bourbon/app/assets/stylesheets/',
-		'bower_components/neat/app/assets/stylesheets/'
+		'bower_components/neat/app/assets/stylesheets/',
+		'bower_components/normalize-scss/',
+		'bower_components/font-awesome/scss/'
 	],
 	scripts: 'builder_files/js/**/*.js',
 	scriptsPlugins: [
@@ -76,6 +79,22 @@ gulp.task('scriptsPlugins', function() {
 		.pipe(gulp.dest(paths.assets + 'js/'));
 });
 
+// clean
+gulp.task('clean', function(cb) {
+    del([
+    	paths.assets + 'css',
+    	paths.assets + 'js',
+    	paths.assets + 'fonts'
+    ], cb)
+});
+
+// copy fonts
+gulp.task('copyFonts', function() {
+	return gulp.src('bower_components/font-awesome/fonts/*')
+		.pipe(plumber(plumberErrorHandler))
+		.pipe(gulp.dest(paths.assets + 'fonts/'));
+});
+
 // watch
 gulp.task('watch', function() {
 	gulp.watch(paths.styles + '**/*.scss', ['styles']);
@@ -85,4 +104,6 @@ gulp.task('watch', function() {
 });
 
 // default
-gulp.task('default', ['styles', 'scripts', 'scriptsPlugins', 'watch']);
+gulp.task('default', ['clean'], function(){
+	gulp.start('styles', 'scripts', 'scriptsPlugins', 'copyFonts', 'watch');
+});
