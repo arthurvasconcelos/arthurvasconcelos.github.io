@@ -1,19 +1,92 @@
-body {
-  font-family: "Helvetica";
-  text-align: center;
-  padding: 50px 20px 0;
-  background: #f4f4f7;
-  color: #444;
-  margin: 0;
+[data-sr] {
+  visibility: hidden;
 }
 
-h1 {
-  font-size: 65px;
-  line-height: 1.2em;
-  border-bottom: #CCC solid 1px;
-  padding: 20px 0;
+// Begin Social Circles
+.fbCircle { @include circle-filler($circleSize:50px, $fontSize: 25px, $fontColorOut: #3B5998, $fontColorIn: #ffffff, $backgroundOut: #ffffff, $fsoSize:2px, $fsoR:59, $fsoG:89, $fsoB:152, $fsoO:1, $ssoSize:3px, $ssoR:139, $ssoG:157, $ssoB:195, $ssoO:1, $fsiSize:5px, $fsiR:139, $fsiG:157, $fsiB:195, $fsiO:1, $ssiR:59, $ssiG:89, $ssiB:152, $ssiO:1); }
+
+.ghCircle { @include circle-filler($circleSize:50px, $fontSize: 25px, $fontColorOut: #000000, $fontColorIn: #ffffff, $backgroundOut: #ffffff, $fsoSize:2px, $fsoR:0, $fsoG:0, $fsoB:0, $fsoO:1, $ssoSize:3px, $ssoR:241, $ssoG:241, $ssoB:241, $ssoO:1, $fsiSize:5px, $fsiR:241, $fsiG:241, $fsiB:241, $fsiO:1, $ssiR:0, $ssiG:0, $ssiB:0, $ssiO:1); }
+
+.liCircle { @include circle-filler($circleSize:50px, $fontSize: 25px, $fontColorOut: #0077B5, $fontColorIn: #ffffff, $backgroundOut: #ffffff, $fsoSize:2px, $fsoR:0, $fsoG:119, $fsoB:181, $fsoO:1, $ssoSize:3px, $ssoR:0, $ssoG:0, $ssoB:0, $ssoO:1, $fsiSize:5px, $fsiR:0, $fsiG:0, $fsiB:0, $fsiO:1, $ssiR:0, $ssiG:119, $ssiB:181, $ssiO:1); }
+
+.gpCircle { @include circle-filler($circleSize:50px, $fontSize: 25px, $fontColorOut: #DA2713, $fontColorIn: #ffffff, $backgroundOut: #ffffff, $fsoSize:2px, $fsoR:218, $fsoG:39, $fsoB:19, $fsoO:1, $ssoSize:3px, $ssoR:221, $ssoG:76, $ssoB:59, $ssoO:1, $fsiSize:5px, $fsiR:221, $fsiG:76, $fsiB:59, $fsiO:1, $ssiR:218, $ssiG:39, $ssiB:19, $ssiO:1); }
+
+.twCircle { @include circle-filler($circleSize:50px, $fontSize: 25px, $fontColorOut: #6CADDE, $fontColorIn: #ffffff, $backgroundOut: #ffffff, $fsoSize:2px, $fsoR:108, $fsoG:173, $fsoB:222, $fsoO:1, $ssoSize:3px, $ssoR:50, $ssoG:51, $ssoB:51, $ssoO:1, $fsiSize:5px, $fsiR:50, $fsiG:51, $fsiB:51, $fsiO:1, $ssiR:108, $ssiG:173, $ssiB:222, $ssiO:1); }
+// End Social Circles
+
+// Main Content
+.mainContent {
+  @include outer-container(100%);
+
+  #hotLandingPage {
+    @include span-columns(12);
+    background: #323232;
+    position: relative;
+
+    .js-vert-centralize {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+
+    h1 {
+      font-size: 55px;
+      text-align: center;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      font-size: 17.5px;
+      text-align: center;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin: 0;
+      padding: 0;
+    }
+
+    p {
+      font-size: 18px;
+      color: #F8F8F8;
+      line-height: 25px;
+      max-width: 695px;
+      margin: 50px 0;
+
+      .call {
+        display: block;
+        text-transform: uppercase;
+        font-size: 22px;
+      }
+    }
+
+    .socialbar {
+      // background: #E7DEDE;
+      background: #FFFFFF;
+      border-radius: 30px;
+      padding: 15px;
+      margin: 0 auto;
+
+      ul {
+        list-style: none;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 0;
+
+        li {
+          float: left;
+          margin-right: 10px;
+
+          &:last-child { margin-right: 0; }
+        }
+      }
+    }
+  }
 }
 
-h3 {
-  font-weight: 300;
-}
+
+
+
+

@@ -1,41 +1,15 @@
 // Layout
-.toLeft,
-.to-left {
-  float:left;
-}
 
-.toRight,
-.to-right {
-  float:right;
-}
-
-.placeholder { color: #aaa; }
+.toLeft, .to-left { float:left; }
+.toRight, .to-right { float:right; }
 .hidden { display: none; }
+.placeholder { color: #aaa; }
+.no-transiton { @include transition(none !important); }
 
-.no-transiton {
-  @include transition(none !important);
-}
-
-.fit-image {
-  width: 100%;
-  height: auto;
-}
-
-.ha {
-  @include transform(translate3d(0, 0, 0));
-  @include backface-visibility(hidden);
-  @include perspective(1000);
-}
-
-.clearAll {
+.clearFix {
   width: auto;
   height: 1px;
   margin: 0;
   padding: 0;
   clear: both;
-}
-
-.paddingContainerAjust {
-  padding-left: 8% !important;
-  padding-right: 8% !important;
 }
