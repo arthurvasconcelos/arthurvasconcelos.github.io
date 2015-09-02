@@ -33,12 +33,13 @@
   </head>
 
   <body>
-    <% if(current.path[0] === "blog" && current.source !== "index") { %>
-      <%- partial(current.path[0] + "/_post", { source: current.source }) %>
-
-    <% } else { %>
+    <section class="mainContent" role="main">
+      <% if(current.path[0] === "blog" && current.source !== "index") { %>
+        <%- partial(current.path[0] + "/_post", { source: current.source }) %>
+      <% } else { %>
         <%- yield %>
-    <% } %>
+      <% } %>
+    </section>
 
     <!-- <%- partial("_partials/_footer") %> -->
 
