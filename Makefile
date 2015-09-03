@@ -13,7 +13,7 @@ deploy:
 	harp compile
 
 	$(call print, "Copy not scanned files")
-	cp LICENSE README.md www/
+	cp Makefile LICENSE README.md www/
 
 	$(call print, "Checkout master branch")
 	git checkout master
