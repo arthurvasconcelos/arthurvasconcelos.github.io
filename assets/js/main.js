@@ -22,8 +22,8 @@ DOMdocument.ready(function(){
     // Content vertical centralize
     var hlpSegContainer = $('.js-vert-centralize');
     hlpSegContainer.css({
-      'margin-top': hlpSegContainer.height() / 2 * (-1),
-      'margin-left': hlpSegContainer.width() / 2 * (-1)
+      'margin-top': hlpSegContainer.height() / 2 * (-1)
+      // 'margin-left': hlpSegContainer.width() / 2 * (-1)
     });
 
     // Socialbar centralize
@@ -37,8 +37,8 @@ DOMdocument.ready(function(){
     });
 
     socialbar.css({
-      width: socialbarWidth + parseInt(socialbar.css('padding')) * 2,
-      height: socialbarHeight + parseInt(socialbar.css('padding')) * 2
+      'max-width': socialbarWidth + parseInt(socialbar.css('padding')) * 2,
+      'min-height': socialbarHeight + parseInt(socialbar.css('padding')) * 2
     });
   }
 });

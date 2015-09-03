@@ -3218,20 +3218,46 @@ th {
   margin-right: 0;
 }
 .mainContent #hotLandingPage .js-vert-centralize {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-left: 25.58941%;
   position: absolute;
   top: 50%;
-  left: 50%;
+}
+.mainContent #hotLandingPage .js-vert-centralize:last-child {
+  margin-right: 0;
+}
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .mainContent #hotLandingPage .js-vert-centralize {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 82.94039%;
+    margin-left: 8.5298%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .mainContent #hotLandingPage .js-vert-centralize:last-child {
+    margin-right: 0;
+  }
 }
 .mainContent #hotLandingPage h1 {
-  font-size: 55px;
+  font-size: 50px;
   text-align: center;
   text-transform: uppercase;
   color: #FFFFFF;
   margin: 0;
   padding: 0;
 }
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .mainContent #hotLandingPage h1 {
+    font-size: 30px;
+  }
+}
 .mainContent #hotLandingPage h2 {
-  font-size: 17.5px;
+  font-size: 16.5px;
   text-align: center;
   text-transform: uppercase;
   color: #FFFFFF;
@@ -3239,11 +3265,19 @@ th {
   padding: 0;
 }
 .mainContent #hotLandingPage p {
-  font-size: 18px;
+  font-size: 17px;
   color: #F8F8F8;
   line-height: 25px;
-  max-width: 695px;
-  margin: 50px 0;
+  float: left;
+  display: block;
+  margin-right: 4.82916%;
+  width: 65.05695%;
+  margin-left: 17.47153%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.mainContent #hotLandingPage p:last-child {
+  margin-right: 0;
 }
 .mainContent #hotLandingPage p .call {
   display: block;
@@ -3255,6 +3289,7 @@ th {
   border-radius: 30px;
   padding: 15px;
   margin: 0 auto;
+  box-shadow: inset 1px 1px 10px 1px rgba(0, 0, 0, 0.6);
 }
 .mainContent #hotLandingPage .socialbar ul {
   list-style: none;
