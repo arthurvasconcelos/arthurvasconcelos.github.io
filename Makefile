@@ -12,12 +12,14 @@ deploy:
 	$(call print, "Compile site")
 	harp compile
 
+	$(call print, "Copy not scanned files")
+	cp LICENSE README.md www/
+
 	$(call print, "Checkout master branch")
 	git checkout master
 
 	$(call print, "Clean unwanted files and folders")
-	rm -rf www/.git www/.gitignore
-	cp -r www/ ./
+	cp -r www/* ./
 	make clean
 
 	$(call print, "Commit changes to master")
