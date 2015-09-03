@@ -23,6 +23,10 @@
     background: #323232;
     position: relative;
 
+    // @include media(769px) {
+    //   @include span-columns(6);
+    // }
+
     .js-vert-centralize {
       position: absolute;
       top: 50%;
