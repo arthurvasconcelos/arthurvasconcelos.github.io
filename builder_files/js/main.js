@@ -14,9 +14,9 @@ DOMdocument.ready(function(){
   var hotLandingPage = $('#hotLandingPage');
   if (hotLandingPage.length != 0) {
     // Max height control
-    hotLandingPage.css('height', DOMdocument.height());
+    hotLandingPage.css('min-height', DOMdocument.height());
     window.onresize = function(event) {
-      hotLandingPage.css('height', DOMdocument.height());
+      hotLandingPage.css('min-height', DOMdocument.height());
     }
 
     // Content vertical centralize

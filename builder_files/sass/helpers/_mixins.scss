@@ -5,7 +5,7 @@
   $fontWeight: bold,
   $fontColorOut: #ffffff,
   $fontColorIn: none,
-  $fontFamily: "Arial, sans-serif",
+  $fontFamily: $lato,
   $backgroundOut: #12809b,
   $fsoSize: 5px,
   $fsoR: 0, $fsoG: 0, $fsoB: 0, $fsoO: .5,
@@ -38,4 +38,15 @@
     box-shadow: inset 0 0 0 $fsiSize rgba($fsiR,$fsiG,$fsiB,$fsiO),
                 inset 0 0 0 $circleSize rgba($ssiR,$ssiG,$ssiB,$ssiO);
   }
+}
+
+@mixin renderFont(
+  $fontStyle:normal,
+  $fontVariant:normal,
+  $fontWeight:400,
+  $fontSize:14px,
+  $lineHeight:normal,
+  $fontFamily:$lato
+) {
+  font: $fontStyle $fontVariant $fontWeight #{$fontSize}/#{$lineHeight} $fontFamily;
 }

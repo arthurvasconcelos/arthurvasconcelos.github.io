@@ -28,8 +28,6 @@
     <link href="<%= base %>assets/img/favicon.big.png" rel="icon" sizes="192x192">
 
     <link rel="stylesheet" href="<%= base %>assets/css/main.css">
-
-    <%- partial("_partials/_ga") %>
   </head>
 
   <body>
@@ -41,9 +39,9 @@
       <% } %>
     </section>
 
-    <!-- <%- partial("_partials/_footer") %> -->
-
     <script src="<%= base %>assets/js/plugins.js"></script>
     <script src="<%= base %>assets/js/main.js"></script>
+
+    <%- partial("_aux/idl") %>
   </body>
 </html>

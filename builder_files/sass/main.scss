@@ -1,5 +1,5 @@
 // FONTS
-@import 'fonts';
+@import 'utils/fonts';
 @import 'font-awesome';
 
 // LIBS
@@ -7,10 +7,11 @@
 @import "neat";
 
 // HELPERS
-@import 'variables';
+@import 'utils/variables';
 @import 'normalize';
-@import 'helpers';
-@import 'mixins';
+@import 'helpers/aux';
+@import 'helpers/mixins';
 
 // LAYOUT
-@import 'layout';
+@import 'layout/general';
+@import 'layout/hotsite';
