@@ -28,6 +28,7 @@ var plumberErrorHandler = {
 
 // paths
 var paths = {
+  builderFiles: 'builder_files/',
 	assets: 'public/assets/',
 	styles: 'builder_files/sass/',
 	stylesIncludes: [
@@ -95,15 +96,23 @@ gulp.task('copyFonts', function() {
 		.pipe(gulp.dest(paths.assets + 'fonts/'));
 });
 
+// copy images
+gulp.task('copyImages', function() {
+  return gulp.src('builder_files/images/**/*')
+    .pipe(plumber(plumberErrorHandler))
+    .pipe(gulp.dest(paths.assets + 'images/'));
+});
+
 // watch
 gulp.task('watch', function() {
 	gulp.watch(paths.styles + '**/*.scss', ['styles']);
 	gulp.watch(paths.stylesIncludes + '**/*.scss', ['styles']);
 	gulp.watch(paths.scripts, ['scripts']);
-	gulp.watch(paths.scriptsPlugins, ['scriptsPlugins']);
+  gulp.watch(paths.scriptsPlugins, ['scriptsPlugins']);
+	gulp.watch(paths.builderFiles + 'images', ['copyImages']);
 });
 
 // default
 gulp.task('default', ['clean'], function(){
-	gulp.start('styles', 'scripts', 'scriptsPlugins', 'copyFonts', 'watch');
+	gulp.start('styles', 'scripts', 'scriptsPlugins', 'copyFonts', 'copyImages', 'watch');
 });
