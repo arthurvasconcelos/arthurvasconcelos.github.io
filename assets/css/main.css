@@ -1,5 +1,6 @@
 @charset "UTF-8";
-@import "http://fonts.googleapis.com/css?family=Open+Sans:700,300,600,800,400";
+@import "http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800";
+@import "https://fonts.googleapis.com/css?family=Lato:300,400,700,900";
 /*!
  *  Font Awesome 4.4.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -3091,8 +3092,38 @@ th {
   visibility: hidden;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: normal normal 300 21px/normal "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #ddd;
+  background: #323232;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: inset 0 3px 30px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  -webkit-font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  -webkit-font-kerning: normal;
+     -moz-font-kerning: normal;
+          font-kerning: normal;
+}
+body::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+body a:active, body a:hover {
+  outline: 0;
+}
+
 .fbCircle {
-  font: bold 25px/50px Arial, sans-serif;
+  font: bold 25px/50px Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
@@ -3113,7 +3144,7 @@ th {
 }
 
 .ghCircle {
-  font: bold 25px/50px Arial, sans-serif;
+  font: bold 25px/50px Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
@@ -3134,7 +3165,7 @@ th {
 }
 
 .liCircle {
-  font: bold 25px/50px Arial, sans-serif;
+  font: bold 25px/50px Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
@@ -3155,7 +3186,7 @@ th {
 }
 
 .gpCircle {
-  font: bold 25px/50px Arial, sans-serif;
+  font: bold 25px/50px Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
@@ -3176,7 +3207,7 @@ th {
 }
 
 .twCircle {
-  font: bold 25px/50px Arial, sans-serif;
+  font: bold 25px/50px Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
@@ -3196,17 +3227,7 @@ th {
   box-shadow: inset 0 0 0 5px #323333, inset 0 0 0 50px #6cadde;
 }
 
-.mainContent {
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.mainContent::after {
-  clear: both;
-  content: "";
-  display: table;
-}
-.mainContent #hotLandingPage {
+#hotLandingPage {
   float: left;
   display: block;
   margin-right: 2.35765%;
@@ -3214,10 +3235,55 @@ th {
   background: #323232;
   position: relative;
 }
-.mainContent #hotLandingPage:last-child {
+#hotLandingPage:last-child {
   margin-right: 0;
 }
-.mainContent #hotLandingPage .js-vert-centralize {
+#hotLandingPage .idlMember {
+  position: fixed;
+  left: 15px;
+  bottom: 15px;
+}
+#hotLandingPage .idlMember img {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+#hotLandingPage .idlMember:hover img {
+  -webkit-filter: none;
+  -moz-filter: none;
+  -ms-filter: none;
+  -o-filter: none;
+  filter: none;
+}
+#hotLandingPage .githubHosted {
+  font: normal normal 400 14px/1.5em "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+}
+#hotLandingPage .githubHosted a {
+  color: #ffffff;
+}
+#hotLandingPage .githubHosted a img {
+  max-width: 100%;
+  border: 0;
+  display: inline-block;
+  position: relative;
+  top: 8px;
+  margin-left: 5px;
+  opacity: .8;
+  padding: 1px;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+#hotLandingPage .githubHosted a:hover img {
+  opacity: 1;
+}
+#hotLandingPage .js-vert-centralize {
   float: left;
   display: block;
   margin-right: 2.35765%;
@@ -3226,11 +3292,11 @@ th {
   position: absolute;
   top: 50%;
 }
-.mainContent #hotLandingPage .js-vert-centralize:last-child {
+#hotLandingPage .js-vert-centralize:last-child {
   margin-right: 0;
 }
 @media screen and (min-width: 320px) and (max-width: 480px) {
-  .mainContent #hotLandingPage .js-vert-centralize {
+  #hotLandingPage .js-vert-centralize {
     float: left;
     display: block;
     margin-right: 2.35765%;
@@ -3239,11 +3305,11 @@ th {
     padding-top: 20px;
     padding-bottom: 20px;
   }
-  .mainContent #hotLandingPage .js-vert-centralize:last-child {
+  #hotLandingPage .js-vert-centralize:last-child {
     margin-right: 0;
   }
 }
-.mainContent #hotLandingPage h1 {
+#hotLandingPage h1 {
   font-size: 50px;
   text-align: center;
   text-transform: uppercase;
@@ -3252,11 +3318,11 @@ th {
   padding: 0;
 }
 @media screen and (min-width: 320px) and (max-width: 480px) {
-  .mainContent #hotLandingPage h1 {
+  #hotLandingPage h1 {
     font-size: 30px;
   }
 }
-.mainContent #hotLandingPage h2 {
+#hotLandingPage h2 {
   font-size: 16.5px;
   text-align: center;
   text-transform: uppercase;
@@ -3264,7 +3330,7 @@ th {
   margin: 0;
   padding: 0;
 }
-.mainContent #hotLandingPage p {
+#hotLandingPage p {
   font-size: 17px;
   color: #F8F8F8;
   line-height: 25px;
@@ -3276,32 +3342,32 @@ th {
   margin-top: 50px;
   margin-bottom: 50px;
 }
-.mainContent #hotLandingPage p:last-child {
+#hotLandingPage p:last-child {
   margin-right: 0;
 }
-.mainContent #hotLandingPage p .call {
+#hotLandingPage p .call {
   display: block;
   text-transform: uppercase;
   font-size: 22px;
 }
-.mainContent #hotLandingPage .socialbar {
+#hotLandingPage .socialbar {
   background: #FFFFFF;
   border-radius: 30px;
   padding: 15px;
   margin: 0 auto;
   box-shadow: inset 1px 1px 10px 1px rgba(0, 0, 0, 0.6);
 }
-.mainContent #hotLandingPage .socialbar ul {
+#hotLandingPage .socialbar ul {
   list-style: none;
   width: auto;
   height: auto;
   margin: 0;
   padding: 0;
 }
-.mainContent #hotLandingPage .socialbar ul li {
+#hotLandingPage .socialbar ul li {
   float: left;
   margin-right: 10px;
 }
-.mainContent #hotLandingPage .socialbar ul li:last-child {
+#hotLandingPage .socialbar ul li:last-child {
   margin-right: 0;
 }
