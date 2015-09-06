@@ -1,0 +1,11 @@
+{
+  "index": {
+    "menuActive": "Home"
+  },
+  "robots": {
+    "layout": false
+  },
+  "sitemap": {
+    "layout": false
+  }
+}
