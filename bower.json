@@ -26,11 +26,11 @@
     "tests"
   ],
   "dependencies": {
-    "bourbon": "~4.2.4",
-    "font-awesome": "fontawesome#~4.4.0",
-    "jquery": "~2.1.4",
-    "neat": "~1.7.2",
-    "normalize-scss": "~3.0.3",
-    "scrollreveal": "scrollReveal.js#~2.3.2"
+    "scrollreveal": "^3.1.4",
+    "bourbon": "^4.2.7",
+    "font-awesome": "^4.6.1",
+    "jquery": "^2.2.3",
+    "neat": "^1.7.4",
+    "normalize-scss": "^3.0.3"
   }
 }
