@@ -31,6 +31,7 @@
     "font-awesome": "^4.6.1",
     "jquery": "^2.2.3",
     "neat": "^1.7.4",
-    "normalize-scss": "^3.0.3"
+    "normalize-scss": "^3.0.3",
+    "velocity": "^1.2.3"
   }
 }

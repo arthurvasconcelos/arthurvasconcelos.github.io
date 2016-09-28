@@ -16,36 +16,44 @@
     "year"             : "2015",
 
     "menu": [{
-      "title"  : "Home",
-      "link"   : ""
+      "title" : "Home",
+      "data"  : "index",
+      "icon"  : "<svg class=\"icon icon-home\"><use xlink:href=\"/assets/images/symbol-defs.svg#icon-home\"></use></svg>"
     }, {
-      "title"  : "Blog",
-      "link"   : "blog"
+      "title" : "Blog",
+      "data"  : "blog",
+      "icon"  : "<svg class=\"icon icon-blog\"><use xlink:href=\"/assets/images/symbol-defs.svg#icon-blog\"></use></svg>"
     }, {
-      "title"  : "Projetos",
-      "link"   : "projetos"
+      "title" : "Projects",
+      "data"  : "projects",
+      "icon"  : "<svg class=\"icon icon-projects\"><use xlink:href=\"/assets/images/symbol-defs.svg#icon-projects\"></use></svg>"
     }, {
-      "title"  : "Portfolio",
-      "link"   : "portfolio"
+      "title" : "Portfolio",
+      "data"  : "portfolio",
+      "icon"  : "<svg class=\"icon icon-portifolio\"><use xlink:href=\"/assets/images/symbol-defs.svg#icon-portifolio\"></use></svg>"
     }, {
-      "title"  : "Talks",
-      "link"   : "talks"
+      "title" : "Talks",
+      "data"  : "talks",
+      "icon"  : "<svg class=\"icon icon-talks\"><use xlink:href=\"/assets/images/symbol-defs.svg#icon-talks\"></use></svg>"
     }],
 
-    "menuActive": "Home",
+    "menuActive": "null",
 
     "social": [{
-      "title"     : "GitHub",
-      "link"      : "https://github.com/arthurvasconcelos",
-      "external"  : true
+      "title" : "Facebook",
+      "data"  : "facebook",
+      "link"  : "https://www.facebook.com/vasconcelos.arthur",
+      "icon"  : "<svg class=\"icon icon-facebook\"><use xlink:href=\"/assets/images/symbol-defs.svg#icon-facebook\"></use></svg>"
     }, {
-      "title"     : "LinkedIn",
-      "link"      : "http://www.linkedin.com/in/arthurvasconcelos",
-      "external"  : true
+      "title" : "Twitter",
+      "data"  : "twitter",
+      "link"  : "https://twitter.com/@jookeringa",
+      "icon"  : "<svg class=\"icon icon-twitter\"><use xlink:href=\"/assets/images/symbol-defs.svg#icon-twitter\"></use></svg>"
     }, {
-      "title"     : "Twitter",
-      "link"      : "https://twitter.com/@jookeringa",
-      "external"  : true
+      "title" : "LinkedIn",
+      "data"  : "linkedin",
+      "link"  : "http://www.linkedin.com/in/arthurvasconcelos",
+      "icon"  : "<svg class=\"icon icon-linkedin\"><use xlink:href=\"/assets/images/symbol-defs.svg#icon-linkedin\"></use></svg>"
     }]
   }
 }

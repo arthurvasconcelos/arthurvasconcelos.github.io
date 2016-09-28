@@ -24,25 +24,30 @@
     <meta name="twitter:description"   content="<%= description %>">
     <meta property="og:image"          content="<%= url %>/assets/images/arthurvasconcelos.jpg">
 
-    <link href="<%= base %>assets/images/favicon.png"     rel="icon">
-    <link href="<%= base %>assets/images/favicon.big.png" rel="icon" sizes="192x192">
+    <link href="/assets/images/logo-symbol.png"     rel="icon">
+    <link href="/assets/images/logo-symbol.png" rel="icon" sizes="192x192">
 
-    <link rel="stylesheet" href="<%= base %>assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
 
     <%- partial("_aux/ga") %>
   </head>
 
   <body>
-    <section class="mainContent" role="main">
-      <% if(current.path[0] === "blog" && current.source !== "index") { %>
-        <%- partial(current.path[0] + "/_post", { source: current.source }) %>
-      <% } else { %>
-        <%- yield %>
-      <% } %>
-    </section>
+    <%- partial("_aux/menu") %>
 
-    <script src="<%= base %>assets/js/plugins.js"></script>
-    <script src="<%= base %>assets/js/main.js"></script>
+    <main id="wrapper" role="main">
+      <% /* if(current.path[0] === "blog" && current.source !== "index") { */ %>
+        <%- /* partial(current.path[0] + "/_post", { source: current.source }) */ %>
+      <% /* } else { */ %>
+        <%- /* yield */ %>
+      <% /* } */ %>
+      <%- yield %>
+    </main>
+
+    <div id="loadingBar" data-scale="1" class="index"></div>
+
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/main.js"></script>
 
     <%- partial("_aux/idl") %>
   </body>

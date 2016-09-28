@@ -1,0 +1,180 @@
+#mainNavigation {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: $nav-width-small;
+  overflow: hidden;
+
+  &::before {
+    /* background color of the side navigation */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    @include calc(width, "100% - #{$loading-bar-width}");
+    background-color: $color-5;
+  }
+
+  .logo {
+    @include calc(width, "100% - #{$loading-bar-width}");
+    text-align: center;
+
+    img {
+      position: relative;
+      width: 70%;
+      margin: 15px 0;
+    }
+  }
+
+  .social {
+    text-align: center;
+    @include calc(width, "100% - #{$loading-bar-width}");
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding-bottom: 5px;
+
+    a {
+      display: inline-block;
+      position: relative;
+      padding: 0;
+
+      &::after {
+        display: none;
+      }
+
+      svg {
+        position: relative;
+        top: 0;
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  li {
+    @include calc(width, "100% - #{$loading-bar-width}");
+  }
+
+  a {
+    display: block;
+    position: relative;
+    padding: 4em 0 1.5em;
+    @include renderFont($fontSize:1.2rem,$lineHeight:1,$fontFamily:$ptsans);
+    text-align: center;
+    color: lighten($color-5, 25%);
+    @include transition(background-color 0.2s, color 0.2s);
+
+    svg {
+      /* this is the icon */
+      position: absolute;
+      @include center(x);
+      top: 1.3em;
+
+      * {
+        @include transition(stroke 0.2s);
+      }
+    }
+
+    &::after {
+      /* 4px line to the right of the item - visible on hover */
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -4px;
+      height: 100%;
+      width: 4px;
+      background-color: $color-1;
+      opacity: 0;
+      @include transition(opacity 0.2s);
+      pointer-events: none;
+    }
+
+    .no-touch &:hover {
+      background-color: darken($color-5, 5%);
+
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    &.selected, .no-touch &.selected:hover {
+      background-color: $color-6;
+      color: $color-5;
+
+      > svg * {
+        // stroke: $color-1;
+        color: $color-1;
+      }
+    }
+  }
+
+  li:nth-of-type(2) .selected > svg *,
+  li:nth-of-type(2) .selected:hover > svg * {
+    // stroke: $color-2;
+    color: $color-1;
+  }
+
+  li:nth-of-type(2) .selected > svg *,
+  li:nth-of-type(2) .selected:hover > svg * {
+    // stroke: $color-2;
+    color: $color-2;
+  }
+
+  li:nth-of-type(3) .selected > svg *,
+  li:nth-of-type(3) .selected:hover > svg * {
+    // stroke: $color-3;
+    color: $color-3;
+  }
+
+  li:nth-of-type(4) .selected > svg *,
+  li:nth-of-type(4) .selected:hover > svg * {
+    // stroke: $color-4;
+    color: $color-4;
+  }
+
+  li:nth-of-type(5) .selected > svg *,
+  li:nth-of-type(5) .selected:hover > svg * {
+    // stroke: $color-5;
+    color: $color-5;
+  }
+
+  li:nth-of-type(2) a::after {
+    background-color: $color-2;
+  }
+
+  li:nth-of-type(3) a::after {
+    background-color: $color-3;
+  }
+
+  li:nth-of-type(4) a::after {
+    background-color: $color-4;
+  }
+
+  li:nth-of-type(5) a::after {
+    background-color: $color-5;
+  }
+
+  @include MQ(S) {
+    width: $nav-width-normal;
+
+    a {
+      padding: 4em 0 1.5em;
+      font-size: 1.3rem;
+
+      svg {
+        top: 1.6em;
+      }
+    }
+  }
+}

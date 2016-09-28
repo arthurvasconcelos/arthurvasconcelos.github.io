@@ -2,27 +2,31 @@
   visibility: hidden;
 }
 
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+*, *::after, *::before {
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
-  @include renderFont($fontWeight:300,$fontSize:21px);
-  color: #ddd;
-  background: #323232;
+  @include renderFont($fontSize:1.6rem);
+  color: $color-1;
+  background: $color-3;
   @include outer-container(100%);
-  box-shadow: inset 0 3px 30px rgba(0,0,0,0.3);
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
   -webkit-font-feature-settings: "kern" 1;
   -moz-font-feature-settings: "kern" 1;
   -o-font-feature-settings: "kern" 1;
   font-feature-settings: "kern" 1;
   font-kerning: normal;
 
-  a:active, a:hover {
-    outline: 0;
+  a {
+    text-decoration: none;
+
+    &:active, &:hover {
+      outline: 0;
+    }
   }
 }
 
@@ -38,7 +42,9 @@ body {
 .twCircle { @include circle-filler($circleSize:50px, $fontSize: 25px, $fontColorOut: #6CADDE, $fontColorIn: #ffffff, $backgroundOut: #ffffff, $fsoSize:2px, $fsoR:108, $fsoG:173, $fsoB:222, $fsoO:1, $ssoSize:3px, $ssoR:50, $ssoG:51, $ssoB:51, $ssoO:1, $fsiSize:5px, $fsiR:50, $fsiG:51, $fsiB:51, $fsiO:1, $ssiR:108, $ssiG:173, $ssiB:222, $ssiO:1); }
 // End Social Circles
 
-
-
-
-
+.icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  fill: currentColor;
+}

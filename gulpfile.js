@@ -10,6 +10,10 @@ var notify          = require('gulp-notify');
 var plumber         = require('gulp-plumber');
 var path            = require('path');
 var del             = require('del');
+var browserSync     = require('browser-sync');
+var reload          = browserSync.reload;
+var harp            = require('harp');
+var cp              = require('child_process');
 
 // the title and icon that will be used for the Gulp notifications
 var notifyInfo = {
@@ -22,13 +26,14 @@ var plumberErrorHandler = {
 	errorHandler: notify.onError({
 		title: notifyInfo.title,
 		icon: notifyInfo.icon,
-		message: "Error: <%= error.message %>"
+		message: 'Error: <%= error.message %>'
 	})
 };
 
 // paths
 var paths = {
   builderFiles: 'builder_files/',
+	public: 'public/',
 	assets: 'public/assets/',
 	styles: 'builder_files/sass/',
 	stylesIncludes: [
@@ -40,7 +45,8 @@ var paths = {
 	scripts: 'builder_files/js/**/*.js',
 	scriptsPlugins: [
 		'bower_components/jquery/dist/jquery.js',
-		'bower_components/scrollreveal/dist/scrollReveal.js'
+		'bower_components/scrollreveal/dist/scrollreveal.js',
+    'bower_components/velocity/velocity.js'
 	]
 };
 
@@ -59,15 +65,15 @@ gulp.task('styles', function() {
 });
 
 // scripts
-gulp.task('scripts', function() {
-	return gulp.src(paths.scripts)
-		.pipe(plumber(plumberErrorHandler))
-		.pipe(concat('main.js'))
-		.pipe(gulp.dest(paths.assets + 'js/'))
-		.pipe(rename({ suffix: '.min' }))
-		.pipe(uglify())
-		.pipe(gulp.dest(paths.assets + 'js/'));
-});
+// gulp.task('scripts', function() {
+// 	return gulp.src(paths.scripts)
+// 		.pipe(plumber(plumberErrorHandler))
+// 		.pipe(concat('main.js'))
+// 		.pipe(gulp.dest(paths.assets + 'js/'))
+// 		.pipe(rename({ suffix: '.min' }))
+// 		.pipe(uglify())
+// 		.pipe(gulp.dest(paths.assets + 'js/'));
+// });
 
 // scripts plugins
 gulp.task('scriptsPlugins', function() {
@@ -82,11 +88,11 @@ gulp.task('scriptsPlugins', function() {
 
 // clean
 gulp.task('clean', function(cb) {
-    del([
+  return  del([
     	paths.assets + 'css',
-    	paths.assets + 'js',
+    	// paths.assets + 'js',
     	paths.assets + 'fonts'
-    ], cb)
+    ], cb);
 });
 
 // copy fonts
@@ -103,16 +109,53 @@ gulp.task('copyImages', function() {
     .pipe(gulp.dest(paths.assets + 'images/'));
 });
 
-// watch
-gulp.task('watch', function() {
-	gulp.watch(paths.styles + '**/*.scss', ['styles']);
-	gulp.watch(paths.stylesIncludes + '**/*.scss', ['styles']);
-	gulp.watch(paths.scripts, ['scripts']);
-  gulp.watch(paths.scriptsPlugins, ['scriptsPlugins']);
-	gulp.watch(paths.builderFiles + 'images', ['copyImages']);
+// preset
+gulp.task('preset', ['clean'], function(){
+  // gulp.start('styles', 'scripts', 'scriptsPlugins', 'copyFonts', 'copyImages');
+  gulp.start('styles', 'scriptsPlugins', 'copyFonts', 'copyImages');
+});
+
+// serve
+gulp.task('serve', ['preset'], function(){
+  harp.server(__dirname, {
+    port: 9000
+  }, function () {
+    browserSync({
+      proxy: 'localhost:9000',
+      open: false,
+      /* Hide the notification. It gets annoying */
+      notify: {
+        styles: ['opacity: 0', 'position: absolute']
+      }
+    });
+
+    gulp.watch([paths.styles + '**/*.scss', paths.stylesIncludes + '**/*.scss'], function(){
+      gulp.start('styles', function(){
+        reload('main.css', {stream: true});
+      });
+    });
+
+    gulp.watch('./public/assets/js/main.{js, map}', function(){
+        reload('main.js', {stream: true});
+    });
+
+    gulp.watch(paths.builderFiles + 'images', function(){
+      gulp.start('copyImages', function(){
+        reload();
+      });
+    });
+
+    gulp.watch([
+      paths.public + '**/*.ejs',
+      paths.public + '**/*.jade',
+      paths.public + '**/*.json',
+      paths.public + '**/*.html',
+      paths.public + '**/*.md'
+    ], function () {
+      reload();
+    });
+  });
 });
 
 // default
-gulp.task('default', ['clean'], function(){
-	gulp.start('styles', 'scripts', 'scriptsPlugins', 'copyFonts', 'copyImages', 'watch');
-});
+gulp.task('default', ['serve']);
