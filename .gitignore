@@ -9,20 +9,17 @@ pids
 *.seed
 
 # Caches
-.sass-cache
+/.sass-cache
 
 # node-waf configuration
 .lock-wscript
 
-# GULP generated files
-public/assets
-
-# HARPJS build folder
-www
+# Generated files
+/dist
 
 # Dependency directory
-bower_components
-node_modules
+/bower_components
+/node_modules
 
 # IDE's
-.idea
+/.idea

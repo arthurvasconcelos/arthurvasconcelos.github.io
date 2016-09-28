@@ -10,16 +10,16 @@ deploy:
 	make clean
 
 	$(call print, "Compile site")
-	harp compile
+	npm run build
 
 	$(call print, "Copy not scanned files")
-	cp Makefile CNAME LICENSE README.md www/
+	cp Makefile CNAME LICENSE README.md dist/
 
 	$(call print, "Checkout master branch")
 	git checkout master
 
 	$(call print, "Clean unwanted files and folders")
-	cp -r www/* ./
+	cp -r dist/* ./
 	make clean
 
 	$(call print, "Commit changes to master")
@@ -31,7 +31,7 @@ deploy:
 	git checkout source
 
 clean:
-	rm -rf www > /dev/null
+	rm -rf dist > /dev/null
 
 new:
 ifeq ($(post),)
