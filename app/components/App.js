@@ -8,8 +8,8 @@ const App = ({ children }) =>
       <Link to="/">Arthur</Link>
       <nav>
         <NavLink to="/about">About</NavLink>
-        <NavLink to="/articles">About</NavLink>
-        <NavLink to="/talks">About</NavLink>
+        <NavLink to="/articles">Articles</NavLink>
+        <NavLink to="/talks">Talks</NavLink>
       </nav>
     </header>
 
