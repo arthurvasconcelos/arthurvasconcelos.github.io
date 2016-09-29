@@ -1,0 +1,30 @@
+{
+  "name": "arthurvasconcelos.github.io",
+  "version": "2.0.0",
+  "description": ":metal: My personal site.",
+  "main": "index.html",
+  "scripts": {
+    "test": "",
+    "start": "bundle exec jekyll serve",
+    "build": "jekyll build",
+    "build:prod": "JEKYLL_ENV=production jekyll build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthurvasconcelos/arthurvasconcelos.github.io.git"
+  },
+  "keywords": [
+    "personal",
+    "portifolio",
+    "website"
+  ],
+  "author": "Arthur Vasconcelos <vasconcelos.arthur@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arthurvasconcelos/arthurvasconcelos.github.io/issues"
+  },
+  "homepage": "https://github.com/arthurvasconcelos/arthurvasconcelos.github.io#readme",
+  "devDependencies": {
+    "scss-lint": "0.0.0"
+  }
+}

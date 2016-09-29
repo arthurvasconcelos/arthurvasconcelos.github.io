@@ -1,25 +1,11 @@
-# Logs
-logs
-npm-debug.log
-*.log
-
-# Runtime data
-pids
-*.pid
-*.seed
-
 # Caches
 /.sass-cache
 
-# node-waf configuration
-.lock-wscript
-
-# Generated files
-/dist
-
 # Dependency directory
-/bower_components
 /node_modules
 
-# IDE's
-/.idea
+# Generated files
+/_dist
+
+# Jekyll
+.jekyll-metadata

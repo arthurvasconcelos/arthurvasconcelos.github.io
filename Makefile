@@ -1,10 +1,15 @@
-.PHONY: deploy clean new repos
+.PHONY: server deploy clean new repos
 
 print = @echo "=> $(1)"\
 				"\n-----------------------"
 
 dasherize  = $(shell echo $(strip $(1)) | tr ' [A-Z]-' '-[a-z]-')
 createPost = $(shell sed 's/{TITLE}/$(strip $(2))/g' "blog/_template.md" > "blog/$(strip $(1)).md")
+teste = $(shell bundle exec jekyll serve)
+
+server:
+	$(call print, "Starting server")
+  $(call teste)
 
 deploy:
 	make clean
