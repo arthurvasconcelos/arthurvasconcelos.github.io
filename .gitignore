@@ -1,8 +1,12 @@
+# Logs
+npm-debug.log
+
 # Caches
 /.sass-cache
 
 # Dependency directory
 /node_modules
+/bower_components
 
 # Generated files
 /_dist

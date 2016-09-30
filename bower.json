@@ -1,0 +1,33 @@
+{
+  "name": "arthurvasconcelos.github.io",
+  "description": ":metal: My personal site.",
+  "main": "index.html",
+  "authors": [
+    "Arthur Vasconcelos <vasconcelos.arthur@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "personal",
+    "portifolio",
+    "website"
+  ],
+  "homepage": "https://github.com/arthurvasconcelos/arthurvasconcelos.github.io",
+  "moduleType": [
+    "es6",
+    "globals",
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bourbon": "^4.2.7",
+    "neat": "^1.8.0",
+    "font-awesome": "fontawesome#^4.6.3"
+  }
+}

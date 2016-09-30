@@ -1,41 +1,37 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing these this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Arthur Vasconcelos
-email: vasconcelos.arthur@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
-twitter_username: jookeringa
-github_username:  arthurvasconcelos
-
-# Build settings
+## Build settings
+gems: [jekyll-babel]
+exclude: [Gemfile, Gemfile.lock, Makefile, package.json, bower.json, gulpfile, .babelrc, .editorconfig, node_modules, bower_components, assets]
 destination: _dist
-exclude: [Makefile, package.json, .editorconfig, node_modules, Gemfile, Gemfile.lock]
+# highlighter: pygments
 markdown: kramdown
-theme: minima
+# theme: minima
+port: 3000
+safe: true
 
-gems:
-  - jekyll-babel
+## Assets compilers
 
 sass:
-    style: compressed
+  style: compressed
 
 babel_js_options:
   compact: true
   comments: false
+
+## Basic
+title: Arthur Vasconcelos
+author: Chris Turner
+email: vasconcelos.arthur@gmail.com
+description: Personal blog and resume
+baseurl: "/"
+url: ""
+
+## Social
+github: arthurvasconcelos # https://github.com/{user}
+stackoverflow: 3130385/arthur-vasconcelos # http://stackoverflow.com/users/{user}
+facebook: vasconcelos.arthur # https://www.facebook.com/{user}
+twitter: jookeringa # https://twitter.com/{user}
+linkedin: arthurvasconcelos # https://linkedin.com/in/{user}
+
+## Services
+disqus: jookeringa
+google_analytics: UA-28901644-2
