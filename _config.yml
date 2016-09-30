@@ -26,6 +26,16 @@ github_username:  arthurvasconcelos
 
 # Build settings
 destination: _dist
-exclude: [Makefile, package.json, .editorconfig, node_modules]
+exclude: [Makefile, package.json, .editorconfig, node_modules, Gemfile, Gemfile.lock]
 markdown: kramdown
 theme: minima
+
+gems:
+  - jekyll-babel
+
+sass:
+    style: compressed
+
+babel_js_options:
+  compact: true
+  comments: false
