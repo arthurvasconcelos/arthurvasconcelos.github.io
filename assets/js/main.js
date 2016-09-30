@@ -1,6 +1,3 @@
----
----
-
 // teste
 const square = n => n * n;
 
