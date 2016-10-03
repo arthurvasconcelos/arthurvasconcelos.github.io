@@ -33,6 +33,8 @@ var addsrc = require('gulp-add-src');
 var spawn = require('child_process').spawn;
 
 // PATHS
+var root = './'
+/*========================================*/
 var dist = '_dist/';
 var distAssets = dist + 'assets/';
 var distStylesheets = distAssets + 'css/';
@@ -40,8 +42,8 @@ var distJavascripts = distAssets + 'js/';
 var distImages = distAssets + 'images/';
 var distFonts = distAssets + 'fonts/';
 /*========================================*/
-var src = './';
-var srcAssets = src + 'assets/';
+var src = '_source/';
+var srcAssets = src + '_assets/';
 var srcStylesheets = srcAssets + 'scss/';
 var srcJavascripts = srcAssets + 'js/';
 var srcImages = srcAssets + 'images/';
@@ -49,7 +51,8 @@ var srcImages = srcAssets + 'images/';
 var srcIncludes = src + '_includes/';
 var srcLayouts = src + '_layouts/';
 var srcPosts = src + '_posts/';
-var bowerDir = src + 'bower_components/';
+/*========================================*/
+var bowerDir = root + 'bower_components/';
 
 // -->
 // Browser Sync

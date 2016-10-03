@@ -1,6 +1,7 @@
 ## Build settings
 gems: [jekyll-babel]
-exclude: [Gemfile, Gemfile.lock, Makefile, package.json, bower.json, gulpfile, .babelrc, .editorconfig, node_modules, bower_components, assets]
+exclude: [_source/_assets]
+source: _source
 destination: _dist
 # highlighter: pygments
 markdown: kramdown
