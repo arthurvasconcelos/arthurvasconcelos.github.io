@@ -157,17 +157,19 @@ gulp.task('jekyll', function (gulpCallBack){
   });
 });
 
-gulp.task('generateAssets',['compass', 'js', 'icons', 'images']);
+gulp.task('generateAssets',['compass', 'js', 'icons', 'images'], function() { gulp.start('bs-reload'); });
+gulp.task('generateSCSS',['compass'], function() { gulp.start('bs-reload'); });
+gulp.task('generateJS',['js'], function() { gulp.start('bs-reload'); });
 
 // -->
 // Watch task
 // <--
 gulp.task('watch', function() {
   // --> CSS
-  gulp.watch(srcStylesheets + "**", ['compass']);
+  gulp.watch(srcStylesheets + "**", ['generateSCSS']);
 
   // --> JS
-  gulp.watch([srcJavascripts + "**/*.js"], ['js']);
+  gulp.watch([srcJavascripts + "**/*.js"], ['generateJS']);
 
   // --> Ruby
   gulp.watch(path.join(dist, '*/*.rb'), ['html']);
@@ -184,6 +186,6 @@ gulp.task('watch', function() {
 // -->
 // Default task
 // <--
-gulp.task('default', ['jekyll'], function (event) {
-  gulp.start('generateAssets', 'html', 'watch', 'browser-sync');
+gulp.task('default', ['html'], function (event) {
+  gulp.start('generateAssets', 'watch', 'browser-sync');
 });

@@ -1,0 +1,5 @@
+# extended from https://github.com/brigade/scss-lint/blob/master/config/default.yml
+
+linters:
+  NestingDepth:
+    max_depth: 4
