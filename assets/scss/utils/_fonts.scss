@@ -1,3 +1,6 @@
 // BASE ICON FONT PATH
 $icon-font-path: '../fonts';
 $fa-font-path: $icon-font-path;
+
+// Imported fonts
+@import 'https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Ubuntu:400,400i,700';

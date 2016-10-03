@@ -1,0 +1,23 @@
+.about-page {
+  .profile-picture {
+    border: 4px dotted $logo-color-1;
+    float: left;
+    margin-right: 25px;
+    width: 400px;
+  }
+
+  h1 {
+    font-size: 35px;
+    margin-bottom: 50px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+}

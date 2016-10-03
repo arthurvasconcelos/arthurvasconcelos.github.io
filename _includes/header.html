@@ -1,14 +1,14 @@
-<nav class="navbar navbar-default">
-  <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="{{ site.baseurl }}"><i class="fa fa-home"></i></a>
-    </div>
-    <div id="navbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ site.baseurl }}blog.html">BLOG</a></li>
-        <li><a href="{{ site.baseurl }}projects.html">PROJECTS</a></li>
-        <li><a href="http://biomadeira.github.io/vitae">RESUME</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<header class="main-header">
+  <a href="{{ site.baseurl }}" class="logo">
+    <img src="{{ site.baseurl }}assets/images/logo-arthur-vasconcelos-horizontal-neg.png" alt="logo">
+  </a>
+
+  <nav>
+    <ul>
+      <li><a href="{{ site.baseurl }}about" {% if page.permalink == "/about/" %}class="active"{% endif %}>About</a></li>
+      <li><a href="{{ site.baseurl }}articles" {% if page.permalink == "/articles/" %}class="active"{% endif %}>Articles</a></li>
+      <li><a href="{{ site.baseurl }}talks" {% if page.permalink == "/talks/" %}class="active"{% endif %}>Talks</a></li>
+      <li><a href="{{ site.baseurl }}vitae" {% if page.permalink == "/vitae/" %}class="active"{% endif %}>Vitae</a></li>
+    </ul>
+  </nav>
+</header>

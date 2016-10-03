@@ -1,0 +1,48 @@
+main {
+  @include outer-container();
+  color: $logo-color-2;
+  font-family: $main-font;
+
+  section {
+    @include span-columns(12);
+    @include pad(100px 0);
+
+    a {
+      color: $logo-color-3;
+      display: inline-block;
+      position: relative;
+      text-decoration: none;
+
+      &::before,
+      &::after {
+        bottom: -2px;
+        content: '';
+        display: block;
+        height: 1px;
+        position: absolute;
+      }
+
+      &::before {
+        border-bottom: 1px dashed $logo-color-3;
+        width: 100%;
+      }
+
+      &::after {
+        border-bottom: 1px solid $logo-color-3;
+        left: 50%;
+        transform: translate(-50%);
+        transition: width .5s ease-in-out;
+        width: 0;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+
+    article {
+      @include span-columns(10);
+      @include shift(1);
+    }
+  }
+}
