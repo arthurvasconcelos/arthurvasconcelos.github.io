@@ -1,16 +1,14 @@
 ---
-layout: home
+layout: page
+title: Articles
+permalink: /articles/
 ---
 
-<section class="home-page">
-  <div class="latests-articles">
-    <h1>Latests articles</h1>
-
+<section class="articles-page">
+  <div class="articles-page-container">
     <ul class="article-list">
-      {% for post in site.posts limit:3 %}
+      {% for post in site.posts %}
         <li>
-          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
           <div class="thumb" style="background-image: url(
             {% if post.thumb %}
               {{ post.thumb }}
@@ -21,6 +19,7 @@ layout: home
 
           <h2>
             <a class="post-link" href="{{ post.url }}">{{ post.title | escape }}</a>
+            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
           </h2>
 
           <p>{{ post.description | escape }}</p>
@@ -31,5 +30,7 @@ layout: home
         </li>
       {% endfor %}
     </ul>
+
+    <p class="rss-subscribe"><a href="{{ site.baseurl }}feed.xml"><i class="fa fa-rss" aria-hidden="true"></i> &nbsp; Subscribe</a></p>
   </div>
 </section>

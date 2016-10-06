@@ -1,0 +1,115 @@
+---
+layout: page
+title: Vitae
+permalink: /vitae/
+---
+
+<section class="vitae-page">
+  <div class="vitae-page-container">
+    <h2><i class="fa fa-briefcase" aria-hidden="true"></i> Experiences</h2>
+
+    <ul class="experiences">
+      {% comment %}{{ site.vitae.experiences | inspect }}{% endcomment %}
+      {% for exp in site.vitae.experiences  %}
+        <li>
+          <span>{{ exp.role }} @</span>
+
+          <h3>
+            {{ exp.name }}
+            <span>{{ exp.when }}</span>
+          </h3>
+
+          <p>{{ exp.description }}</p>
+
+          <h4>
+            <i class="fa fa-cogs" aria-hidden="true"></i> Technologies:
+          </h4>
+
+          <ul>
+            {% for tech in exp.technologies  %}
+            <li>
+              <b>{{ tech.type }}:</b> {{ tech.items }}
+            </li>
+            {% endfor %}
+          </ul>
+
+          <img src="{{ site.baseurl }}{{ exp.logo }}" alt="{{ exp.name }}">
+        </li>
+      {% endfor %}
+    </ul>
+
+    <h2><i class="fa fa-coffee" aria-hidden="true"></i> Skills</h2>
+
+    <div class="skills">
+      {% for skill in site.vitae.skills  %}
+        <div class="bar-main-container" style="background: #{{ skill.background }};">
+          <div class="bar-name">{{ skill.name }}</div>
+          <div class="wrap">
+            <div class="bar-percentage" data-percentage="{{ skill.value }}"></div>
+            <div class="bar-container">
+              <div class="bar"></div>
+            </div>
+          </div>
+        </div>
+        {% comment %}
+        <div class="skillbar clearfix " data-percent="{{ skill.value }}%">
+          <div class="skillbar-title" style="background: #{{ skill.colors.first }};">
+            <span>{{ skill.name }}</span>
+          </div>
+          <div class="skillbar-bar" style="background: #{{ skill.colors.last }};"></div>
+          <div class="skill-bar-percent">{{ skill.value }}%</div>
+        </div>
+        {% endcomment %}
+      {% endfor %}
+    </div>
+
+    <h2><i class="fa fa-graduation-cap" aria-hidden="true"></i> Educational</h2>
+
+    <ul class="edicational">
+      {% for edu in site.vitae.educational  %}
+        <li>
+          <span>{{ edu.institution }}</span>
+
+          <h3>
+            {{ edu.course }}
+            <span>Certificate: {{ edu.certificate }}</span>
+          </h3>
+
+          <span class="when-hours">
+            <i class="fa fa-calendar-o" aria-hidden="true"></i> {{ edu.when }}
+            &nbsp;&nbsp;
+            <i class="fa fa-clock-o" aria-hidden="true"></i> {{ edu.hours }}
+            &nbsp;&nbsp;
+            {% if edu.document %}
+              <i class="fa fa-link" aria-hidden="true"></i>
+              <a href="{{ site.baseurl }}{{ edu.document }}" target="_blank">Digital Certificate</a>
+            {% endif %}
+          </span>
+
+          <img src="{{ site.baseurl }}{{ edu.logo }}" alt="{{ edu.institution }}">
+        </li>
+      {% endfor %}
+    </ul>
+
+    <h2><i class="fa fa-code" aria-hidden="true"></i> Highlighted Projects</h2>
+
+    <ul class="projects">
+      {% for job in site.vitae.jobs  %}
+        <li>
+          <span>
+            <i class="fa fa-calendar-o" aria-hidden="true"></i> &nbsp; {{ job.when }}
+            &nbsp;&nbsp; <i class="fa fa-ellipsis-h" aria-hidden="true"></i> &nbsp;&nbsp;
+            {{ job.producer }}
+          </span>
+
+          <h3>
+            {{ job.name }}
+            <span><a href="{{ job.site }}" target="_blank">access this project <i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
+          </h3>
+
+          <p>{{ job.description }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
