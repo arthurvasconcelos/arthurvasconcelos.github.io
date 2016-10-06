@@ -7,7 +7,8 @@ main {
     @include span-columns(12);
     @include pad(100px 0);
 
-    a {
+    article a,
+    .links-pattern a {
       color: $logo-color-3;
       display: inline-block;
       position: relative;
@@ -38,11 +39,6 @@ main {
       &:hover::after {
         width: 100%;
       }
-    }
-
-    article {
-      @include span-columns(10);
-      @include shift(1);
     }
   }
 }

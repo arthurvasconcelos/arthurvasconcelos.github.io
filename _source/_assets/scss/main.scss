@@ -10,10 +10,16 @@
 
 // HELPERS
 @import 'utils/variables';
+@import 'utils/syntax';
 
 // LAYOUT
 @import 'layout/general';
 @import 'layout/header';
 @import 'layout/content';
+@import 'pages/home';
 @import 'pages/about';
+@import 'pages/articles';
+@import 'pages/article';
+@import 'pages/talks';
+@import 'pages/vitae';
 @import 'layout/footer';

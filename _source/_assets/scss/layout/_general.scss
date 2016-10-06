@@ -11,3 +11,8 @@ body {
 body {
   background: $background-color;
 }
+
+::selection {
+  background: $logo-color-3;
+  color: $logo-color-1;
+}

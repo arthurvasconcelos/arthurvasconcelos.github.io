@@ -1,0 +1,152 @@
+.vitae-page {
+  .vitae-page-container {
+    @include span-columns(10 of 12);
+    @include shift(1);
+
+    h2 {
+      color: $logo-color-3;
+      padding-left: 5px;
+      text-transform: uppercase;
+
+      i {
+        margin-right: 10px;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .experiences > li,
+    .edicational > li,
+    .projects > li {
+      border-left: 5px solid $logo-color-3;
+      margin: 0 0 50px 15px;
+      min-height: 100px;
+      padding: 0 0 0 15px;
+      position: relative;
+
+      h3 {
+        color: $logo-color-1;
+        font-size: 22px;
+        margin-top: 7px;
+
+        span,
+        a {
+          color: $logo-color-3;
+          font-size: 15px;
+          margin-left: 10px;
+          text-decoration: none;
+        }
+
+        a {
+          margin-left: 0;
+        }
+      }
+
+      h4 {
+        margin-bottom: 7px;
+        text-transform: uppercase;
+      }
+
+      .when-hours {
+        i {
+          margin-right: 5px;
+        }
+
+        a {
+          color: $logo-color-2;
+          text-decoration: none;
+
+          &:hover {
+            color: $logo-color-1;
+          }
+        }
+      }
+
+      ul {
+        list-style: circle;
+        padding-left: 40px;
+
+        li {
+          border: 0;
+          margin: 0 0 5px;
+          padding: 0;
+        }
+      }
+
+      img {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100px;
+      }
+    }
+
+    .skills {
+      align-content: flex-start;
+      align-items: flex-start;
+      border-left: 5px solid $logo-color-3;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin: 0 0 50px 15px;
+      padding: 0 0 0 5px;
+
+      .bar-main-container {
+        border-radius: 4px;
+        color: $skills-text-color;
+        font-family: $aux-font;
+        font-size: .8em;
+        font-weight: normal;
+        height: 75px;
+        margin: 10px;
+        width: 300px;
+
+        .bar-name {
+          background: $skills-bar-name-bg;
+          border-radius: 4px 4px 0 0;
+          display: block;
+          padding: 5px 0;
+          text-align: center;
+        }
+
+        .wrap {
+          padding: 8px;
+        }
+
+        .bar-percentage {
+          background: $skills-bar-percentage-bg;
+          border-radius: 4px;
+          float: left;
+          height: 34px; // 16
+          padding: 9px 0;
+          text-align: center;
+          width: 18%;
+        }
+
+        .bar-container {
+          background: $skills-bar-container-bg;
+          border-radius: 10px;
+          float: right;
+          height: 10px;
+          margin: 12px 0;
+          overflow: hidden;
+          width: 78%;
+
+          .bar {
+            background: $skills-progress-bar-color;
+            border-radius: 10px 0 0 10px;
+            filter: alpha(opacity = 100);
+            float: left;
+            height: 100%;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 footer {
   @include outer-container();
+  margin-bottom: 50px;
 
   p {
     color: $logo-color-1;
