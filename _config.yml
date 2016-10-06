@@ -3,8 +3,9 @@ gems: [jekyll-babel]
 exclude: [_source/_assets]
 source: _source
 destination: _dist
-# highlighter: pygments
 markdown: kramdown
+highlighter: rouge
+permalink: /articles/:year/:month/:day/:title.html
 # theme: minima
 port: 3000
 safe: true
@@ -36,3 +37,200 @@ linkedin: arthurvasconcelos # https://linkedin.com/in/{user}
 ## Services
 disqus: jookeringa
 google_analytics: UA-28901644-2
+
+## Pages
+
+# Vitae
+vitae:
+  experiences:
+    - name: Igarapé Institute
+      when: april 2016 - current
+      role: Software Developer
+      description: Software developer.
+      technologies:
+        - type: Languages
+          items: Javascript
+        - type: Web
+          items: HTML5, CSS3, SASS, AngularJS, NodeJS, EmberJS
+        - type: Pre-Processors
+          items: Gulp
+        - type: Databases
+          items: PostgreSQL
+        - type: Mobile
+          items: Android
+        - type: Other
+          items: Socket.IO
+      logo: assets/images/vitae/companies/igarape.png
+    #
+    - name: Getulio Vargas Foundation
+      when: july 2014 - february 2016
+      role: Full-Stack Developer
+      description: In charge of the development of interfaces and tools for data processing, server management and maintenance.
+      technologies:
+        - type: Languages
+          items: Python, PHP, Javascript, CoffeeScript, Elm
+        - type: Web
+          items: HTML5, CSS3, SASS, LESS, EmberJS, AngularJS, Flask, web2py, JSON, grafana
+        - type: Pre-Processors
+          items: Grunt, Gulp, HARP.JS
+        - type: Databases
+          items: PostgreSQL, mySQL, MyBATIS, etcd, collectd, InfluxDB
+        - type: Infrastructure
+          items: Linux (CentOS, Ubuntu, Debian), cloud services, shell scripting, nginx.
+        - type: Caching
+          items: Varnish, Memcache
+      logo: assets/images/vitae/companies/fgv.png
+    #
+    - name: Piloti
+      when: march 2013 - june 2014
+      role: Full-Stack Developer
+      description: In charge of developing interfaces and systems using the Symfony framework.
+      technologies:
+        - type: Languages
+          items: PHP, Javascript
+        - type: Web
+          items: HTML5, CSS3, SASS, LESS
+        - type: Pre-processors
+          items: Grunt
+        - type: Databases
+          items: mySQL
+        - type: Infrastructure
+          items: Linux (CentOS, Ubuntu), cloud services
+      logo: assets/images/vitae/companies/piloti.png
+    #
+  skills:
+    - name: HTML5
+      value: 100
+      background: F16529 #F16529
+    #
+    - name: CSS3
+      value: 90
+      background: 33A9DC #33A9DC
+    #
+    - name: JavasSript
+      value: 80
+      background: F1BF26 #F1BF26
+    #
+    - name: NodeJS
+      value: 60
+      background: 8ACF17 #8ACF17
+    #
+    - name: jQuery
+      value: 65
+      background: 193556 #193556
+    #
+    - name: PHP
+      value: 85
+      background: 6082BB #6082BB
+    #
+    - name: Laravel
+      value: 65
+      background: FA503A #FA503A
+    #
+    - name: Python
+      value: 25
+      background: 3774A7 #3774A7
+    #
+    - name: Ruby
+      value: 10
+      background: C22228 #C22228
+    #
+  educational:
+    - course: Laravel 5/5.1
+      certificate: 24691301-80
+      institution: Code.education
+      when: 2015
+      hours: 20h
+      document: assets/documents/certificate-laravel-5.pdf
+      logo: assets/images/vitae/institutions/code-education.png
+    #
+    - course: Laravel 5.2
+      certificate: 92943046-71
+      institution: Code.education
+      when: 2015
+      hours: 17h
+      document: assets/documents/certificate-laravel-5-2.pdf
+      logo: assets/images/vitae/institutions/code-education.png
+    #
+  jobs:
+    - name: CrimeRadar
+      site: https://rio.crimeradar.org/
+      producer: Igarapé Institute
+      when: july 2016
+      description: >
+        CrimeRadar is a digital platform that uses advanced machine learning to
+        predict crime rates in different neighborhoods at different times. It
+        runs on smartphones and desktop browsers.
+    #
+    - name: Budgetary Mosaic
+      site: http://www.dapp.fgv.br/mosaico/mosaic_f/2016
+      producer: Getulio Vargas Foundation
+      when: october 2014
+      description: >
+        The Budgetary Mosaic uses public budget data from the Brazilian Government
+        and presents it in a very friendly way. The objective is to bring a broader
+        share of the Brazilian population to the discussion of the public choices
+        represented by the Federal Budget.
+    #
+    - name: Budgetary Geology
+      site: http://www.dapp.fgv.br/mosaico/geologia
+      producer: Getulio Vargas Foundation
+      when: october 2014
+      description: >
+        The Budgetary Geology is part of the Transparency Project of FGV DAPP.
+        The Budgetary Geology helps the general public to understand the shares
+        of the Federal Budget used, for example, to pay the the federal debt,
+        investments and so on.
+    #
+    - name: Budgetary Transfers
+      site: http://dapp.fgv.br/mosaico/transferencias
+      producer: Getulio Vargas Foundation
+      when: january 2015
+      description: >
+        The Budgetary Transfers is a transparency tool developed by FGV DAPP to
+        help the Brazilian citizens to understand how is the process transference
+        of financial resources from the Brazilian Federal Government to the states administrations.
+    #
+    - name: Department of Economics - PUC Rio
+      site: http://www.econ.puc-rio.br/
+      producer: Piloti
+      when: ~~
+      description: >
+        The Department of Economics is one of eight departments that make up the
+        Social Sciences Center, Pontifical Catholic University of Rio de Janeiro (PUC-Rio).
+    #
+    - name: International Relations Institute - PUC Rio
+      site: http://www.iri.puc-rio.br/
+      producer: Piloti
+      when: ~~
+      description: >
+        The International Relations Institute is a center of excellence in International
+        Relations area in Brazil. During its 30 years of existence, the Institute has
+        had a pioneer role in the research on Brazil's international relations,
+        the political and economic changes in Latin America and the changes in the world order.
+    #
+    - name: Global Entrepreneurship Week
+      site: http://empreendedorismo.org.br/
+      producer: Piloti
+      when: august 2013
+      description: >
+        Event that gathered entrepreneurs from all around the world in Brazil, to inspire,
+        empower and connect millions of people with the desire to undertake.
+    #
+    - name: TEDxRio
+      site: http://www.tedxrio.com.br/
+      producer: Piloti
+      when: april 2013
+      description: >
+        TEDx is a local events program, self-organized that gathers people to share a TED style experience.
+    #
+    - name: Casé Filmes
+      site: http://casefilmes.com.br/
+      producer: Piloti
+      when: october 2013
+      description: >
+        Founded in 2007 by producer Augusto Casé, the Casé Filmes is responsible
+        for the development of the shows "De Perto Ninguém é Normal"​ (2007), aired by GNT,
+        "Conexões Urbanas"​ (2008), developed in partnership with the Cultural Group
+        Afro Reggae and "Cilada" (2009), both from Multishow.
+    #
