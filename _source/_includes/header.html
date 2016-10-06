@@ -5,10 +5,11 @@
 
   <nav>
     <ul>
-      <li><a href="{{ site.baseurl }}about" {% if page.permalink == "/about/" %}class="active"{% endif %}>About</a></li>
-      <li><a href="{{ site.baseurl }}articles" {% if page.permalink == "/articles/" %}class="active"{% endif %}>Articles</a></li>
-      <li><a href="{{ site.baseurl }}talks" {% if page.permalink == "/talks/" %}class="active"{% endif %}>Talks</a></li>
-      <li><a href="{{ site.baseurl }}vitae" {% if page.permalink == "/vitae/" %}class="active"{% endif %}>Vitae</a></li>
+      {% assign activePage = page.url | replace: "/", " " | truncatewords: 1, "" %}
+      <li><a href="{{ site.baseurl }}about" {% if activePage == "about" %}class="active"{% endif %}>About</a></li>
+      <li><a href="{{ site.baseurl }}articles" {% if activePage == 'articles' %}class="active"{% endif %}>Articles</a></li>
+      <li><a href="{{ site.baseurl }}talks" {% if activePage == "talks" %}class="active"{% endif %}>Talks</a></li>
+      <li><a href="{{ site.baseurl }}vitae" {% if activePage == "vitae" %}class="active"{% endif %}>Vitae</a></li>
     </ul>
   </nav>
 </header>
