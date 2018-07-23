@@ -1,6 +1,9 @@
-# Logs
+# Logs/Cache
 npm-debug.log
+.cache
 
 # Dependency directory
-/node_modules
-/bower_components
+node_modules
+
+# Compiled
+dist

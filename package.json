@@ -1,9 +1,13 @@
 {
   "name": "arthurvasconcelos.github.io",
-  "version": "x.x.x",
+  "version": "3.0.0",
   "description": ":metal: My personal site.",
-  "main": "index.html",
-  "scripts": {},
+  "main": "src/index.html",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "watch": "parcel watch src/index.html",
+    "build": "parcel build src/index.html"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arthurvasconcelos/arthurvasconcelos.github.io.git"
@@ -18,5 +22,16 @@
   "bugs": {
     "url": "https://github.com/arthurvasconcelos/arthurvasconcelos.github.io/issues"
   },
-  "homepage": "https://github.com/arthurvasconcelos/arthurvasconcelos.github.io#readme"
+  "homepage": "https://github.com/arthurvasconcelos/arthurvasconcelos.github.io#readme",
+  "dependencies": {
+    "vue": "^2.5.16",
+    "vue-hot-reload-api": "^2.3.0"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^2.1.0",
+    "babel-preset-env": "^1.7.0",
+    "node-sass": "^4.9.2",
+    "parcel-bundler": "^1.9.7",
+    "vue-template-compiler": "^2.5.16"
+  }
 }
