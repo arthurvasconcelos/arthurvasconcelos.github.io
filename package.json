@@ -25,7 +25,9 @@
   "homepage": "https://github.com/arthurvasconcelos/arthurvasconcelos.github.io#readme",
   "dependencies": {
     "vue": "^2.5.16",
-    "vue-hot-reload-api": "^2.3.0"
+    "vue-hot-reload-api": "^2.3.0",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^2.1.0",
