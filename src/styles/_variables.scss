@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,400,700');
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:600');
+
+@function multiple-box-shadow($n) {
+    $value: '#{random(2000)}px #{random(2000)}px #FFF';
+
+    @for $i from 2 through $n {
+        $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+    }
+
+    @return unquote($value);
+}
+
+@mixin applyFont($type: main, $weight: 400) {
+    @if $type == main {
+        font-family: 'Raleway', sans-serif;
+        @if $weight == 200 {
+            font-weight: 200;
+        } @else if $weight == 700 {
+            font-weight: 700;
+        } @else {
+            font-weight: 400;
+        }
+    } @else if $type == aux {
+        font-family: 'Slabo 27px', serif;
+        font-weight: 400;
+    } @else if $type == mono {
+        font-family: 'Source Code Pro', monospace;
+        font-weight: 600;
+    }
+}
+
+// Intro
+$shadows-small: multiple-box-shadow(700);
+$shadows-medium: multiple-box-shadow(200);
+$shadows-big: multiple-box-shadow(100);

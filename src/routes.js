@@ -1,5 +1,6 @@
 import Router from 'vue-router';
 import Intro from './components/intro.vue';
+import AboutMe from './components/about-me.vue';
 
 export default new Router({
     routes: [
@@ -12,6 +13,11 @@ export default new Router({
             name: 'intro',
             component: Intro
         },
+        {
+            path: '/about-me',
+            name: 'about-me',
+            component: AboutMe
+        }
     ],
     mode: 'history',
     base: '/',

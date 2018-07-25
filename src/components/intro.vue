@@ -5,6 +5,7 @@
             <div class="stars2"></div>
             <div class="stars3"></div>
         </div>
+
         <div class="welcome">
             <div class="title">
                 <h1>Arthur Vasconcelos</h1>
@@ -15,6 +16,11 @@
                     <span class="jsColor">JavaScript</span>
                 </h2>
             </div>
+        </div>
+
+        <div class="githubHosted">
+            Proudly hosted by
+            <a href="https://github.com" target="_blank"><img src="../assets/images/fixed-gh-logo.png" width="100" height="30" alt="GitHub • Social coding"></a>
         </div>
     </div>
 </template>
@@ -84,26 +90,7 @@
 </script>
 
 <style lang="scss">
-    @import url('https://fonts.googleapis.com/css?family=Raleway:200,400,700');
-    // font-family: 'Raleway', sans-serif;
-    @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
-    // font-family: 'Slabo 27px', serif;
-    @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:600');
-    // font-family: 'Source Code Pro', monospace;
-
-    @function multiple-box-shadow($n) {
-        $value: '#{random(2000)}px #{random(2000)}px #FFF';
-
-        @for $i from 2 through $n {
-            $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
-        }
-
-        @return unquote($value);
-    }
-
-    $shadows-small: multiple-box-shadow(700);
-    $shadows-medium: multiple-box-shadow(200);
-    $shadows-big: multiple-box-shadow(100);
+    @import '../styles/variables';
 
     .intro {
         height: 100vh;
@@ -183,26 +170,23 @@
         text-align: center;
 
         h1 {
+            @include applyFont($weight: 700);
             color: #FFFFFF;
-            font-family: 'Raleway', sans-serif;
             font-size: 3em;
-            font-weight: 700;
             margin: 15px;
             padding: 0;
             text-transform: uppercase;
         }
 
         h2 {
+            @include applyFont($type: aux);
             color: #FFFFFF;
-            font-family: 'Slabo 27px', serif;
-            font-weight: 400;
             margin: 0;
             padding: 0;
         }
 
         .changeWord {
-            font-family: 'Source Code Pro', monospace;
-            font-weight: 600;
+            @include applyFont($type: mono);
             padding: 5px 10px;
             text-transform: capitalize;
             transition: background-color .5s ease-out;
@@ -233,12 +217,42 @@
         }
 
         .jsColor {
+            @include applyFont($type: mono);
             background-color: #F0DB4F;
             color: #323330;
             display: inline-block;
-            font-family: 'Source Code Pro', monospace;
-            font-weight: 600;
             padding: 5px 10px;
+        }
+    }
+
+    .githubHosted {
+        @include applyFont($type: main, $weight: 200);
+        align-items: center;
+        bottom: 15px;
+        color: #DDDDDD;
+        display: flex;
+        font-size: 14px;
+        position: fixed;
+        right: 15px;
+
+        a {
+            display: flex;
+            margin-left: 5px;
+            padding: 1px;
+
+            &:hover {
+                img {
+                    opacity: 1;
+                }
+            }
+        }
+
+        img {
+            border: 0;
+            max-width: 100%;
+            opacity: .8;
+            position: relative;
+            transition: opacity .2s ease-in;
         }
     }
 

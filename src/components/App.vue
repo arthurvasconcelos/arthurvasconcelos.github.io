@@ -1,9 +1,10 @@
 <template>
     <div id="app" class="app">
         <navigation :class="{ 'colorfull': $route.name !== 'intro' }"></navigation>
-        <transition mode="out-in">
+        <router-view :key="$route.path" class="view router-view" ref="main"></router-view>
+        <!-- <transition mode="out-in">
             <router-view :key="$route.path" class="view router-view" ref="main"></router-view>
-        </transition>
+        </transition> -->
     </div>
 </template>
 
@@ -22,6 +23,7 @@
 <style lang="scss">
     html,
     body {
+        font-size: 16px;
         margin: 0;
         min-height: 100vh;
     }
@@ -44,4 +46,10 @@
         opacity: 0;
         transform: translate3d(20px, 0, 0);
     }
+
+    /**
+    * Special thanks:
+    * - Saransh Sinha, animated background inspiration: https://codepen.io/saransh/pen/BKJun
+    * - Hendra Susanto, animated menu inspiration: https://tympanus.net/Development/LineMenuStyles/#Shylock
+    */
 </style>
