@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/arthurvasconcelos/arthurvasconcelos.github.io#readme",
   "dependencies": {
+    "gsap": "^2.0.1",
     "vue": "^2.5.16",
     "vue-hot-reload-api": "^2.3.0",
     "vue-router": "^3.0.1",
