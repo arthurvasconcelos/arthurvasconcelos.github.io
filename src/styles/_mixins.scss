@@ -1,0 +1,32 @@
+@mixin applyFont($type: main, $weight: 400) {
+    @if $type == main {
+        font-family: 'Raleway', sans-serif;
+        @if $weight == 200 {
+            font-weight: 200;
+        } @else if $weight == 700 {
+            font-weight: 700;
+        } @else {
+            font-weight: 400;
+        }
+    } @else if $type == aux {
+        font-family: 'Slabo 27px', serif;
+        font-weight: 400;
+    } @else if $type == mono {
+        font-family: 'Source Code Pro', monospace;
+        font-weight: 600;
+    }
+}
+
+@mixin mediaQueries($canvas) {
+    @if $canvas == XS {
+        @media only screen and (min-width: breakpoint(x-small)) { @content; }
+    } @else if $canvas == S {
+        @media only screen and (min-width: breakpoint(small)) { @content; }
+    } @else if $canvas == M {
+        @media only screen and (min-width: breakpoint(medium)) { @content; }
+    }  @else if $canvas == L {
+        @media only screen and (min-width: breakpoint(large)) { @content; }
+    }  @else if $canvas == XL {
+        @media only screen and (min-width: breakpoint(x-large)) { @content; }
+    }
+}
