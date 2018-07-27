@@ -12,6 +12,7 @@
                 <h2>
                     Developing for&nbsp;
                     <span class="changeWord" :class="currentClass">{{ currentWord }}<span class="cursor">_</span></span>
+                    <span class="phraseBreaker"></span>
                     &nbsp;with&nbsp;
                     <span class="jsColor">JavaScript</span>
                 </h2>
@@ -20,7 +21,7 @@
 
         <div class="githubHosted">
             Proudly hosted by
-            <a href="https://github.com" target="_blank"><img src="../assets/images/fixed-gh-logo.png" width="100" height="30" alt="GitHub • Social coding"></a>
+            <a href="https://github.com" target="_blank"><img src="../assets/images/fixed-gh-logo.png" alt="GitHub • Social coding"></a>
         </div>
     </div>
 </template>
@@ -90,7 +91,9 @@
 </script>
 
 <style lang="scss">
+    @import '../styles/functions';
     @import '../styles/variables';
+    @import '../styles/mixins';
 
     .intro {
         height: 100vh;
@@ -114,6 +117,7 @@
         &::after {
             background: transparent;
             content: ' ';
+            left: 1000px;
             position: absolute;
             top: 2000px;
         }
@@ -172,22 +176,23 @@
         h1 {
             @include applyFont($weight: 700);
             color: #FFFFFF;
-            font-size: 3em;
-            margin: 15px;
-            padding: 0;
+            font-size: 2rem;
+            margin: 0 0 .3125em;
+            padding: 0 .5em;
             text-transform: uppercase;
         }
 
         h2 {
             @include applyFont($type: aux);
             color: #FFFFFF;
+            font-size: 1.2rem;
             margin: 0;
             padding: 0;
         }
 
         .changeWord {
             @include applyFont($type: mono);
-            padding: 5px 10px;
+            padding: .20832em .41665em;
             text-transform: capitalize;
             transition: background-color .5s ease-out;
 
@@ -216,12 +221,18 @@
             }
         }
 
+        .phraseBreaker {
+            display: block;
+            height: .8rem;
+            width: 100%;
+        }
+
         .jsColor {
             @include applyFont($type: mono);
             background-color: #F0DB4F;
             color: #323330;
             display: inline-block;
-            padding: 5px 10px;
+            padding: .20832em .41665em;
         }
     }
 
@@ -231,11 +242,12 @@
         bottom: 15px;
         color: #DDDDDD;
         display: flex;
-        font-size: 14px;
+        font-size: .7rem;
         position: fixed;
         right: 15px;
 
         a {
+            align-items: center;
             display: flex;
             margin-left: 5px;
             padding: 1px;
@@ -249,20 +261,65 @@
 
         img {
             border: 0;
-            max-width: 100%;
+            // max-width: 100%;
             opacity: .8;
             position: relative;
             transition: opacity .2s ease-in;
+            width: 80px;
         }
+    }
+
+    @include mediaQueries(XS) {
+        .title {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    @include mediaQueries(S) {
+        //
+    }
+
+    @include mediaQueries(M) {
+        .title {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .phraseBreaker {
+                display: none;
+            }
+        }
+
+        .githubHosted {
+            font-size: .9375rem;
+
+            img {
+                width: 100px;
+            }
+        }
+    }
+
+    @include mediaQueries(L) {
+        //
+    }
+
+    @include mediaQueries(XL) {
+        //
     }
 
     @keyframes animStar {
         from {
-            transform: translateY(0px)
+            transform: translate(0px, 0px)
         }
 
         to {
-            transform: translateY(-2000px)
+            transform: translate(-1000px, -2000px)
         }
     }
 
