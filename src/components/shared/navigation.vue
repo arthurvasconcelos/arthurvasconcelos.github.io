@@ -24,12 +24,17 @@
 
 <style lang="scss">
     @import '../../styles/variables';
+    @import '../../styles/mixins';
 
     .mainNavigation {
         box-sizing: border-box;
         padding: 0 5px;
         position: fixed;
         width: 100%;
+
+        &.colorfull {
+            background-color: #090A0F;
+        }
     }
 
     .mainNavigation-container {
@@ -51,7 +56,7 @@
 
     .mainNavigation-list-item {
         display: block;
-        padding: 0 0 .2em;
+        padding: 0 0 1em;
     }
 
     .mainNavigation-list-link {
@@ -62,9 +67,9 @@
         color: #b5b5b5;
         cursor: pointer;
         display: block;
-        font-size: 1.05em;
+        font-size: 1.05rem;
         margin: 0 1em;
-        padding: 1em 0 .8em;
+        padding: 1em 0 .5em;
         position: relative;
         text-decoration: none;
         transition: color 0.4s;
@@ -79,13 +84,13 @@
             position: absolute;
             transform-origin: center left;
             transform: scale3d(0, 1, 1);
-            transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+            transition: transform .4s cubic-bezier(0.22, 0.61, 0.36, 1);
             width: 100%;
         }
 
         &::before {
             background: #b5b5b5;
-            transition-delay: 0.4s;
+            transition-delay: .4s;
         }
         
         &::after {

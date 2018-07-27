@@ -1,7 +1,7 @@
 <template>
     <div id="app" class="app">
         <navigation :class="{ 'colorfull': $route.name !== 'intro' }"></navigation>
-        <router-view :key="$route.path" class="view router-view" ref="main"></router-view>
+        <router-view :key="$route.path" class="view router-view" :class="{ 'spaced': $route.name !== 'intro' }" ref="main"></router-view>
         <!-- <transition mode="out-in">
             <router-view :key="$route.path" class="view router-view" ref="main"></router-view>
         </transition> -->
@@ -30,6 +30,14 @@
 
     .app {
         min-height: 100%;
+    }
+
+    .view {
+        box-sizing: border-box;
+
+        &.spaced {
+            padding-top: 3.8244rem;
+        }
     }
 
     .v-enter,
