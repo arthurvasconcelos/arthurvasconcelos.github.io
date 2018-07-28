@@ -1,8 +1,10 @@
 # arthurvasconcelos.github.io
 :metal: My personal website http://arthurvasconcelos.com.br
 
-- **master** - Production Version
-- **landing** - Frist simple landing page
-- **v1** - First try of redoing it
-- **v2** - Tried Jekyll
-- **develop** - current version
+|Branch|Tag|Description
+|------|---|---------
+|**master**|--|Production Version
+|**develop**|--|Active development version
+|**landing**|[v0.0.0](https://github.com/arthurvasconcelos/arthurvasconcelos.github.io/releases/tag/0.0.0)|Frist simple landing page
+|**v1**|[v1.0.0](https://github.com/arthurvasconcelos/arthurvasconcelos.github.io/releases/tag/1.0.0)|First try of redoing it
+|**v2**|[v2.0.0](https://github.com/arthurvasconcelos/arthurvasconcelos.github.io/releases/tag/2.0.0)|Tried Jekyll
