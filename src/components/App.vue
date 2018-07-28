@@ -36,7 +36,7 @@
         box-sizing: border-box;
 
         &.spaced {
-            padding-top: 3.8244rem;
+            padding-top: 4rem;
         }
     }
 

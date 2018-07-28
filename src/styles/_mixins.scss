@@ -17,6 +17,21 @@
     }
 }
 
+// @include mediaQueries(XS) {
+//     //
+// }
+// @include mediaQueries(S) {
+//     //
+// }
+// @include mediaQueries(M) {
+//     //
+// }
+// @include mediaQueries(L) {
+//     //
+// }
+// @include mediaQueries(XL) {
+//     //
+// }
 @mixin mediaQueries($canvas) {
     @if $canvas == XS {
         @media only screen and (min-width: breakpoint(x-small)) { @content; }

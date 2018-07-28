@@ -240,15 +240,19 @@
 
     .pageHeaderTitle {
         @include applyFont($weight: 700);
+        box-sizing: border-box;
         color: #FFFFFF;
         font-size: 3rem;
         left: 50%;
         margin: 0;
+        padding: 0 1rem;
         padding: 0;
         position: absolute;
-        text-transform: uppercase;
+        text-align: center;
         text-shadow: 2px 2px 1px #090A0F;
+        text-transform: uppercase;
         top: 50%;
         transform: translate3d(-50%,-50%,0);
+        width: 100%;
     }
 </style>

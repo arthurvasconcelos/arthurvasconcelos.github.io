@@ -269,6 +269,8 @@
         }
     }
 
+    // Media Queries
+
     @include mediaQueries(XS) {
         .title {
             h1 {
@@ -279,10 +281,6 @@
                 font-size: 1.5rem;
             }
         }
-    }
-
-    @include mediaQueries(S) {
-        //
     }
 
     @include mediaQueries(M) {
@@ -305,13 +303,7 @@
         }
     }
 
-    @include mediaQueries(L) {
-        //
-    }
-
-    @include mediaQueries(XL) {
-        //
-    }
+    // Keyframes
 
     @keyframes animStar {
         from {
