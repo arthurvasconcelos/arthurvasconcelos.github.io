@@ -23,18 +23,21 @@
                 ctx: null,
                 points: null,
                 target: null,
-                animateHeader: true
+                animateHeader: true,
+                headerContainer: null
             }
         },
         mounted() {
+            this.headerContainer = this.$refs.headerContainer;
+
             this.initHeader();
             this.initAnimation();
             this.addListeners();
         },
         methods: {
             initHeader() {
-                this.width = this.$refs.headerContainer.offsetWidth;
-                this.height = this.$refs.headerContainer.offsetHeight;
+                this.width = this.headerContainer.offsetWidth;
+                this.height = this.headerContainer.offsetHeight;
                 this.target = {
                     x: this.width / 2,
                     y: this.height / 2
@@ -108,11 +111,9 @@
                 }
             },
             addListeners() {
-                if (!('ontouchstart' in window)) {
-                    window.addEventListener('mousemove', this.mouseMove);
-                }
-                window.addEventListener('scroll', this.scrollCheck);
-                window.addEventListener('resize', this.resize);
+                this.$events.$on('windowMouseMove', this.mouseMove);
+                this.$events.$on('windowScroll', this.scrollCheck);
+                this.$events.$on('windowResize', this.resize);
             },
 
             // Event Handlers
@@ -136,8 +137,8 @@
                 this.animateHeader = (statement) ? false : true;
             },
             resize() {
-                this.width = this.$refs.headerContainer.offsetWidth;
-                this.height = this.$refs.headerContainer.offsetHeight;
+                this.width = this.headerContainer.offsetWidth;
+                this.height = this.headerContainer.offsetHeight;
                 this.canvas.width = this.width;
                 this.canvas.height = this.height;
             },
@@ -246,7 +247,6 @@
         left: 50%;
         margin: 0;
         padding: 0 1rem;
-        padding: 0;
         position: absolute;
         text-align: center;
         text-shadow: 2px 2px 1px #090A0F;
