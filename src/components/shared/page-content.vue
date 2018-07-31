@@ -20,6 +20,7 @@
     .pageContent {
         @include applyFont(aux);
 
+        box-sizing: border-box;
         font-size: 1.5rem;
         margin: 0 auto;
         max-width: 1200px;

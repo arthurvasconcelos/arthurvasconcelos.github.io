@@ -3,7 +3,21 @@ import Vue from 'vue';
 import VueEvents from 'vue-events';
 import VueRouter from 'vue-router';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCoffee, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import {
+    faFacebookF,
+    faLinkedinIn,
+    faTwitter,
+    faGithubAlt,
+    faBitbucket,
+    faCodepen,
+    faJsfiddle,
+    faNpm,
+    faKeybase,
+    faStackOverflow,
+    faTwitch,
+    faRedditAlien
+} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 // Logic imports
@@ -17,7 +31,22 @@ Vue.use(VueEvents);
 Vue.use(VueRouter);
 
 // FA Config
-library.add([faCoffee, faBars, faTimes]);
+library.add([
+    faBars,
+    faTimes,
+    faFacebookF,
+    faLinkedinIn,
+    faTwitter,
+    faGithubAlt,
+    faBitbucket,
+    faCodepen,
+    faJsfiddle,
+    faNpm,
+    faKeybase,
+    faStackOverflow,
+    faTwitch,
+    faRedditAlien
+]);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 // Vue Config
