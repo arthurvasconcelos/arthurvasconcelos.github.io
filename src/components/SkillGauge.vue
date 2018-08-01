@@ -1,9 +1,9 @@
 <template>
   <div class="skill" ref="skill">
-    <div class="skill-gaugeContainer">
+    <div class="skill-gaugeContainer" :style="gaugeContainerStyles">
       <div class="skill-gaugeBackground"></div>
       <div class="skill-gaugeFiller" :style="{ transform: `rotate(${gaugeValue}turn)` }"></div>
-      <div class="skill-gaugeHole">{{ value }}%</div>
+      <div class="skill-gaugeHole" :style="gaugeHoleStyles">{{ value }}%</div>
     </div>
     <div class="skill-text">{{ name }}</div>
   </div>
@@ -19,23 +19,48 @@ export default {
     },
     value: {
       type: Number,
-      default: 0
+      default: 0,
+      validator(value) {
+        return value >= 0 && value <= 100 && Number.isInteger(value);
+      }
     }
   },
   data() {
     return {
-      gaugeValue: this.value / 2 / 100,
+      skillElement: null,
       width: 0
-      // sizeStyles: { width: `${width}px`, height: `${width / 2}px` }
     };
   },
+  computed: {
+    gaugeValue() {
+      return this.value / 2 / 100;
+    },
+    height() {
+      return this.width / 2;
+    },
+    gaugeContainerStyles() {
+      return {
+        height: `${this.height}px`,
+        borderRadius: `${this.height}px ${this.height}px 0px 0px`
+      };
+    },
+    gaugeHoleStyles() {
+      const reducedHeight = this.height / 1.5;
+      return {
+        width: `${this.width / 1.5}px`,
+        height: `${reducedHeight}px`,
+        borderRadius: `${reducedHeight}px ${reducedHeight}px 0px 0px`
+      };
+    }
+  },
   mounted() {
+    this.skillElement = this.$refs.skill;
     this.applySizeToGauge();
     this.$events.$on("windowResize", this.applySizeToGauge);
   },
   methods: {
     applySizeToGauge() {
-      this.width = this.$refs.skill.offsetWidth;
+      this.width = this.skillElement.offsetWidth;
     }
   }
 };
@@ -53,39 +78,77 @@ export default {
 .skill-gaugeContainer {
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .skill-gaugeBackground {
   background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 250px 250px 0px 0px;
+  height: 100%;
   position: absolute;
   top: 0%;
+  width: 100%;
   z-index: 1;
 }
 
 .skill-gaugeFiller {
   background-color: #5664f9;
-  border-radius: 0px 0px 200px 200px;
-  height: 200px;
-  margin-left: auto;
-  margin-right: auto;
+  bottom: -100%;
+  height: 100%;
   position: absolute;
-  top: 200px;
   transform-origin: center top;
   transition: all 1.3s ease-in-out;
-  width: 400px;
+  width: 100%;
   z-index: 2;
 }
 
 .skill-gaugeHole {
-  background-color: #222;
-  border-radius: 250px 250px 0px 0px;
-  height: 125px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  align-content: center;
+  background-color: #ffffff;
   bottom: 0px;
-  width: 250px;
+  color: #323232;
+  display: grid;
+  font-size: 1.7rem;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
   z-index: 3;
+}
+
+.skill-text {
+  font-size: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+@include mediaQueries(XS) {
+  .skill-gaugeHole {
+    font-size: 2.1rem;
+  }
+
+  .skill-text {
+    font-size: 1.3rem;
+  }
+}
+
+@include mediaQueries(S) {
+  .skill-gaugeHole {
+    font-size: 2.3rem;
+  }
+
+  .skill-text {
+    font-size: 1.4rem;
+  }
+}
+
+@include mediaQueries(XL) {
+  .skill-gaugeHole {
+    font-size: 2.8rem;
+  }
+
+  .skill-text {
+    font-size: 1.6rem;
+  }
 }
 </style>
