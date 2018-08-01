@@ -31,9 +31,11 @@ export default {
   mounted() {
     this.headerContainer = this.$refs.headerContainer;
 
-    this.initHeader();
-    this.initAnimation();
-    this.addListeners();
+    setTimeout(() => {
+      this.initHeader();
+      this.initAnimation();
+      this.addListeners();
+    }, 1000);
   },
   methods: {
     initHeader() {
