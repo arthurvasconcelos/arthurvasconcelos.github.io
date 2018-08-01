@@ -12,6 +12,7 @@ export default {
   name: "PageHeader",
   props: {
     title: {
+      type: String,
       required: true
     }
   },

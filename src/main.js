@@ -75,7 +75,6 @@ Vue.mixin({
 new Vue({
   router,
   store,
-  render: h => h(App),
   mounted() {
     const html = document.querySelector("html");
     html.classList.add(this.isTouchDevice() ? "touch" : "noTouch");
@@ -92,5 +91,6 @@ new Vue({
     window.addEventListener("resize", e =>
       this.$events.$emit("windowResize", e)
     );
-  }
+  },
+  render: h => h(App)
 }).$mount("#app");
