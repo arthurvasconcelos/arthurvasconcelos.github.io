@@ -2,7 +2,7 @@
   <div class="skill" ref="skill">
     <div class="skill-gaugeContainer" :style="gaugeContainerStyles">
       <div class="skill-gaugeBackground"></div>
-      <div class="skill-gaugeFiller" :style="{ transform: `rotate(${gaugeValue}turn)` }"></div>
+      <div class="skill-gaugeFiller" :style="gaugeFillerStyles"></div>
       <div class="skill-gaugeHole" :style="gaugeHoleStyles">{{ value }}%</div>
     </div>
     <div class="skill-text">{{ name }}</div>
@@ -40,16 +40,27 @@ export default {
     },
     gaugeContainerStyles() {
       return {
-        height: `${this.height}px`,
-        borderRadius: `${this.height}px ${this.height}px 0px 0px`
+        borderRadius: `${this.height}px ${this.height}px 0px 0px`,
+        height: `${this.height}px`
+      };
+    },
+    gaugeFillerStyles() {
+      const r = this.randomIntFromInterval(0, 255);
+      const g = this.randomIntFromInterval(0, 255);
+      const b = this.randomIntFromInterval(0, 255);
+      const a = 0.8;
+
+      return {
+        backgroundColor: `rgb(${r},${g},${b},${a})`,
+        transform: `rotate(${this.gaugeValue}turn)`
       };
     },
     gaugeHoleStyles() {
       const reducedHeight = this.height / 1.5;
       return {
-        width: `${this.width / 1.5}px`,
+        borderRadius: `${reducedHeight}px ${reducedHeight}px 0px 0px`,
         height: `${reducedHeight}px`,
-        borderRadius: `${reducedHeight}px ${reducedHeight}px 0px 0px`
+        width: `${this.width / 1.5}px`
       };
     }
   },
@@ -91,12 +102,11 @@ export default {
 }
 
 .skill-gaugeFiller {
-  background-color: #5664f9;
   bottom: -100%;
   height: 100%;
   position: absolute;
   transform-origin: center top;
-  transition: all 1.3s ease-in-out;
+  transition: transform 1.3s ease-in-out;
   width: 100%;
   z-index: 2;
 }
