@@ -9,6 +9,9 @@
                 <li class="mainNavigation-list-item">
                     <router-link :to="{ name: 'about-me' }" class="mainNavigation-list-link">About Me</router-link>
                 </li>
+                <li class="mainNavigation-list-item">
+                    <router-link :to="{ name: 'projects' }" class="mainNavigation-list-link">Projects</router-link>
+                </li>
             </ul>
 
             <button class="closeMenu" v-on:click.prevent="closeMenu"><FontAwesomeIcon icon="times" /></button>
