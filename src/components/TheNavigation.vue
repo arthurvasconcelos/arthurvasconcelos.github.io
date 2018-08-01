@@ -21,25 +21,25 @@
 
 <script>
 export default {
-  name: 'TheNavigation',
-  data () {
-    return {}
+  name: "TheNavigation",
+  data() {
+    return {};
   },
   methods: {
-    expandMenu(event) {
-      this.$refs.mainNavigationContainer.classList.add('is-open');
+    expandMenu() {
+      this.$refs.mainNavigationContainer.classList.add("is-open");
     },
-    closeMenu(event) {
-      this.$refs.mainNavigationContainer.classList.remove('is-open');
+    closeMenu() {
+      this.$refs.mainNavigationContainer.classList.remove("is-open");
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
-@import '../styles/functions';
-@import '../styles/variables';
-@import '../styles/mixins';
+@import "../styles/functions";
+@import "../styles/variables";
+@import "../styles/mixins";
 
 .relativeWrapper {
   height: 100%;
@@ -51,13 +51,13 @@ export default {
   background-color: transparent;
   border-radius: 0;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 1.5rem;
-  left: .5rem;
+  left: 0.5rem;
   padding: 0;
   position: absolute;
-  top: .5rem;
-  
+  top: 0.5rem;
+
   &:focus {
     outline: none;
   }
@@ -71,34 +71,34 @@ export default {
   position: fixed;
   width: 100%;
   z-index: 1000;
-  
+
   &.colorfull {
-    background-color: #090A0F;
+    background-color: #090a0f;
   }
 }
 
 .mainNavigation-trigger {
   align-items: center;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   display: grid;
   font-size: 2.5rem;
   justify-items: center;
   justify-self: end;
-  margin-right: .3em;
+  margin-right: 0.3em;
 }
 
 .mainNavigation-container {
-  background: linear-gradient(#1B2735 0%, #090A0F 100%);
+  background: linear-gradient(#1b2735 0%, #090a0f 100%);
   height: 100%;
   max-width: 80%;
   position: fixed;
   right: 0;
   top: 0;
   transform: translateX(100%);
-  transition: transform .3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   width: 100%;
-  
+
   &.is-open {
     transform: translateX(0);
   }
@@ -129,12 +129,12 @@ export default {
   display: block;
   font-size: 1.05rem;
   margin: 0 0 1em;
-  padding: 0 .5rem .5em;
+  padding: 0 0.5rem 0.5em;
   position: relative;
   text-decoration: none;
   transition: color 0.4s;
   user-select: none;
-  
+
   &::before,
   &::after {
     bottom: 0;
@@ -144,45 +144,45 @@ export default {
     position: absolute;
     transform-origin: center left;
     transform: scale3d(0, 1, 1);
-    transition: transform .4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
     width: 100%;
   }
-  
+
   &::before {
     background: #b5b5b5;
     transform: scale3d(1, 1, 1);
-    transition-delay: .4s;
+    transition-delay: 0.4s;
   }
-  
+
   &::after {
     background: #d94f5c;
     transform: scale3d(0, 1, 1);
   }
-  
+
   &:hover,
   &:focus {
     color: #b5b5b5;
     outline: none;
-    
+
     &::before {
       transform: scale3d(1, 1, 1);
       transition-delay: 0s;
     }
   }
-  
+
   &.is-active-exact {
     color: #d94f5c;
-    
+
     &:hover,
     &:focus {
       color: #d94f5c;
     }
-    
+
     &::before,
     &::after {
       transform: scale3d(1, 1, 1);
     }
-    
+
     &::before {
       transition-delay: 0s;
     }
@@ -195,11 +195,11 @@ export default {
   .mainNavigation-trigger {
     display: none;
   }
-  
+
   .closeMenu {
     display: none;
   }
-  
+
   .mainNavigation-container {
     background: transparent;
     display: block;
@@ -211,18 +211,18 @@ export default {
     transform: none;
     transition: none;
   }
-  
+
   .mainNavigation-list {
     align-items: center;
     flex-direction: row;
     justify-content: flex-end;
     padding: 0;
   }
-  
+
   .mainNavigation-list-link {
     margin: 0 1em 1em;
-    padding: 1em 0 .5em;
-    
+    padding: 1em 0 0.5em;
+
     &::before,
     &::after {
       transform: scale3d(0, 1, 1);

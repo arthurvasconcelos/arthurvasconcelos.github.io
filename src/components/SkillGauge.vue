@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'SkillGauge',
+  name: "SkillGauge",
   props: {
     name: {
       type: String,
@@ -25,26 +25,26 @@ export default {
   data() {
     return {
       gaugeValue: this.value / 2 / 100,
-      width: 0,
-      sizeStyles: { width: `${width}px`, height: `${width / 2}px` }
-    }
+      width: 0
+      // sizeStyles: { width: `${width}px`, height: `${width / 2}px` }
+    };
   },
   mounted() {
     this.applySizeToGauge();
-    this.$events.$on('windowResize', this.applySizeToGauge);
+    this.$events.$on("windowResize", this.applySizeToGauge);
   },
   methods: {
     applySizeToGauge() {
       this.width = this.$refs.skill.offsetWidth;
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
-@import '../styles/functions';
-@import '../styles/variables';
-@import '../styles/mixins';
+@import "../styles/functions";
+@import "../styles/variables";
+@import "../styles/mixins";
 
 .skill {
   width: 100%;
@@ -56,7 +56,7 @@ export default {
 }
 
 .skill-gaugeBackground {
-  background-color: rgba(0,0,0,.2);
+  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 250px 250px 0px 0px;
   position: absolute;
   top: 0%;
@@ -64,7 +64,7 @@ export default {
 }
 
 .skill-gaugeFiller {
-  background-color: #5664F9;
+  background-color: #5664f9;
   border-radius: 0px 0px 200px 200px;
   height: 200px;
   margin-left: auto;

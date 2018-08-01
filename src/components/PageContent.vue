@@ -6,13 +6,13 @@
 
 <script>
 export default {
-  name: 'PageContent'
-}
+  name: "PageContent"
+};
 </script>
 
 <style lang="scss">
-@import '../styles/variables';
-@import '../styles/mixins';
+@import "../styles/variables";
+@import "../styles/mixins";
 
 .pageContent {
   @include applyFont(aux);
@@ -21,7 +21,7 @@ export default {
   font-size: 1.5rem;
   margin: 0 auto;
   max-width: 1200px;
-  padding: .5em .8em;
+  padding: 0.5em 0.8em;
   width: 100%;
 }
 </style>

@@ -28,17 +28,12 @@
 
 <script>
 export default {
-  name: 'Intro',
+  name: "Intro",
   data() {
     return {
-      currentWord: '',
-      currentClass: '',
-      words: [
-        'web',
-        'mobile',
-        'desktop',
-        'server'
-      ]
+      currentWord: "",
+      currentClass: "",
+      words: ["web", "mobile", "desktop", "server"]
     };
   },
   mounted() {
@@ -49,7 +44,8 @@ export default {
   methods: {
     wordsInterval(delay = 5000) {
       const currentIndex = this.words.indexOf(this.currentWord);
-      const nextIndex = (currentIndex + 1 > this.words.length - 1) ? 0 : currentIndex + 1;
+      const nextIndex =
+        currentIndex + 1 > this.words.length - 1 ? 0 : currentIndex + 1;
 
       setTimeout(() => {
         this.erase(100, () => {
@@ -57,15 +53,15 @@ export default {
           this.write(nextIndex, 100, () => {
             this.wordsInterval();
           });
-        })
+        });
       }, delay);
     },
     erase(delay, callback) {
-      const wordLetters = this.currentWord.split('');
+      const wordLetters = this.currentWord.split("");
       const interval = setInterval(() => {
         if (wordLetters.length > 0) {
           wordLetters.pop();
-          this.currentWord = wordLetters.join('');
+          this.currentWord = wordLetters.join("");
         } else {
           clearInterval(interval);
           callback();
@@ -73,13 +69,13 @@ export default {
       }, delay);
     },
     write(nextIndex, delay, callback) {
-      const wordLetters = this.words[nextIndex].split('');
+      const wordLetters = this.words[nextIndex].split("");
       const assembleWord = [];
       const interval = setInterval(() => {
         if (wordLetters.length > 0) {
-          assembleWord.push(wordLetters[0])
+          assembleWord.push(wordLetters[0]);
           wordLetters.shift();
-          this.currentWord = assembleWord.join('');
+          this.currentWord = assembleWord.join("");
         } else {
           clearInterval(interval);
           callback();
@@ -87,13 +83,13 @@ export default {
       }, delay);
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
-@import '../styles/functions';
-@import '../styles/variables';
-@import '../styles/mixins';
+@import "../styles/functions";
+@import "../styles/variables";
+@import "../styles/mixins";
 
 .intro {
   height: 100vh;
@@ -101,7 +97,7 @@ export default {
 }
 
 .startsContainer {
-  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   height: 100%;
   overflow: hidden;
   position: absolute;
@@ -113,10 +109,10 @@ export default {
 .stars2,
 .stars3 {
   background: transparent;
-  
+
   &::after {
     background: transparent;
-    content: ' ';
+    content: " ";
     left: 1000px;
     position: absolute;
     top: 2000px;
@@ -128,7 +124,7 @@ export default {
   box-shadow: $shadows-small;
   height: 1px;
   width: 1px;
-  
+
   &::after {
     box-shadow: $shadows-small;
     height: 1px;
@@ -141,7 +137,7 @@ export default {
   box-shadow: $shadows-medium;
   height: 2px;
   width: 2px;
-  
+
   &::after {
     box-shadow: $shadows-medium;
     height: 2px;
@@ -154,7 +150,7 @@ export default {
   box-shadow: $shadows-big;
   height: 3px;
   width: 3px;
-  
+
   &::after {
     box-shadow: $shadows-big;
     height: 3px;
@@ -172,67 +168,67 @@ export default {
   display: grid;
   height: auto;
   text-align: center;
-  
+
   h1 {
     @include applyFont($weight: 700);
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 2rem;
-    margin: 0 0 .3125em;
-    padding: 0 .5em;
+    margin: 0 0 0.3125em;
+    padding: 0 0.5em;
     text-transform: uppercase;
   }
-  
+
   h2 {
     @include applyFont($type: aux);
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 1.2rem;
     margin: 0;
     padding: 0;
   }
-  
+
   .changeWord {
     @include applyFont($type: mono);
-    padding: .20832em .41665em;
+    padding: 0.20832em 0.41665em;
     text-transform: capitalize;
-    transition: background-color .5s ease-out;
-    
+    transition: background-color 0.5s ease-out;
+
     &.web {
-      background-color: #E65126;
-      color: #EEEFF1;
+      background-color: #e65126;
+      color: #eeeff1;
     }
-    
+
     &.mobile {
-      background-color: #488AFF;
-      color: #FFFFFF;
+      background-color: #488aff;
+      color: #ffffff;
     }
-    
+
     &.desktop {
-      background-color: #393C4B;
-      color: #A9EDFA;
+      background-color: #393c4b;
+      color: #a9edfa;
     }
-    
+
     &.server {
-      background-color: #83CD29;
+      background-color: #83cd29;
       color: #404137;
     }
-    
+
     .cursor {
-      animation: fadeCursor .5s ease-in-out infinite;
+      animation: fadeCursor 0.5s ease-in-out infinite;
     }
   }
-  
+
   .phraseBreaker {
     display: block;
-    height: .8rem;
+    height: 0.8rem;
     width: 100%;
   }
-  
+
   .jsColor {
     @include applyFont($type: mono);
-    background-color: #F0DB4F;
+    background-color: #f0db4f;
     color: #323330;
     display: inline-block;
-    padding: .20832em .41665em;
+    padding: 0.20832em 0.41665em;
   }
 }
 
@@ -240,31 +236,31 @@ export default {
   @include applyFont($type: main, $weight: 200);
   align-items: center;
   bottom: 15px;
-  color: #DDDDDD;
+  color: #dddddd;
   display: flex;
-  font-size: .7rem;
+  font-size: 0.7rem;
   position: fixed;
   right: 15px;
-  
+
   a {
     align-items: center;
     display: flex;
     margin-left: 5px;
     padding: 1px;
-    
+
     &:hover {
       img {
         opacity: 1;
       }
     }
   }
-  
+
   img {
     border: 0;
     // max-width: 100%;
-    opacity: .8;
+    opacity: 0.8;
     position: relative;
-    transition: opacity .2s ease-in;
+    transition: opacity 0.2s ease-in;
     width: 80px;
   }
 }
@@ -276,7 +272,7 @@ export default {
     h1 {
       font-size: 2.5rem;
     }
-    
+
     h2 {
       font-size: 1.5rem;
     }
@@ -288,15 +284,15 @@ export default {
     h1 {
       font-size: 3rem;
     }
-    
+
     .phraseBreaker {
       display: none;
     }
   }
-  
+
   .githubHosted {
-    font-size: .9375rem;
-    
+    font-size: 0.9375rem;
+
     img {
       width: 100px;
     }
@@ -307,11 +303,11 @@ export default {
 
 @keyframes animStar {
   from {
-    transform: translate(0px, 0px)
+    transform: translate(0px, 0px);
   }
-  
+
   to {
-    transform: translate(-1000px, -2000px)
+    transform: translate(-1000px, -2000px);
   }
 }
 
@@ -319,7 +315,7 @@ export default {
   from {
     opacity: 1;
   }
-  
+
   to {
     opacity: 0;
   }

@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import TheNavigation from '@/components/TheNavigation.vue';
+import TheNavigation from "@/components/TheNavigation.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: { TheNavigation }
-}
+};
 </script>
 
 <style lang="scss">
@@ -38,7 +38,7 @@ body {
 .v-leave-to,
 .router-view {
   min-height: 100vh;
-  transition: opacity .5s ease, transform .5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .v-enter-active,
