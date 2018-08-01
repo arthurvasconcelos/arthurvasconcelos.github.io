@@ -5,7 +5,7 @@
       <img src="../assets/images/profile.jpg" alt="arthur vasconcelos profile pricture" class="aboutMe-profilePicture">
       <p class="aboutMe-description">I'm an organized and dedicated professional, compromised with the quality of the code and the final product. I’m passionate about my work and I'm always looking forward to learn new things and improve on the ones that I already know.</p>
       <ul class="aboutMe-socialList">
-        <li class="aboutMe-socialList-item" v-for="(social, index) in filterBy(socials, 'show', true)" :key="`social-${index}`">
+        <li class="aboutMe-socialList-item" v-for="(social, sIndex) in filterBy(socials, 'show', true)" :key="`social-${sIndex}`">
           <a
             class="aboutMe-socialList-link"
             :href="social.link" target="_blank"
@@ -17,11 +17,9 @@
         </li>
       </ul>
       <h2 class="subHeadline"><span>Skills</span></h2>
-      <SkillGauge name="haskell"></SkillGauge>
-      <SkillGauge name="php" :value="87"></SkillGauge>
-      <SkillGauge name="javascript" :value="100"></SkillGauge>
-      <SkillGauge name="python" :value="28"></SkillGauge>
-      <SkillGauge name="c#" :value="50"></SkillGauge>
+      <div class="skillGrid">
+        <SkillGauge :name="skill.name" :value="skill.knwl" v-for="(skill, sklIndex) in skills" :key="`skill-${sklIndex}`"></SkillGauge>
+      </div>
     </PageContent>
   </div>
 </template>
@@ -128,6 +126,40 @@ export default {
         //     show: false,
         //     isHovered: false
         // }
+      ],
+      skills: [
+        {
+          name: "Javascript",
+          knwl: 90
+        },
+        {
+          name: "Javascript",
+          knwl: 90
+        },
+        {
+          name: "Javascript",
+          knwl: 90
+        },
+        {
+          name: "Javascript",
+          knwl: 90
+        },
+        {
+          name: "Javascript",
+          knwl: 90
+        },
+        {
+          name: "Javascript",
+          knwl: 90
+        },
+        {
+          name: "Javascript",
+          knwl: 90
+        }
+        // {
+        //   name: "",
+        //   knwl: 0
+        // },
       ]
     };
   },
@@ -214,16 +246,32 @@ export default {
   }
 }
 
+.skillGrid {
+  display: grid;
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 0.5em;
+}
+
 @include mediaQueries(M) {
   .aboutMe-profilePicture {
     float: left;
     margin: 0 0.5em 0.5em 0;
+  }
+
+  .skillGrid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
 @include mediaQueries(L) {
   .aboutMe-socialList {
     margin: 1.5rem 0 0;
+  }
+
+  .skillGrid {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 }
 
