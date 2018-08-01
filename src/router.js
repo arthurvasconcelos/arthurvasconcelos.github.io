@@ -28,10 +28,10 @@ export default new Router({
       path: "/about-me",
       name: "about-me",
       // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
+      // this generates a separate chunk (about-me.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/AboutMe.vue")
+        import(/* webpackChunkName: "about-me" */ "./views/AboutMe.vue")
     }
   ]
 });
