@@ -2,7 +2,10 @@
   <div class="projects">
     <PageHeader title="Projects"></PageHeader>
     <PageContent class="projects">
-      // oi
+      <div>
+        <h2>Title</h2>
+        <p>Description</p>
+      </div>
     </PageContent>
   </div>
 </template>
