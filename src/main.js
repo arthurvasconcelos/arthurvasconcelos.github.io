@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Events from "vue-events";
+import moment from "moment";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -70,6 +71,30 @@ Vue.mixin({
       },
       randomIntFromInterval(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
+      },
+      myAge() {
+        return moment().diff(moment("1989-09-16"), "years");
+      },
+      jobDuration(enterDate, leaveDate) {
+        const timeDiff = moment(leaveDate || moment())
+          .diff(moment(enterDate), "years", true)
+          .toFixed(1);
+        const yearMonth = timeDiff.split(".").map(v => parseInt(v, 10));
+        const duration = [];
+
+        if (yearMonth[0] > 0) {
+          duration.push(
+            `${yearMonth[0]} ${yearMonth[0] === 1 ? "year" : "years"}`
+          );
+        }
+
+        if (yearMonth[1] > 0) {
+          duration.push(
+            `${yearMonth[1]} ${yearMonth[1] === 1 ? "month" : "months"}`
+          );
+        }
+
+        return duration.join(" and ");
       }
     };
   }
@@ -91,6 +116,7 @@ new Vue({
     window.addEventListener("scroll", e =>
       this.$events.$emit("windowScroll", e)
     );
+
     window.addEventListener("resize", e =>
       this.$events.$emit("windowResize", e)
     );

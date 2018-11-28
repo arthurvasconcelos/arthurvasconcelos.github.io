@@ -16,9 +16,24 @@
           </a>
         </li>
       </ul>
+
       <h2 class="subHeadline"><span>Skills</span></h2>
       <div class="skillGrid">
         <SkillGauge :name="skill.name" :value="skill.knwl" v-for="(skill, sklIndex) in skills" :key="`skill-${sklIndex}`"></SkillGauge>
+      </div>
+
+      <h2 class="subHeadline"><span>Experiences</span></h2>
+      <div class="experienceGrid">
+        <div class="experienceGrid-item" v-for="(experience, expIndex) in experiences" :key="`experience-${expIndex}`">
+          <img class="experienceGrid-item-cover" :src="require(`../assets/images/companies/${experience.logo}`)" />
+          <div class="experienceGrid-item-data">
+            <div class="experienceGrid-item-data-header">
+              <h2>{{ experience.role }} @ {{ experience.name }}</h2>
+              <small>{{ getMonthYear(experience.join) }} – {{ getMonthYear(experience.leave) }} ({{ jobDuration(experience.join, experience.leave) }})</small>
+            </div>
+            <p>{{ experience.description }}</p>
+          </div>
+        </div>
       </div>
     </PageContent>
   </div>
@@ -28,6 +43,7 @@
 import PageHeader from "@/components/PageHeader.vue";
 import PageContent from "@/components/PageContent.vue";
 import SkillGauge from "@/components/SkillGauge.vue";
+import moment from 'moment';
 
 export default {
   name: "AboutMe",
@@ -64,7 +80,7 @@ export default {
           isHovered: false
         },
         {
-          link: "https://bitbucket.org/alfv89/",
+          link: "https://bitbucket.org/arthurvasconcelos/",
           iconName: ["fab", "bitbucket"],
           color: "#2684FF",
           show: false,
@@ -95,7 +111,7 @@ export default {
           link: "https://keybase.io/avasconcelos",
           iconName: ["fab", "keybase"],
           color: "#FF6F21",
-          show: false,
+          show: true,
           isHovered: false
         },
         {
@@ -160,6 +176,40 @@ export default {
         //   name: "",
         //   knwl: 0
         // },
+      ],
+      experiences: [
+        {
+          name: "Igarapé Institute",
+          logo: "igarape_en_block.png",
+          role: "Software Developer",
+          description: "Responsible for the development of web, desktop and mobile applications, data visualizations and interfaces for internal tools.",
+          join: "2016-04-01",
+          leave: null
+        },
+        {
+          name: "FGV DAPP",
+          logo: "fgv-dapp.png",
+          role: "Fullstack Developer",
+          description: "Responsible for the development of interfaces and tools for data processing, server management and maintenance.",
+          join: "2014-07-01",
+          leave: "2016-02-01"
+        },
+        {
+          name: "Piloti",
+          logo: "piloti.png",
+          role: "Fullstack Developer",
+          description: "Responsible for the development of interfaces and systems using the Symfony framework. ",
+          join: "2013-03-01",
+          leave: "2014-06-01"
+        }
+        // {
+        //   name: "",
+        //   logo: "",
+        //   role: "",
+        //   description: "",
+        //   join: "",
+        //   leave: ""
+        // }
       ]
     };
   },
@@ -175,6 +225,14 @@ export default {
           target.isHovered = false;
         }
       }
+    },
+    getMonthYear(dateString) {
+      if (dateString) {
+        const currDate = moment(dateString);
+        return currDate.format('MMM, YYYY');
+      }
+
+      return 'Current';
     }
   }
 };
@@ -202,7 +260,7 @@ export default {
   display: grid;
   grid-row-gap: 0.5rem;
   // grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-  grid-template-columns: repeat(5, 50px);
+  grid-template-columns: repeat(6, 50px);
   grid-template-rows: auto;
   justify-content: center;
   justify-items: center;
@@ -252,6 +310,41 @@ export default {
   grid-row-gap: 25px;
   grid-template-columns: 1fr 1fr;
   margin-top: 0.5em;
+}
+
+.experienceGrid {
+  margin-top: 0.5em;
+}
+
+.experienceGrid-item {
+  align-items: flex-start;
+  display: flex;
+}
+
+.experienceGrid-item-cover {
+  width: 200px;
+}
+
+.experienceGrid-item-data {
+  width: 100%;
+
+  p {
+    font-size: 18px;
+    margin: 0;
+  }
+}
+
+.experienceGrid-item-data-header {
+  display: flex;
+
+  h2 {
+    font-size: 22px;
+    margin: 0;
+  }
+
+  small {
+    margin-left: auto;
+  }
 }
 
 @include mediaQueries(M) {
