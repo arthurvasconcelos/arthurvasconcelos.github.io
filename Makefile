@@ -9,7 +9,7 @@ teste = $(shell bundle exec jekyll serve)
 
 server:
 	$(call print, "Starting server")
-  $(call teste)
+	$(call teste)
 
 deploy:
 	make clean
