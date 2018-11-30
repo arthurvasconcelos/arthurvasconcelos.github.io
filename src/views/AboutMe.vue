@@ -23,6 +23,8 @@
         </li>
       </ul>
 
+      <!-- SKILLS -->
+
       <h2 class="subHeadline"><span>Skills</span></h2>
       <div class="skillGrid">
         <SkillBar
@@ -32,7 +34,9 @@
           :value="skill.knwl"></SkillBar>
       </div>
 
-      <h2 class="subHeadline"><span>Experiences</span></h2>
+      <!-- EXPERIENCES -->
+
+      <h2 class="subHeadline"><span>Work Experiences</span></h2>
       <div class="experienceGrid">
         <ExperienceItem
           v-for="(experience, expIndex) in experiences"
@@ -332,6 +336,7 @@ export default {
   }
 
   span {
+    flex-shrink: 0;
     margin: 0 0.5em;
   }
 }
@@ -351,6 +356,8 @@ export default {
   grid-template-columns: 1fr;
   margin-top: 0.5em;
 }
+
+// Medias
 
 @include mediaQueries(M) {
   .aboutMe-profilePicture {
