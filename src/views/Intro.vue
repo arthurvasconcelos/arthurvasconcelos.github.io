@@ -1,6 +1,6 @@
 <template>
-<div class="intro">
-  <div class="startsContainer">
+<div class="intro" ref="intro">
+  <div class="startsContainer" ref="startsContainer">
     <div class="stars"></div>
     <div class="stars2"></div>
     <div class="stars3"></div>
@@ -40,6 +40,16 @@ export default {
     this.currentWord = this.words[0];
     this.currentClass = this.words[0];
     this.wordsInterval();
+
+    this.$events.$on("windowResize", () => {
+      // console.log(window.outerWidth);
+      // console.log(window.outerHeight);
+      this.$refs.intro.style.width = this.$refs.startsContainer.style.width = "100%";
+      this.$refs.intro.style.height = this.$refs.startsContainer.style.height = "100vh";
+    });
+  },
+  beforeDestroy() {
+    this.$events.$off("windowResize");
   },
   methods: {
     wordsInterval(delay = 5000) {
@@ -102,7 +112,7 @@ export default {
   overflow: hidden;
   position: absolute;
   width: 100%;
-  z-index: -1;
+  z-index: 0;
 }
 
 .stars,
@@ -161,6 +171,8 @@ export default {
 .welcome {
   display: grid;
   height: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .title {
@@ -241,6 +253,7 @@ export default {
   font-size: 0.7rem;
   position: fixed;
   right: 15px;
+  z-index: 1;
 
   a {
     align-items: center;

@@ -31,11 +31,11 @@ export default {
   mounted() {
     this.headerContainer = this.$refs.headerContainer;
 
-    setTimeout(() => {
-      this.initHeader();
-      this.initAnimation();
-      this.addListeners();
-    }, 1000);
+    this.initHeader();
+    this.initAnimation();
+    this.addListeners();
+    // setTimeout(() => {
+    // }, 5000);
   },
   beforeDestroy() {
     this.removeListeners();
@@ -129,9 +129,9 @@ export default {
       this.$events.$on("windowResize", this.resize);
     },
     removeListeners() {
-      this.$events.$off("windowMouseMove", this.mouseMove);
-      this.$events.$off("windowScroll", this.scrollCheck);
-      this.$events.$off("windowResize", this.resize);
+      this.$events.$off("windowMouseMove");
+      this.$events.$off("windowScroll");
+      this.$events.$off("windowResize");
     },
 
     // Event Handlers

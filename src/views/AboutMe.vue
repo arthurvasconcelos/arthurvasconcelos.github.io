@@ -6,7 +6,7 @@
 
       <div class="aboutMe-description">
         <p>HEY YOU,</p>
-        <p>I'm Arthur Vasconcelos, a {{ myAge() }}-year old nerd living in São Paulo. I love being a developer and learning new stuff! I currently work at the {{ experiences[0].name }} but I'm always involved in Open Source or freelance projects in my spare time.</p>
+        <p>I'm Arthur Vasconcelos, a {{ myAge() }}-year old nerd living in São Paulo. I love being a developer and learning new stuff! I am currently a {{ experiences[0].role.toLowerCase() }} at {{ experiences[0].name }}. But I am also actively involved with the Open Source community and developing other projects in my spare time.</p>
         <p>Also I have 7 years of experience as a developer and my main focus is in frontend development and user interface coding, where I have a strong knowledge of Javascript and its tools and frameworks but I can develop on the server side too, I can write code in PHP, Javascript and Python.</p>
       </div>
 
@@ -14,7 +14,9 @@
         <li class="aboutMe-socialList-item" v-for="(social, sIndex) in filterBy(socials, 'show', true)" :key="`social-${sIndex}`">
           <a
             class="aboutMe-socialList-link"
-            :href="social.link" target="_blank"
+            :href="social.link"
+            target="_blank"
+            :title="social.title"
             :style="{ color: (social.isHovered || $root.isMobile()) ? social.color : null }"
             @mouseover="mouseOverOutSocial($event, social)"
             @mouseout="mouseOverOutSocial($event, social)">
@@ -65,6 +67,7 @@ export default {
     return {
       socials: [
         {
+          title: "Facebook",
           link: "https://facebook.com/vasconcelos.arthur",
           iconName: ["fab", "facebook-f"],
           color: "#3B579D",
@@ -72,6 +75,7 @@ export default {
           isHovered: false
         },
         {
+          title: "Twitter",
           link: "https://twitter.com/jookeringa",
           iconName: ["fab", "twitter"],
           color: "#00ACEE",
@@ -79,6 +83,7 @@ export default {
           isHovered: false
         },
         {
+          title: "LinkedIn",
           link: "https://linkedin.com/in/arthurvasconcelos/",
           iconName: ["fab", "linkedin-in"],
           color: "#0A75B5",
@@ -86,6 +91,7 @@ export default {
           isHovered: false
         },
         {
+          title: "Github",
           link: "https://github.com/arthurvasconcelos",
           iconName: ["fab", "github-alt"],
           color: "#171515",
@@ -93,6 +99,7 @@ export default {
           isHovered: false
         },
         {
+          title: "Bitbucket",
           link: "https://bitbucket.org/arthurvasconcelos/",
           iconName: ["fab", "bitbucket"],
           color: "#2684FF",
@@ -100,6 +107,7 @@ export default {
           isHovered: false
         },
         {
+          title: "Codepen",
           link: "https://codepen.io/arthurvasconcelos/",
           iconName: ["fab", "codepen"],
           color: "#303C42",
@@ -107,6 +115,7 @@ export default {
           isHovered: false
         },
         {
+          title: "JSFiddle",
           link: "https://jsfiddle.net/user/arthurvasconcelos",
           iconName: ["fab", "jsfiddle"],
           color: "#4679A4",
@@ -114,6 +123,7 @@ export default {
           isHovered: false
         },
         {
+          title: "NPM",
           link: "https://www.npmjs.com/~arthurvasconcelos",
           iconName: ["fab", "npm"],
           color: "#CB3837",
@@ -121,6 +131,7 @@ export default {
           isHovered: false
         },
         {
+          title: "Keybase",
           link: "https://keybase.io/avasconcelos",
           iconName: ["fab", "keybase"],
           color: "#FF6F21",
@@ -128,6 +139,7 @@ export default {
           isHovered: false
         },
         {
+          title: "Stack Overflow",
           link: "https://stackoverflow.com/users/3130385/arthur-vasconcelos",
           iconName: ["fab", "stack-overflow"],
           color: "#F48024",
@@ -135,6 +147,7 @@ export default {
           isHovered: false
         },
         {
+          title: "Twitch",
           link: "https://www.twitch.tv/jokeringa",
           iconName: ["fab", "twitch"],
           color: "#6441A4",
@@ -142,6 +155,7 @@ export default {
           isHovered: false
         },
         {
+          title: "Reddit",
           link: "https://www.reddit.com/user/jookeringa",
           iconName: ["fab", "reddit-alien"],
           color: "#FF4500",
@@ -149,9 +163,10 @@ export default {
           isHovered: false
         }
         // {
-        //     link: '#',
-        //     iconName: ['fab', 'github-alt'],
-        //     color: '#f00',
+        //     title: "#",
+        //     link: "#",
+        //     iconName: ["fab", "github-alt"],
+        //     color: "#f00",
         //     show: false,
         //     isHovered: false
         // }
@@ -282,6 +297,7 @@ export default {
   margin: 0;
 
   p {
+    font-size: 22px;
     margin: 0 0 15px 0;
 
     &:last-child {
@@ -305,9 +321,9 @@ export default {
   padding: 0;
 }
 
-.aboutMe-socialList-item {
-  place-self: stretch;
-}
+// .aboutMe-socialList-item {
+//   place-self: stretch;
+// }
 
 .aboutMe-socialList-link {
   align-items: center;
@@ -317,6 +333,7 @@ export default {
   justify-items: center;
   transition: color 0.3s ease-in-out;
   width: 100%;
+  font-size: 30px;
 }
 
 .subHeadline {
