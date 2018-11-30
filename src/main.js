@@ -2,6 +2,8 @@ import Vue from "vue";
 import Events from "vue-events";
 import moment from "moment";
 import axios from "axios";
+import Analytics from "vue-analytics";
+import GTM from "vue-gtm";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faBars,
@@ -36,6 +38,17 @@ import store from "./store";
 import "./registerServiceWorker";
 
 Vue.use(Events);
+Vue.use(Analytics, {
+  id: "UA-28901644-2",
+  router
+  // ignoreRoutes: []
+});
+Vue.use(GTM, {
+  enabled: true,
+  debug: true,
+  vueRouter: router
+  // ignoredViews: ['']
+});
 
 Vue.prototype.$http = axios;
 
