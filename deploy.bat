@@ -26,5 +26,5 @@ XCOPY /v .\deploy.bat .\dist
 
 @echo.
 @echo ^=^=^> Apply dist and clean unwanted files and folders:
-XCOPY /v /h /y .\dist\* .\
-@RMDIR /S .\dist
+XCOPY /s /v /h /y .\dist\* .\
+@RMDIR /S /Q .\dist
