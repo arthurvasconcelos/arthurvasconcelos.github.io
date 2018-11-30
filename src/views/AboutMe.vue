@@ -324,7 +324,7 @@ export default {
   clear: both;
   display: flex;
   font-size: 2rem;
-  margin: 0.5em 0 0;
+  margin: 1.5em 0;
 
   &::before,
   &::after {
