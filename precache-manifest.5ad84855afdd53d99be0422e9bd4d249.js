@@ -16,12 +16,12 @@ self.__precacheManifest = [
     "url": "/css/about-me~projects.40bf96fc.css"
   },
   {
-    "revision": "1f3642a8ddd20a7c761d",
-    "url": "/css/app.7f4ec02c.css"
+    "revision": "2e8e2b812855bcabb61e",
+    "url": "/css/app.53c2c381.css"
   },
   {
-    "revision": "1f3642a8ddd20a7c761d",
-    "url": "/js/app.5b248344.js"
+    "revision": "2e8e2b812855bcabb61e",
+    "url": "/js/app.c8868233.js"
   },
   {
     "revision": "c66aaa9e1c6667492e9f",
@@ -44,8 +44,8 @@ self.__precacheManifest = [
     "url": "/img/igarape_pt_wide.ae29ac13.png"
   },
   {
-    "revision": "c7fc2a0674e93d8ded7f",
-    "url": "/js/about-me.38880c88.js"
+    "revision": "88e6dc1d269a8254e67c",
+    "url": "/js/about-me.99757ad2.js"
   },
   {
     "revision": "8a9e415d05be2e6a4011",
@@ -80,11 +80,11 @@ self.__precacheManifest = [
     "url": "/img/igarape_en_wide.b1f78968.png"
   },
   {
-    "revision": "71d4790adaa01fdf05aa9c194d8bdda8",
+    "revision": "b605108d39e33e2e338c91dcfb5b9c3c",
     "url": "/index.html"
   },
   {
-    "revision": "c7fc2a0674e93d8ded7f",
-    "url": "/css/about-me.5779a9dd.css"
+    "revision": "88e6dc1d269a8254e67c",
+    "url": "/css/about-me.711bde23.css"
   }
 ];

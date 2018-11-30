@@ -26,6 +26,10 @@ XCOPY /v .\deploy.bat .\dist
 
 @echo.
 @echo ^=^=^> Apply dist and clean unwanted files and folders:
+@RMDIR /S /Q .\css
+@RMDIR /S /Q .\img
+@RMDIR /S /Q .\js
+@RMDIR /S /Q .\precache-manifest.*
 XCOPY /s /v /h /y .\dist\* .\
 @RMDIR /S /Q .\dist
 
@@ -36,5 +40,5 @@ XCOPY /s /v /h /y .\dist\* .\
 @call git push origin master
 
 @echo.
-@echo ^=^=^> Go back to source:
-@call checkout develop
+@echo ^=^=^> Go back to develop:
+@call git checkout develop
