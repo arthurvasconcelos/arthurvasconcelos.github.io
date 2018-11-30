@@ -46,7 +46,7 @@ export default {
       validator(value) {
         return value === null || moment(value).isValid();
       }
-    },
+    }
   },
   data() {
     return {};
