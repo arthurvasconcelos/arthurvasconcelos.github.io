@@ -3,13 +3,13 @@
     <div class="mainNavigation-container" ref="mainNavigationContainer">
         <div class="relativeWrapper">
             <ul class="mainNavigation-list">
-                <li class="mainNavigation-list-item">
+                <li class="mainNavigation-list-item" @click="closeIfMobile()">
                     <router-link :to="{ name: 'intro' }" class="mainNavigation-list-link">Home</router-link>
                 </li>
-                <li class="mainNavigation-list-item">
+                <li class="mainNavigation-list-item" @click="closeIfMobile()">
                     <router-link :to="{ name: 'about-me' }" class="mainNavigation-list-link">About Me</router-link>
                 </li>
-                <li class="mainNavigation-list-item">
+                <li class="mainNavigation-list-item" @click="closeIfMobile()">
                     <router-link :to="{ name: 'projects' }" class="mainNavigation-list-link">Projects</router-link>
                 </li>
             </ul>
@@ -34,6 +34,11 @@ export default {
     },
     closeMenu() {
       this.$refs.mainNavigationContainer.classList.remove("is-open");
+    },
+    closeIfMobile() {
+      if (this.isMobile()) {
+        this.closeMenu();
+      }
     }
   }
 };
