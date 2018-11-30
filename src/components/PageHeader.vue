@@ -37,6 +37,9 @@ export default {
       this.addListeners();
     }, 1000);
   },
+  beforeDestroy() {
+    this.removeListeners();
+  },
   methods: {
     initHeader() {
       this.width = this.headerContainer.offsetWidth;
@@ -124,6 +127,11 @@ export default {
       this.$events.$on("windowMouseMove", this.mouseMove);
       this.$events.$on("windowScroll", this.scrollCheck);
       this.$events.$on("windowResize", this.resize);
+    },
+    removeListeners() {
+      this.$events.$off("windowMouseMove", this.mouseMove);
+      this.$events.$off("windowScroll", this.scrollCheck);
+      this.$events.$off("windowResize", this.resize);
     },
 
     // Event Handlers
