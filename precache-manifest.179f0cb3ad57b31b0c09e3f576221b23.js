@@ -12,16 +12,16 @@ self.__precacheManifest = [
     "url": "/img/profile.45af4fc7.jpg"
   },
   {
-    "revision": "8a9e415d05be2e6a4011",
+    "revision": "4407590e1ea06087711b",
     "url": "/css/about-me~projects.40bf96fc.css"
   },
   {
-    "revision": "1f3642a8ddd20a7c761d",
-    "url": "/css/app.7f4ec02c.css"
+    "revision": "d5e38b296772f7af3047",
+    "url": "/css/app.dfd2646f.css"
   },
   {
-    "revision": "1f3642a8ddd20a7c761d",
-    "url": "/js/app.5b248344.js"
+    "revision": "d5e38b296772f7af3047",
+    "url": "/js/app.4d6dc0d2.js"
   },
   {
     "revision": "c66aaa9e1c6667492e9f",
@@ -44,12 +44,12 @@ self.__precacheManifest = [
     "url": "/img/igarape_pt_wide.ae29ac13.png"
   },
   {
-    "revision": "c7fc2a0674e93d8ded7f",
-    "url": "/js/about-me.38880c88.js"
+    "revision": "ca41c9c3e6e1d4876d07",
+    "url": "/js/about-me.7ef43158.js"
   },
   {
-    "revision": "8a9e415d05be2e6a4011",
-    "url": "/js/about-me~projects.cf8dd284.js"
+    "revision": "4407590e1ea06087711b",
+    "url": "/js/about-me~projects.11434d13.js"
   },
   {
     "revision": "ac4141fcf91b814e142be7031afaba27",
@@ -80,11 +80,11 @@ self.__precacheManifest = [
     "url": "/img/igarape_en_wide.b1f78968.png"
   },
   {
-    "revision": "71d4790adaa01fdf05aa9c194d8bdda8",
+    "revision": "a722a3dad44f54cade03e617ed945148",
     "url": "/index.html"
   },
   {
-    "revision": "c7fc2a0674e93d8ded7f",
-    "url": "/css/about-me.5779a9dd.css"
+    "revision": "ca41c9c3e6e1d4876d07",
+    "url": "/css/about-me.711bde23.css"
   }
 ];
