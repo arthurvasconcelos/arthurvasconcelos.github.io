@@ -11,7 +11,8 @@ import {
   faStar,
   faExclamationCircle,
   faCloudDownloadAlt,
-  faCode
+  faCode,
+  faSpinner
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -48,6 +49,7 @@ library.add([
   faExclamationCircle,
   faCloudDownloadAlt,
   faCode,
+  faSpinner,
   faFacebookF,
   faLinkedinIn,
   faTwitter,

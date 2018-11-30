@@ -46,6 +46,6 @@ export default {
 .projectList {
   display: flex;
   flex-wrap: wrap;
-  // justify-content: space-between;
+  margin: -.5em;
 }
 </style>

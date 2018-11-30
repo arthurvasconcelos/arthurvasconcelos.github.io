@@ -1,5 +1,9 @@
 <template>
   <div class="project" ref="project">
+    <div class="project-loading" :class="{ 'is-loaded': isLoaded }">
+      <FontAwesomeIcon :icon="['fas', 'spinner']" pulse />
+    </div>
+
     <div class="project-body">
       <h2 class="project-name">{{ name }}</h2>
       <p class="project-description">{{ description }}</p>
@@ -78,10 +82,19 @@ export default {
       forks: 0,
       issues: 0,
       version: 0,
-      downloads: 0
+      downloads: 0,
+      flags: {
+        gh: false,
+        downloads: false,
+        version: false
+      }
     };
   },
-  computed: {},
+  computed: {
+    isLoaded() {
+      return this.flags.gh && this.flags.downloads && this.flags.version;
+    }
+  },
   beforeMount() {
     this.$http
       .get(`${GITHUB_ENDPOINT}${this.repo}`)
@@ -93,18 +106,21 @@ export default {
         this.stars = data.stargazers_count;
         this.forks = data.forks_count;
         this.issues = data.open_issues_count;
+        this.flags.gh = true;
       });
 
     this.$http
       .get(`https://api.npmjs.org/downloads/point/${this.createDate}:${moment().format("YYYY-MM-DD")}/${this.repo}`)
       .then(response => {
         this.downloads = response.data.downloads;
+        this.flags.downloads = true;
       });
 
     this.$http
       .get(`https://raw.githubusercontent.com/arthurvasconcelos/${this.repo}/master/package.json`)
       .then(response => {
         this.version = response.data.version;
+        this.flags.version = true;
       });
   },
   mounted() {},
@@ -119,8 +135,32 @@ export default {
 
 .project {
   width: 300px;
-  box-shadow: 3px 3px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 3px 5px -2px rgba(0, 0, 0, .75);
   padding: 0.5em;
+  position: relative;
+  margin: .5em;
+}
+
+.project-loading {
+  align-items: center;
+  background-color: rgba(0, 0, 0, .65);
+  color: #FFFFFF;
+  display: flex;
+  font-size: 40px;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+
+  &.is-loaded {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 .project-body {
@@ -173,7 +213,7 @@ export default {
 .installCommand {
   font-size: 12px;
   margin-top: 10px;
-  background-color: #f6f8fa;
+  background-color: #d6d6d6;
   border-radius: 3px;
   padding: 16px;
 }
