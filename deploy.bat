@@ -36,5 +36,5 @@ XCOPY /s /v /h /y .\dist\* .\
 @call git push origin master
 
 @echo.
-@echo ^=^=^> Go back to source:
-@call checkout develop
+@echo ^=^=^> Go back to develop:
+@call git checkout develop
