@@ -18,10 +18,13 @@ XCOPY /v .\CNAME .\dist
 XCOPY /v .\LICENSE .\dist
 XCOPY /v .\README.md .\dist
 XCOPY /v .\Makefile .\dist
-XCOPY /v .\Makefile .\dist
+XCOPY /v .\deploy.bat .\dist
 
 @echo.
 @echo ^=^=^> Checkout master branch:
 @call git checkout master
 
-@echo EVEN AFTER
+@echo.
+@echo ^=^=^> Apply dist and clean unwanted files and folders:
+XCOPY /v /h /y .\dist\* .\
+@RMDIR /S .\dist
