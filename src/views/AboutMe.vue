@@ -23,7 +23,7 @@
 
       <h2 class="subHeadline"><span>Skills</span></h2>
       <div class="skillGrid">
-        <SkillGauge :name="skill.name" :value="skill.knwl" v-for="(skill, sklIndex) in skills" :key="`skill-${sklIndex}`"></SkillGauge>
+        <SkillBar :name="skill.name" :value="skill.knwl" v-for="(skill, sklIndex) in skills" :key="`skill-${sklIndex}`"></SkillBar>
       </div>
 
       <h2 class="subHeadline"><span>Experiences</span></h2>
@@ -48,10 +48,11 @@ import moment from "moment";
 import PageHeader from "@/components/PageHeader.vue";
 import PageContent from "@/components/PageContent.vue";
 import SkillGauge from "@/components/SkillGauge.vue";
+import SkillBar from "@/components/SkillBar.vue";
 
 export default {
   name: "AboutMe",
-  components: { PageHeader, PageContent, SkillGauge },
+  components: { PageHeader, PageContent, SkillGauge, SkillBar },
   data() {
     return {
       socials: [
@@ -149,32 +150,52 @@ export default {
       ],
       skills: [
         {
-          name: "Javascript",
-          knwl: 90
+          name: "HTML",
+          knwl: 100
+        },
+        {
+          name: "CSS",
+          knwl: 100
+        },
+        {
+          name: "SASS",
+          knwl: 80
+        },
+        {
+          name: "LESS",
+          knwl: 60
         },
         {
           name: "Javascript",
-          knwl: 90
+          knwl: 100
         },
         {
-          name: "Javascript",
-          knwl: 90
+          name: "VueJS",
+          knwl: 85
         },
         {
-          name: "Javascript",
-          knwl: 90
+          name: "Angular",
+          knwl: 65
         },
         {
-          name: "Javascript",
-          knwl: 90
+          name: "EmberJS",
+          knwl: 75
         },
         {
-          name: "Javascript",
-          knwl: 90
+          name: "PHP",
+          knwl: 80
         },
         {
-          name: "Javascript",
-          knwl: 90
+          name: "Laravel",
+          knwl: 70
+        },
+        {
+          name: "Symfony",
+          knwl: 45
+        },
+        {
+          name: "Python",
+          knwl: 30
         }
         // {
         //   name: "",
@@ -376,9 +397,9 @@ export default {
     margin: 0 0.5em 0.5em 0;
   }
 
-  .skillGrid {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
+  // .skillGrid {
+  //   grid-template-columns: 1fr 1fr 1fr 1fr;
+  // }
 }
 
 @include mediaQueries(L) {
@@ -386,9 +407,9 @@ export default {
     margin: 1.5rem 0 0;
   }
 
-  .skillGrid {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  }
+  // .skillGrid {
+  //   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  // }
 }
 
 @include mediaQueries(XL) {
