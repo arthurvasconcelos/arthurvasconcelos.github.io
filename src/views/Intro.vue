@@ -44,8 +44,10 @@ export default {
     this.$events.$on("windowResize", () => {
       // console.log(window.outerWidth);
       // console.log(window.outerHeight);
-      this.$refs.intro.style.width = this.$refs.startsContainer.style.width = "100%";
-      this.$refs.intro.style.height = this.$refs.startsContainer.style.height = "100vh";
+      this.$refs.intro.style.width = this.$refs.startsContainer.style.width =
+        "100%";
+      this.$refs.intro.style.height = this.$refs.startsContainer.style.height =
+        "100vh";
     });
   },
   beforeDestroy() {
