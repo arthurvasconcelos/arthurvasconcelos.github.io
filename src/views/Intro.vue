@@ -54,7 +54,7 @@ export default {
     this.$events.$off("windowResize");
   },
   methods: {
-    wordsInterval(delay = 3500) {
+    wordsInterval(delay = 1500) {
       const currentIndex = this.words.indexOf(this.currentWord);
       const nextIndex =
         currentIndex + 1 > this.words.length - 1 ? 0 : currentIndex + 1;
