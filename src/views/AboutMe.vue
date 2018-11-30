@@ -3,11 +3,13 @@
     <PageHeader title="About Me"></PageHeader>
     <PageContent class="aboutMe">
       <img src="../assets/images/profile.jpg" alt="arthur vasconcelos profile pricture" class="aboutMe-profilePicture">
+
       <div class="aboutMe-description">
         <p>HEY YOU,</p>
         <p>I'm Arthur Vasconcelos, a {{ myAge() }}-year old nerd living in São Paulo. I love being a developer and learning new stuff! I currently work at the {{ experiences[0].name }} but I'm always involved in Open Source or freelance projects in my spare time.</p>
         <p>Also I have 7 years of experience as a developer and my main focus is in frontend development and user interface coding, where I have a strong knowledge of Javascript and its tools and frameworks but I can develop on the server side too, I can write code in PHP, Javascript and Python.</p>
       </div>
+
       <ul class="aboutMe-socialList">
         <li class="aboutMe-socialList-item" v-for="(social, sIndex) in filterBy(socials, 'show', true)" :key="`social-${sIndex}`">
           <a
@@ -23,38 +25,38 @@
 
       <h2 class="subHeadline"><span>Skills</span></h2>
       <div class="skillGrid">
-        <SkillBar :name="skill.name" :value="skill.knwl" v-for="(skill, sklIndex) in skills" :key="`skill-${sklIndex}`"></SkillBar>
+        <SkillBar
+          v-for="(skill, sklIndex) in skills"
+          :key="`skill-${sklIndex}`"
+          :name="skill.name"
+          :value="skill.knwl"></SkillBar>
       </div>
 
       <h2 class="subHeadline"><span>Experiences</span></h2>
       <div class="experienceGrid">
-        <div class="experienceGrid-item" v-for="(experience, expIndex) in experiences" :key="`experience-${expIndex}`">
-          <div class="experienceGrid-item-cover">
-            <img :src="require(`../assets/images/companies/${experience.logo}`)" />
-          </div>
-          <div class="experienceGrid-item-data">
-            <div class="experienceGrid-item-data-header">
-              <h2>{{ experience.role }} @ {{ experience.name }}</h2>
-              <small>{{ getMonthYear(experience.join) }} – {{ getMonthYear(experience.leave) }} ({{ jobDuration(experience.join, experience.leave) }})</small>
-            </div>
-            <p class="experienceGrid-item-data-description">{{ experience.description }}</p>
-          </div>
-        </div>
+        <ExperienceItem
+          v-for="(experience, expIndex) in experiences"
+          :key="`experience-${expIndex}`"
+          :logo="experience.logo"
+          :role="experience.role"
+          :name="experience.name"
+          :description="experience.description"
+          :join="experience.join"
+          :leave="experience.leave"></ExperienceItem>
       </div>
     </PageContent>
   </div>
 </template>
 
 <script>
-import moment from "moment";
 import PageHeader from "@/components/PageHeader.vue";
 import PageContent from "@/components/PageContent.vue";
-import SkillGauge from "@/components/SkillGauge.vue";
 import SkillBar from "@/components/SkillBar.vue";
+import ExperienceItem from "@/components/ExperienceItem.vue";
 
 export default {
   name: "AboutMe",
-  components: { PageHeader, PageContent, SkillGauge, SkillBar },
+  components: { PageHeader, PageContent, SkillBar, ExperienceItem },
   data() {
     return {
       socials: [
@@ -255,14 +257,6 @@ export default {
           target.isHovered = false;
         }
       }
-    },
-    getMonthYear(dateString) {
-      if (dateString) {
-        const currDate = moment(dateString);
-        return currDate.format("MMM, YYYY");
-      }
-
-      return "Current";
     }
   }
 };
@@ -356,46 +350,6 @@ export default {
   grid-row-gap: 25px;
   grid-template-columns: 1fr;
   margin-top: 0.5em;
-}
-
-.experienceGrid-item {
-  display: flex;
-  width: 100%;
-  align-items: flex-start;
-}
-
-.experienceGrid-item-cover {
-  width: 30%;
-  margin: 0 10px 0 0;
-  flex-shrink: 0;
-
-  img {
-    width: 100%;
-  }
-}
-
-.experienceGrid-item-data {
-  width: 100%;
-}
-
-.experienceGrid-item-data-header {
-  display: flex;
-  flex-direction: column;
-
-  h2 {
-    font-size: 22px;
-    margin: 0;
-  }
-
-  small {
-    font-size: 16px;
-    // margin-left: auto;
-  }
-}
-
-.experienceGrid-item-data-description {
-  font-size: 18px;
-  margin: 10px 0 0;
 }
 
 @include mediaQueries(M) {
