@@ -1,8 +1,18 @@
 import Vue from "vue";
 import Events from "vue-events";
 import moment from "moment";
+import axios from "axios";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faTimes,
+  faEye,
+  faCodeBranch,
+  faStar,
+  faExclamationCircle,
+  faCloudDownloadAlt,
+  faCode
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faLinkedinIn,
@@ -26,10 +36,18 @@ import "./registerServiceWorker";
 
 Vue.use(Events);
 
+Vue.prototype.$http = axios;
+
 // FA Config
 library.add([
   faBars,
   faTimes,
+  faEye,
+  faCodeBranch,
+  faStar,
+  faExclamationCircle,
+  faCloudDownloadAlt,
+  faCode,
   faFacebookF,
   faLinkedinIn,
   faTwitter,
