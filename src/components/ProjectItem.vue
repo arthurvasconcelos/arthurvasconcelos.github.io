@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import moment from 'moment';
+import moment from "moment";
 
 const GITHUB_ENDPOINT = "https://api.github.com/repos/arthurvasconcelos/";
 
@@ -96,28 +96,34 @@ export default {
     }
   },
   beforeMount() {
-    this.$http
-      .get(`${GITHUB_ENDPOINT}${this.repo}`)
-      .then(response => {
-        const data = response.data;
-        this.name = data.name;
-        this.description = data.description;
-        this.watchers = data.subscribers_count;
-        this.stars = data.stargazers_count;
-        this.forks = data.forks_count;
-        this.issues = data.open_issues_count;
-        this.flags.gh = true;
-      });
+    this.$http.get(`${GITHUB_ENDPOINT}${this.repo}`).then(response => {
+      const data = response.data;
+      this.name = data.name;
+      this.description = data.description;
+      this.watchers = data.subscribers_count;
+      this.stars = data.stargazers_count;
+      this.forks = data.forks_count;
+      this.issues = data.open_issues_count;
+      this.flags.gh = true;
+    });
 
     this.$http
-      .get(`https://api.npmjs.org/downloads/point/${this.createDate}:${moment().format("YYYY-MM-DD")}/${this.repo}`)
+      .get(
+        `https://api.npmjs.org/downloads/point/${
+          this.createDate
+        }:${moment().format("YYYY-MM-DD")}/${this.repo}`
+      )
       .then(response => {
         this.downloads = response.data.downloads;
         this.flags.downloads = true;
       });
 
     this.$http
-      .get(`https://raw.githubusercontent.com/arthurvasconcelos/${this.repo}/master/package.json`)
+      .get(
+        `https://raw.githubusercontent.com/arthurvasconcelos/${
+          this.repo
+        }/master/package.json`
+      )
       .then(response => {
         this.version = response.data.version;
         this.flags.version = true;
@@ -135,16 +141,16 @@ export default {
 
 .project {
   width: 300px;
-  box-shadow: 3px 3px 5px -2px rgba(0, 0, 0, .75);
+  box-shadow: 3px 3px 5px -2px rgba(0, 0, 0, 0.75);
   padding: 0.5em;
   position: relative;
-  margin: .5em;
+  margin: 0.5em;
 }
 
 .project-loading {
   align-items: center;
-  background-color: rgba(0, 0, 0, .65);
-  color: #FFFFFF;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: #ffffff;
   display: flex;
   font-size: 40px;
   height: 100%;
@@ -155,7 +161,7 @@ export default {
   width: 100%;
   opacity: 1;
   visibility: visible;
-  transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
   &.is-loaded {
     opacity: 0;
@@ -191,18 +197,18 @@ export default {
 }
 
 .statList-link {
-    @include applyFont(mono);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    padding: 2px 5px;
-    background-color: #333333;
-    color: #DDDDDD;
+  @include applyFont(mono);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  padding: 2px 5px;
+  background-color: #333333;
+  color: #dddddd;
 
-    &:hover {
-      color: #FFFFFF;
-    }
+  &:hover {
+    color: #ffffff;
+  }
 }
 
 .statList-item-value {

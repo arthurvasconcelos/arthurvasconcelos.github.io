@@ -44,10 +44,10 @@
 </template>
 
 <script>
+import moment from "moment";
 import PageHeader from "@/components/PageHeader.vue";
 import PageContent from "@/components/PageContent.vue";
 import SkillGauge from "@/components/SkillGauge.vue";
-import moment from 'moment';
 
 export default {
   name: "AboutMe",
@@ -186,7 +186,8 @@ export default {
           name: "Igarapé Institute",
           logo: "igarape_en_block.png",
           role: "Software Developer",
-          description: "Responsible for the development of web, desktop and mobile applications, data visualizations and interfaces for internal tools.",
+          description:
+            "Responsible for the development of web, desktop and mobile applications, data visualizations and interfaces for internal tools.",
           join: "2016-04-01",
           leave: null
         },
@@ -194,7 +195,8 @@ export default {
           name: "FGV DAPP",
           logo: "fgv-dapp.png",
           role: "Fullstack Developer",
-          description: "Responsible for the development of interfaces and tools for data processing, server management and maintenance.",
+          description:
+            "Responsible for the development of interfaces and tools for data processing, server management and maintenance.",
           join: "2014-07-01",
           leave: "2016-02-01"
         },
@@ -202,7 +204,8 @@ export default {
           name: "Piloti",
           logo: "piloti.png",
           role: "Fullstack Developer",
-          description: "Responsible for the development of interfaces and systems using the Symfony framework. ",
+          description:
+            "Responsible for the development of interfaces and systems using the Symfony framework. ",
           join: "2013-03-01",
           leave: "2014-06-01"
         }
@@ -233,10 +236,10 @@ export default {
     getMonthYear(dateString) {
       if (dateString) {
         const currDate = moment(dateString);
-        return currDate.format('MMM, YYYY');
+        return currDate.format("MMM, YYYY");
       }
 
-      return 'Current';
+      return "Current";
     }
   }
 };
