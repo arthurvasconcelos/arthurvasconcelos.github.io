@@ -45,7 +45,7 @@ Vue.use(Analytics, {
 });
 Vue.use(GTM, {
   enabled: true,
-  debug: true,
+  debug: process.env.NODE_ENV !== "production",
   vueRouter: router
   // ignoredViews: ['']
 });
