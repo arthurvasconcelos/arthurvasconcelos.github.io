@@ -29,7 +29,7 @@ XCOPY /v .\deploy.bat .\dist
 @RMDIR /S /Q .\css
 @RMDIR /S /Q .\img
 @RMDIR /S /Q .\js
-@del /S /Q .\precache-manifest*.*
+@DEL /S /Q .\precache-manifest*.*
 XCOPY /s /v /h /y .\dist\* .\
 @RMDIR /S /Q .\dist
 
