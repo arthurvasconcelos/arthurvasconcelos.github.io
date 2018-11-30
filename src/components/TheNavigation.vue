@@ -127,7 +127,7 @@ export default {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-touch-callout: none;
   box-sizing: border-box;
-  color: #b5b5b5;
+  color: color(fade);
   cursor: pointer;
   display: block;
   font-size: 1.05rem;
@@ -152,19 +152,19 @@ export default {
   }
 
   &::before {
-    background: #b5b5b5;
+    background: color(fade);
     transform: scale3d(1, 1, 1);
     transition-delay: 0.4s;
   }
 
   &::after {
-    background: #d94f5c;
+    background: color(sub);
     transform: scale3d(0, 1, 1);
   }
 
   &:hover,
   &:focus {
-    color: #b5b5b5;
+    color: color(fade);
     outline: none;
 
     &::before {
@@ -174,11 +174,11 @@ export default {
   }
 
   &.is-active-exact {
-    color: #d94f5c;
+    color: color(sub);
 
     &:hover,
     &:focus {
-      color: #d94f5c;
+      color: color(sub);
     }
 
     &::before,

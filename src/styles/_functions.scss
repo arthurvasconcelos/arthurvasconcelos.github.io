@@ -11,3 +11,7 @@
 @function breakpoint($size) {
     @return map-get($breakpoints, $size);
 }
+
+@function color($color) {
+  @return map-get($colors, $color);
+}

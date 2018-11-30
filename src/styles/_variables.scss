@@ -10,6 +10,13 @@ $breakpoints: (
     x-large: 1200px
 );
 
+$colors: (
+    main: #188dc9,
+    sub: #55bbe0,
+    fade: #9baeb5,
+    dark: #323233,
+);
+
 // Intro
 $shadows-small: multiple-box-shadow(700);
 $shadows-medium: multiple-box-shadow(200);
