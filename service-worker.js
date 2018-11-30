@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.5ad84855afdd53d99be0422e9bd4d249.js"
+  "/precache-manifest.da7c9dbe96eeb6bc40a0e34bf3f76ed7.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "arthurvasconcelos.github.io"});
