@@ -28,3 +28,13 @@ XCOPY /v .\deploy.bat .\dist
 @echo ^=^=^> Apply dist and clean unwanted files and folders:
 XCOPY /s /v /h /y .\dist\* .\
 @RMDIR /S /Q .\dist
+
+@echo.
+@echo ^=^=^> Commit changes to master:
+@call git add .
+@call git commit -m ":rocket: deploy website"
+@call git push origin master
+
+@echo.
+@echo ^=^=^> Go back to source:
+@call checkout develop
