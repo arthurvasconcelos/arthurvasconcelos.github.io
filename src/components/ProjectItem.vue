@@ -140,11 +140,11 @@ export default {
 @import "../styles/mixins";
 
 .project {
-  width: 300px;
+  width: 100%;
   box-shadow: 3px 3px 5px -2px rgba(0, 0, 0, 0.75);
   padding: 0.5em;
   position: relative;
-  margin: 0.5em;
+  box-sizing: border-box;
 }
 
 .project-loading {
@@ -170,8 +170,11 @@ export default {
 }
 
 .project-body {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-row-gap: 10px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 45px auto 64px 46px;
+  height: 100%;
 }
 
 .project-name {
@@ -179,22 +182,20 @@ export default {
 }
 
 .project-description {
-  height: 125px;
   margin: 0;
 }
 
 .statList {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
   list-style: none;
-  display: flex;
-  margin: -5px;
+  margin: 0;
   padding: 0;
-  // justify-content: center;
-  flex-wrap: wrap;
 }
 
-.statList-item {
-  margin: 5px;
-}
+// .statList-item {}
 
 .statList-link {
   @include applyFont(mono);
@@ -218,21 +219,8 @@ export default {
 
 .installCommand {
   font-size: 12px;
-  margin-top: 10px;
   background-color: #d6d6d6;
   border-radius: 3px;
   padding: 16px;
-}
-
-@include mediaQueries(XS) {
-  //
-}
-
-@include mediaQueries(S) {
-  //
-}
-
-@include mediaQueries(XL) {
-  //
 }
 </style>

@@ -44,8 +44,21 @@ export default {
 @import "../styles/mixins";
 
 .projectList {
-  display: flex;
-  flex-wrap: wrap;
-  margin: -0.5em;
+  display: grid;
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+  grid-template-columns: 1fr;
+}
+
+@include mediaQueries(M) {
+  .projectList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@include mediaQueries(L) {
+  .projectList {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 </style>

@@ -29,7 +29,9 @@
       <h2 class="subHeadline"><span>Experiences</span></h2>
       <div class="experienceGrid">
         <div class="experienceGrid-item" v-for="(experience, expIndex) in experiences" :key="`experience-${expIndex}`">
-          <img class="experienceGrid-item-cover" :src="require(`../assets/images/companies/${experience.logo}`)" />
+          <div class="experienceGrid-item-cover">
+            <img :src="require(`../assets/images/companies/${experience.logo}`)" />
+          </div>
           <div class="experienceGrid-item-data">
             <div class="experienceGrid-item-data-header">
               <h2>{{ experience.role }} @ {{ experience.name }}</h2>
@@ -344,27 +346,32 @@ export default {
   display: grid;
   grid-column-gap: 25px;
   grid-row-gap: 25px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   margin-top: 0.5em;
 }
 
 .experienceGrid {
-  margin: -10px;
+  display: grid;
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+  grid-template-columns: 1fr;
   margin-top: 0.5em;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .experienceGrid-item {
-  align-items: flex-start;
   display: flex;
-  width: calc(50% - 20px);
-  margin: 10px;
+  width: 100%;
+  align-items: flex-start;
 }
 
 .experienceGrid-item-cover {
-  width: 200px;
+  width: 30%;
   margin: 0 10px 0 0;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+  }
 }
 
 .experienceGrid-item-data {
@@ -397,19 +404,19 @@ export default {
     margin: 0 0.5em 0.5em 0;
   }
 
-  // .skillGrid {
-  //   grid-template-columns: 1fr 1fr 1fr 1fr;
-  // }
+  .skillGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .experienceGrid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @include mediaQueries(L) {
   .aboutMe-socialList {
     margin: 1.5rem 0 0;
   }
-
-  // .skillGrid {
-  //   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  // }
 }
 
 @include mediaQueries(XL) {
