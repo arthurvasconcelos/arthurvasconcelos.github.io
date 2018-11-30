@@ -3,7 +3,11 @@
     <PageHeader title="About Me"></PageHeader>
     <PageContent class="aboutMe">
       <img src="../assets/images/profile.jpg" alt="arthur vasconcelos profile pricture" class="aboutMe-profilePicture">
-      <p class="aboutMe-description">I'm an organized and dedicated professional, compromised with the quality of the code and the final product. I’m passionate about my work and I'm always looking forward to learn new things and improve on the ones that I already know.</p>
+      <div class="aboutMe-description">
+        <p>HEY YOU,</p>
+        <p>I'm Arthur Vasconcelos, a {{ myAge() }}-year old nerd living in São Paulo. I love being a developer and learning new stuff! I currently work at the {{ experiences[0].name }} but I'm always involved in Open Source or freelance projects in my spare time.</p>
+        <p>Also I have 7 years of experience as a developer and my main focus is in frontend development and user interface coding, where I have a strong knowledge of Javascript and its tools and frameworks but I can develop on the server side too, I can write code in PHP, Javascript and Python.</p>
+      </div>
       <ul class="aboutMe-socialList">
         <li class="aboutMe-socialList-item" v-for="(social, sIndex) in filterBy(socials, 'show', true)" :key="`social-${sIndex}`">
           <a
@@ -31,7 +35,7 @@
               <h2>{{ experience.role }} @ {{ experience.name }}</h2>
               <small>{{ getMonthYear(experience.join) }} – {{ getMonthYear(experience.leave) }} ({{ jobDuration(experience.join, experience.leave) }})</small>
             </div>
-            <p>{{ experience.description }}</p>
+            <p class="experienceGrid-item-data-description">{{ experience.description }}</p>
           </div>
         </div>
       </div>
@@ -252,6 +256,14 @@ export default {
 
 .aboutMe-description {
   margin: 0;
+
+  p {
+    margin: 0 0 15px 0;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
 }
 
 .aboutMe-socialList {
@@ -313,29 +325,31 @@ export default {
 }
 
 .experienceGrid {
+  margin: -10px;
   margin-top: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .experienceGrid-item {
   align-items: flex-start;
   display: flex;
+  width: calc(50% - 20px);
+  margin: 10px;
 }
 
 .experienceGrid-item-cover {
   width: 200px;
+  margin: 0 10px 0 0;
 }
 
 .experienceGrid-item-data {
   width: 100%;
-
-  p {
-    font-size: 18px;
-    margin: 0;
-  }
 }
 
 .experienceGrid-item-data-header {
   display: flex;
+  flex-direction: column;
 
   h2 {
     font-size: 22px;
@@ -343,8 +357,14 @@ export default {
   }
 
   small {
-    margin-left: auto;
+    font-size: 16px;
+    // margin-left: auto;
   }
+}
+
+.experienceGrid-item-data-description {
+  font-size: 18px;
+  margin: 10px 0 0;
 }
 
 @include mediaQueries(M) {
