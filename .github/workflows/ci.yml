@@ -1,0 +1,68 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  Linux:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install Dependencies
+      run: npm install
+    - name: Lint Code
+      run: npm run lint
+    - name: Build
+      run: npm run build
+    - name: Test E2E
+      run: npm run test:e2e:ci
+    - name: Test Unit
+      run: npm run test:unit
+  Windows:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install Dependencies
+      run: npm install
+    - name: Lint Code
+      run: npm run lint
+    - name: Build
+      run: npm run build
+    - name: Test E2E
+      run: npm run test:e2e:ci
+    - name: Test Unit
+      run: npm run test:unit
+  MacOS:
+    runs-on: macOS-latest
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install Dependencies
+      run: npm install
+    - name: Lint Code
+      run: npm run lint
+    - name: Build
+      run: npm run build
+    - name: Test E2E
+      run: npm run test:e2e:ci
+    - name: Test Unit
+      run: npm run test:unit
