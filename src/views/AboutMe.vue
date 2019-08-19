@@ -6,7 +6,7 @@
 
       <div class="aboutMe-description">
         <p>HEY YOU,</p>
-        <p>I'm Arthur Vasconcelos, a {{ myAge() }}-year old nerd living in São Paulo. I love being a developer and learning new stuff! I am currently a {{ experiences[0].role.toLowerCase() }} at {{ experiences[0].name }}. But I am also actively involved with the Open Source community and developing other projects in my spare time.</p>
+        <p>I'm Arthur Vasconcelos, a {{ myAge() }}-year old nerd from Brazil living in Tallinn, Estonia. I love being a developer and learning new stuff! I am currently a {{ experiences[0].role.toLowerCase() }} at {{ experiences[0].name }}. But I am also actively involved with the Open Source community and developing other projects in my spare time.</p>
         <p>Also I have 7 years of experience as a developer and my main focus is in frontend development and user interface coding, where I have a strong knowledge of Javascript and its tools and frameworks but I can develop on the server side too, I can write code in PHP, Javascript and Python.</p>
       </div>
 
@@ -227,13 +227,22 @@ export default {
       ],
       experiences: [
         {
+          name: "Genius Sports",
+          logo: "genius-sports.png",
+          role: "Web Developer",
+          description:
+            "",
+          join: "2019-04-14",
+          leave: null
+        },
+        {
           name: "Igarapé Institute",
           logo: "igarape_en_block.png",
           role: "Software Developer",
           description:
             "Responsible for the development of web, desktop and mobile applications, data visualizations and interfaces for internal tools.",
           join: "2016-04-01",
-          leave: null
+          leave: "2019-04-01"
         },
         {
           name: "FGV DAPP",
