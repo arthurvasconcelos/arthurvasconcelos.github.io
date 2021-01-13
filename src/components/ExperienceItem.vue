@@ -6,64 +6,71 @@
     <div class="experienceGrid-item-data">
       <div class="experienceGrid-item-data-header">
         <h2>{{ role }} @ {{ name }}</h2>
-        <small>{{ getMonthYear(join) }} – {{ getMonthYear(leave) }} ({{ jobDuration(join, leave) }})</small>
+        <small>{{ start }} – {{ end }} {{ durationText }}</small>
       </div>
       <p class="experienceGrid-item-data-description">{{ description }}</p>
     </div>
   </div>
 </template>
 
-<script>
-import moment from "moment";
+<script lang="ts">
+import { defineComponent } from "vue";
+import { isValid, format } from "date-fns";
+import { jobDuration } from "@/utils";
 
-export default {
+export default defineComponent({
   name: "ExperienceItem",
   props: {
     logo: {
       type: String,
-      required: true
+      required: true,
     },
     role: {
       type: String,
-      required: true
+      required: true,
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
     description: {
       type: String,
-      required: true
+      required: true,
     },
     join: {
       type: String,
-      validator(value) {
-        return moment(value).isValid();
-      }
+      required: true,
+      validator: (value: string) => {
+        return isValid(new Date(value));
+      },
     },
     leave: {
       type: String,
-      validator(value) {
-        return value === null || moment(value).isValid();
-      }
-    }
+      validator: (value: null | string) => {
+        return value === null || isValid(new Date(value));
+      },
+    },
   },
-  data() {
-    return {};
-  },
-  computed: {},
-  mounted() {},
-  methods: {
-    getMonthYear(dateString) {
-      if (dateString) {
-        const currDate = moment(dateString);
-        return currDate.format("MMM, YYYY");
-      }
+  setup(props) {
+    const start = format(new Date(props.join), "MMM yyyy");
+    const end = props.leave
+      ? format(new Date(props.leave), "MMM yyyy")
+      : "Current";
+    const duration = jobDuration(
+      props.join.split("-").map(v => parseInt(v)) as [number, number, number],
+      !props.leave
+        ? null
+        : (props.leave.split("-").map(v => parseInt(v)) as [
+            number,
+            number,
+            number
+          ])
+    );
+    const durationText = duration ? `(${duration})` : "";
 
-      return "Current";
-    }
-  }
-};
+    return { start, end, durationText };
+  },
+});
 </script>
 
 <style lang="scss">

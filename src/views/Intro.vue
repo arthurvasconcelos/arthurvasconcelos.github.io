@@ -1,101 +1,116 @@
 <template>
-<div class="intro" ref="intro">
-  <div class="startsContainer" ref="startsContainer">
-    <div class="stars"></div>
-    <div class="stars2"></div>
-    <div class="stars3"></div>
-  </div>
+  <div class="intro" ref="intro">
+    <div class="starsContainer" ref="starsContainer">
+      <div class="stars"></div>
+      <div class="stars2"></div>
+      <div class="stars3"></div>
+    </div>
 
-  <div class="welcome">
-    <div class="title">
-      <h1>Arthur Vasconcelos</h1>
-      <h2>
-        Developing for&nbsp;
-        <span class="changeWord" :class="currentClass">{{ currentWord }}<span class="cursor">_</span></span>
-        <span class="phraseBreaker"></span>
-        &nbsp;with&nbsp;
-        <span class="jsColor">JavaScript</span>
-      </h2>
+    <div class="welcome">
+      <div class="title">
+        <h1>Arthur Vasconcelos</h1>
+        <h2>
+          Developing for&nbsp;
+          <span class="changeWord" :class="currentClass"
+            >{{ currentWord }}<span class="cursor">_</span></span
+          >
+          <span class="phraseBreaker"></span>
+          &nbsp;with&nbsp;
+          <span class="jsColor">JavaScript</span>
+        </h2>
+      </div>
+    </div>
+
+    <div class="githubHosted">
+      Proudly hosted by
+      <a href="https://github.com" target="_blank"
+        ><img
+          src="../assets/images/fixed-gh-logo.png"
+          alt="GitHub • Social coding"
+      /></a>
     </div>
   </div>
-
-  <div class="githubHosted">
-    Proudly hosted by
-    <a href="https://github.com" target="_blank"><img src="../assets/images/fixed-gh-logo.png" alt="GitHub • Social coding"></a>
-  </div>
-</div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent, ref, onMounted, onBeforeUnmount } from "vue";
+import { bus } from "@/bus";
+
+export default defineComponent({
   name: "Intro",
-  data() {
-    return {
-      currentWord: "",
-      currentClass: "",
-      words: ["web", "mobile", "desktop", "server"]
-    };
-  },
-  mounted() {
-    this.currentWord = this.words[0];
-    this.currentClass = this.words[0];
-    this.wordsInterval();
+  setup() {
+    const currentWord = ref("");
+    const currentClass = ref("");
+    const words = ref(["web", "mobile", "desktop", "server"]);
+    const intro = ref<HTMLDivElement | null>(null);
+    const starsContainer = ref<HTMLDivElement | null>(null);
 
-    this.$events.$on("windowResize", () => {
-      // console.log(window.outerWidth);
-      // console.log(window.outerHeight);
-      this.$refs.intro.style.width = this.$refs.startsContainer.style.width =
-        "100%";
-      this.$refs.intro.style.height = this.$refs.startsContainer.style.height =
-        "100vh";
-    });
-  },
-  beforeDestroy() {
-    this.$events.$off("windowResize");
-  },
-  methods: {
-    wordsInterval(delay = 1500) {
-      const currentIndex = this.words.indexOf(this.currentWord);
-      const nextIndex =
-        currentIndex + 1 > this.words.length - 1 ? 0 : currentIndex + 1;
-
-      setTimeout(() => {
-        this.erase(100, () => {
-          this.currentClass = this.words[nextIndex];
-          this.write(nextIndex, 100, () => {
-            this.wordsInterval();
-          });
-        });
-      }, delay);
-    },
-    erase(delay, callback) {
-      const wordLetters = this.currentWord.split("");
-      const interval = setInterval(() => {
-        if (wordLetters.length > 0) {
-          wordLetters.pop();
-          this.currentWord = wordLetters.join("");
-        } else {
-          clearInterval(interval);
-          callback();
-        }
-      }, delay);
-    },
-    write(nextIndex, delay, callback) {
-      const wordLetters = this.words[nextIndex].split("");
-      const assembleWord = [];
+    function write(nextIndex: number, delay: number, callback: () => void) {
+      const wordLetters = words.value[nextIndex].split("");
+      const assembleWord: string[] = [];
       const interval = setInterval(() => {
         if (wordLetters.length > 0) {
           assembleWord.push(wordLetters[0]);
           wordLetters.shift();
-          this.currentWord = assembleWord.join("");
+          currentWord.value = assembleWord.join("");
         } else {
           clearInterval(interval);
           callback();
         }
       }, delay);
     }
-  }
-};
+
+    function erase(delay: number, callback: () => void) {
+      const wordLetters = currentWord.value.split("");
+      const interval = setInterval(() => {
+        if (wordLetters.length > 0) {
+          wordLetters.pop();
+          currentWord.value = wordLetters.join("");
+        } else {
+          clearInterval(interval);
+          callback();
+        }
+      }, delay);
+    }
+
+    function wordsInterval(delay = 1500) {
+      const currentIndex = words.value.indexOf(currentWord.value);
+      const nextIndex =
+        currentIndex + 1 > words.value.length - 1 ? 0 : currentIndex + 1;
+
+      setTimeout(() => {
+        erase(100, () => {
+          currentClass.value = words.value[nextIndex];
+          write(nextIndex, 100, () => {
+            wordsInterval();
+          });
+        });
+      }, delay);
+    }
+
+    onMounted(() => {
+      currentWord.value = words.value[0];
+      currentClass.value = words.value[0];
+      wordsInterval();
+
+      bus.on("windowResize", () => {
+        // console.log(window.outerWidth);
+        // console.log(window.outerHeight);
+        if (intro.value && starsContainer.value) {
+          intro.value.style.width = starsContainer.value.style.width = "100%";
+          intro.value.style.height = starsContainer.value.style.height =
+            "100vh";
+        }
+      });
+    });
+
+    onBeforeUnmount(() => {
+      bus.off("windowResize", () => null);
+    });
+
+    return { currentWord, currentClass, words, intro, starsContainer };
+  },
+});
 </script>
 
 <style lang="scss">
@@ -108,7 +123,7 @@ export default {
   overflow: hidden;
 }
 
-.startsContainer {
+.starsContainer {
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   height: 100%;
   overflow: hidden;

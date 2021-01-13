@@ -9,42 +9,74 @@
       <p class="project-description">{{ description }}</p>
       <ul class="statList">
         <li class="statList-item">
-          <a class="statList-link" :href="`https://github.com/arthurvasconcelos/${ name }/watchers`" target="_blank" title="Watchers">
+          <a
+            class="statList-link"
+            :href="`https://github.com/arthurvasconcelos/${name}/watchers`"
+            target="_blank"
+            title="Watchers"
+          >
             <FontAwesomeIcon :icon="['fas', 'eye']" />
             <span class="statList-item-value">{{ watchers }}</span>
           </a>
         </li>
 
         <li class="statList-item">
-          <a class="statList-link" :href="`https://github.com/arthurvasconcelos/${ name }/stargazers`" target="_blank" title="Stars">
+          <a
+            class="statList-link"
+            :href="`https://github.com/arthurvasconcelos/${name}/stargazers`"
+            target="_blank"
+            title="Stars"
+          >
             <FontAwesomeIcon :icon="['fas', 'star']" />
             <span class="statList-item-value">{{ stars }}</span>
           </a>
         </li>
 
         <li class="statList-item">
-          <a class="statList-link" :href="`https://github.com/arthurvasconcelos/${ name }/network/members`" target="_blank" title="Forks">
+          <a
+            class="statList-link"
+            :href="
+              `https://github.com/arthurvasconcelos/${name}/network/members`
+            "
+            target="_blank"
+            title="Forks"
+          >
             <FontAwesomeIcon :icon="['fas', 'code-branch']" />
             <span class="statList-item-value">{{ forks }}</span>
           </a>
         </li>
 
         <li class="statList-item">
-          <a class="statList-link" :href="`https://github.com/arthurvasconcelos/${ name }/issues`" target="_blank" title="Issues">
+          <a
+            class="statList-link"
+            :href="`https://github.com/arthurvasconcelos/${name}/issues`"
+            target="_blank"
+            title="Issues"
+          >
             <FontAwesomeIcon :icon="['fas', 'exclamation-circle']" />
             <span class="statList-item-value">{{ issues }}</span>
           </a>
         </li>
 
         <li class="statList-item">
-          <a class="statList-link" :href="`https://github.com/arthurvasconcelos/${ name }`" target="_blank" title="Version">
+          <a
+            class="statList-link"
+            :href="`https://github.com/arthurvasconcelos/${name}`"
+            target="_blank"
+            title="Version"
+          >
             <FontAwesomeIcon :icon="['fas', 'code']" />
             <span class="statList-item-value">{{ version }}</span>
           </a>
         </li>
 
         <li class="statList-item">
-          <a class="statList-link" :href="`https://www.npmjs.com/package/${ name }`" target="_blank" title="Downloads">
+          <a
+            class="statList-link"
+            :href="`https://www.npmjs.com/package/${name}`"
+            target="_blank"
+            title="Downloads"
+          >
             <FontAwesomeIcon :icon="['fas', 'cloud-download-alt']" />
             <span class="statList-item-value">{{ downloads }}</span>
           </a>
@@ -56,12 +88,14 @@
   </div>
 </template>
 
-<script>
-import moment from "moment";
+<script lang="ts">
+import { defineComponent, ref, reactive, computed, onBeforeMount } from "vue";
+import { format } from "date-fns";
+import axios from "axios";
 
 const GITHUB_ENDPOINT = "https://api.github.com/repos/arthurvasconcelos/";
 
-export default {
+export default defineComponent({
   name: "ProjectItem",
   props: {
     repo: {
@@ -73,65 +107,72 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      name: "",
-      description: "",
-      watchers: 0,
-      stars: 0,
-      forks: 0,
-      issues: 0,
-      version: 0,
-      downloads: 0,
-      flags: {
-        gh: false,
-        downloads: false,
-        version: false
-      }
-    };
-  },
-  computed: {
-    isLoaded() {
-      return this.flags.gh && this.flags.downloads && this.flags.version;
-    }
-  },
-  beforeMount() {
-    this.$http.get(`${GITHUB_ENDPOINT}${this.repo}`).then(response => {
-      const data = response.data;
-      this.name = data.name;
-      this.description = data.description;
-      this.watchers = data.subscribers_count;
-      this.stars = data.stargazers_count;
-      this.forks = data.forks_count;
-      this.issues = data.open_issues_count;
-      this.flags.gh = true;
+  setup(props) {
+    const name = ref("");
+    const description = ref("");
+    const watchers = ref(0);
+    const stars = ref(0);
+    const forks = ref(0);
+    const issues = ref(0);
+    const version = ref(0);
+    const downloads = ref(0);
+    const flags = reactive({
+      gh: false,
+      downloads: false,
+      version: false
+    });
+    const isLoaded = computed(
+      () => flags.gh && flags.downloads && flags.version
+    );
+
+    onBeforeMount(() => {
+      axios.get(`${GITHUB_ENDPOINT}${props.repo}`).then(response => {
+        const data = response.data;
+        name.value = data.name;
+        description.value = data.description;
+        watchers.value = data.subscribers_count;
+        stars.value = data.stargazers_count;
+        forks.value = data.forks_count;
+        issues.value = data.open_issues_count;
+        flags.gh = true;
+      });
+
+      axios
+        .get(
+          `https://api.npmjs.org/downloads/point/${props.createDate}:${format(
+            new Date(),
+            "yyyy-MM-dd"
+          )}/${props.repo}`
+        )
+        .then(response => {
+          downloads.value = response.data.downloads;
+          flags.downloads = true;
+        });
+
+      axios
+        .get(
+          `https://raw.githubusercontent.com/arthurvasconcelos/${props.repo}/master/package.json`
+        )
+        .then(response => {
+          version.value = response.data.version;
+          flags.version = true;
+        });
     });
 
-    this.$http
-      .get(
-        `https://api.npmjs.org/downloads/point/${
-          this.createDate
-        }:${moment().format("YYYY-MM-DD")}/${this.repo}`
-      )
-      .then(response => {
-        this.downloads = response.data.downloads;
-        this.flags.downloads = true;
-      });
-
-    this.$http
-      .get(
-        `https://raw.githubusercontent.com/arthurvasconcelos/${
-          this.repo
-        }/master/package.json`
-      )
-      .then(response => {
-        this.version = response.data.version;
-        this.flags.version = true;
-      });
-  },
-  mounted() {},
-  methods: {}
-};
+    return {
+      name,
+      description,
+      watchers,
+      stars,
+      forks,
+      issues,
+      version,
+      downloads,
+      flags,
+      isLoaded
+    };
+  }
+});
 </script>
 
 <style lang="scss">

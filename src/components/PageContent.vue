@@ -4,10 +4,12 @@
   </article>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: "PageContent"
-};
+});
 </script>
 
 <style lang="scss">

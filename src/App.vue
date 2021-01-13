@@ -1,17 +1,47 @@
 <template>
-  <div id="app" class="app">
-    <TheNavigation :class="{ 'colorfull': $route.name !== 'intro' }"></TheNavigation>
-    <router-view :key="$route.path" class="view router-view" :class="{ 'spaced': $route.name !== 'intro' }" ref="main"></router-view>
-  </div>
+  <NavigationBar
+    :class="{ colorfull: $route.name !== 'intro' }"
+  ></NavigationBar>
+  <router-view
+    :key="$route.path"
+    class="view router-view"
+    :class="{ spaced: $route.name !== 'intro' }"
+    ref="main"
+  ></router-view>
 </template>
 
-<script>
-import TheNavigation from "@/components/TheNavigation.vue";
+<script lang="ts">
+import { defineComponent, onMounted } from "vue";
+import NavigationBar from "@/components/NavigationBar.vue";
+import { isTouchDevice } from "@/utils";
 
-export default {
+export default defineComponent({
   name: "app",
-  components: { TheNavigation }
-};
+  components: { NavigationBar },
+  setup() {
+    onMounted(() => {
+      console.log("mounted in the composition api!");
+    });
+  },
+  mounted() {
+    const html = document.querySelector("html");
+    html?.classList.add(isTouchDevice() ? "touch" : "noTouch");
+
+    if (!isTouchDevice()) {
+      window.addEventListener("mousemove", e =>
+        this.$eventBus.emit("windowMouseMove", e)
+      );
+    }
+
+    window.addEventListener("scroll", e =>
+      this.$eventBus.emit("windowScroll", e)
+    );
+
+    window.addEventListener("resize", e =>
+      this.$eventBus.emit("windowResize", e)
+    );
+  }
+});
 </script>
 
 <style lang="scss">

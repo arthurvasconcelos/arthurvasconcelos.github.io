@@ -7,35 +7,37 @@
           v-for="(project, pjtIndex) in projects"
           :key="`project-${pjtIndex}`"
           :repo="project.name"
-          :createDate="project.npmCreateDate"></ProjectItem>
+          :createDate="project.npmCreateDate"
+        ></ProjectItem>
       </div>
     </PageContent>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent, ref } from "vue";
 import PageHeader from "@/components/PageHeader.vue";
 import PageContent from "@/components/PageContent.vue";
 import ProjectItem from "@/components/ProjectItem.vue";
 
-export default {
+export default defineComponent({
   name: "Projects",
   components: { PageHeader, PageContent, ProjectItem },
-  data() {
-    return {
-      projects: [
-        {
-          name: "vue-izitoast",
-          npmCreateDate: "2018-01-28"
-        },
-        {
-          name: "vue-cbsc",
-          npmCreateDate: "2018-02-16"
-        }
-      ]
-    };
+  setup() {
+    const projects = ref([
+      {
+        name: "vue-izitoast",
+        npmCreateDate: "2018-01-28"
+      },
+      {
+        name: "vue-cbsc",
+        npmCreateDate: "2018-02-16"
+      }
+    ]);
+
+    return { projects };
   }
-};
+});
 </script>
 
 <style lang="scss">

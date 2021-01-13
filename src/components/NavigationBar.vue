@@ -1,47 +1,67 @@
 <template>
   <nav class="mainNavigation">
     <div class="mainNavigation-container" ref="mainNavigationContainer">
-        <div class="relativeWrapper">
-            <ul class="mainNavigation-list">
-                <li class="mainNavigation-list-item" @click="closeIfMobile()">
-                    <router-link :to="{ name: 'intro' }" class="mainNavigation-list-link">Home</router-link>
-                </li>
-                <li class="mainNavigation-list-item" @click="closeIfMobile()">
-                    <router-link :to="{ name: 'about-me' }" class="mainNavigation-list-link">About Me</router-link>
-                </li>
-                <li class="mainNavigation-list-item" @click="closeIfMobile()">
-                    <router-link :to="{ name: 'projects' }" class="mainNavigation-list-link">Projects</router-link>
-                </li>
-            </ul>
+      <div class="relativeWrapper">
+        <ul class="mainNavigation-list">
+          <li class="mainNavigation-list-item" @click="closeIfMobile()">
+            <router-link
+              :to="{ name: 'intro' }"
+              class="mainNavigation-list-link"
+              >Home</router-link
+            >
+          </li>
+          <li class="mainNavigation-list-item" @click="closeIfMobile()">
+            <router-link
+              :to="{ name: 'about-me' }"
+              class="mainNavigation-list-link"
+              >About Me</router-link
+            >
+          </li>
+          <li class="mainNavigation-list-item" @click="closeIfMobile()">
+            <router-link
+              :to="{ name: 'projects' }"
+              class="mainNavigation-list-link"
+              >Projects</router-link
+            >
+          </li>
+        </ul>
 
-            <button class="closeMenu" v-on:click.prevent="closeMenu"><FontAwesomeIcon icon="times" /></button>
-        </div>
+        <button class="closeMenu" v-on:click.prevent="closeMenu">
+          <FontAwesomeIcon icon="times" />
+        </button>
+      </div>
     </div>
 
-    <div class="mainNavigation-trigger" v-on:click="expandMenu"><FontAwesomeIcon icon="bars" /></div>
+    <div class="mainNavigation-trigger" v-on:click="expandMenu">
+      <FontAwesomeIcon icon="bars" />
+    </div>
   </nav>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent, ref } from "vue";
+import { isMobile } from "@/utils";
+
+export default defineComponent({
   name: "TheNavigation",
-  data() {
-    return {};
-  },
-  methods: {
-    expandMenu() {
-      this.$refs.mainNavigationContainer.classList.add("is-open");
-    },
-    closeMenu() {
-      this.$refs.mainNavigationContainer.classList.remove("is-open");
-    },
-    closeIfMobile() {
-      if (this.isMobile()) {
-        this.closeMenu();
-      }
+  setup() {
+    const mainNavigationContainer = ref<HTMLElement | null>(null);
+
+    function expandMenu() {
+      mainNavigationContainer.value?.classList.add("is-open");
     }
-  }
-};
+
+    function closeMenu() {
+      mainNavigationContainer.value?.classList.remove("is-open");
+    }
+
+    function closeIfMobile() {
+      if (isMobile()) closeMenu();
+    }
+
+    return { mainNavigationContainer, expandMenu, closeMenu, closeIfMobile };
+  },
+});
 </script>
 
 <style lang="scss">

@@ -9,8 +9,12 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent, ref, computed, onMounted } from "vue";
+import { randomIntFromInterval } from "@/utils";
+import { bus } from "@/bus";
+
+export default defineComponent({
   name: "SkillGauge",
   props: {
     name: {
@@ -20,61 +24,51 @@ export default {
     value: {
       type: Number,
       default: 0,
-      validator(value) {
+      validator: (value: number) => {
         return value >= 0 && value <= 100 && Number.isInteger(value);
       }
     }
   },
-  data() {
-    return {
-      skillElement: null,
-      width: 0
-    };
-  },
-  computed: {
-    gaugeValue() {
-      return this.value / 2 / 100;
-    },
-    height() {
-      return this.width / 2;
-    },
-    gaugeContainerStyles() {
-      return {
-        borderRadius: `${this.height}px ${this.height}px 0px 0px`,
-        height: `${this.height}px`
-      };
-    },
-    gaugeFillerStyles() {
-      const r = this.randomIntFromInterval(0, 255);
-      const g = this.randomIntFromInterval(0, 255);
-      const b = this.randomIntFromInterval(0, 255);
+  setup(props) {
+    const skill = ref<HTMLDivElement | null>(null);
+    const width = ref(0);
+    const gaugeValue = computed(() => props.value / 2 / 100);
+    const height = computed(() => width.value / 2);
+    const gaugeContainerStyles = computed(() => ({
+      borderRadius: `${height.value}px ${height.value}px 0px 0px`,
+      height: `${height.value}px`
+    }));
+    const gaugeFillerStyles = computed(() => {
+      const r = randomIntFromInterval(0, 255);
+      const g = randomIntFromInterval(0, 255);
+      const b = randomIntFromInterval(0, 255);
       const a = 0.8;
-
       return {
         backgroundColor: `rgb(${r},${g},${b},${a})`,
-        transform: `rotate(${this.gaugeValue}turn)`
+        transform: `rotate(${gaugeValue.value}turn)`
       };
-    },
-    gaugeHoleStyles() {
-      const reducedHeight = this.height / 1.5;
+    });
+    const gaugeHoleStyles = computed(() => {
+      const reducedHeight = height.value / 1.5;
       return {
         borderRadius: `${reducedHeight}px ${reducedHeight}px 0px 0px`,
         height: `${reducedHeight}px`,
-        width: `${this.width / 1.5}px`
+        width: `${width.value / 1.5}px`
       };
+    });
+
+    function applySizeToGauge() {
+      if (skill.value) width.value = skill.value.offsetWidth;
     }
-  },
-  mounted() {
-    this.skillElement = this.$refs.skill;
-    this.applySizeToGauge();
-    this.$events.$on("windowResize", this.applySizeToGauge);
-  },
-  methods: {
-    applySizeToGauge() {
-      this.width = this.skillElement.offsetWidth;
-    }
+
+    onMounted(() => {
+      applySizeToGauge();
+      bus.on("windowResize", applySizeToGauge);
+    });
+
+    return { skill, gaugeContainerStyles, gaugeFillerStyles, gaugeHoleStyles };
   }
-};
+});
 </script>
 
 <style lang="scss">
