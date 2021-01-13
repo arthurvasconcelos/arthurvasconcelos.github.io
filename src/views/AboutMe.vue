@@ -12,17 +12,17 @@
         <p>HEY YOU,</p>
         <p>
           I'm Arthur Vasconcelos, a {{ myAge() }}-year old nerd from Brazil
-          living in Tallinn, Estonia. I love being a developer and learning new
+          living in Stockholm, Sweden. I love being a developer and learning new
           stuff! I am currently a {{ experiences[0].role.toLowerCase() }} at
           {{ experiences[0].name }}. But I am also actively involved with the
           Open Source community and developing other projects in my spare time.
         </p>
         <p>
-          Also I have 7 years of experience as a developer and my main focus is
-          in frontend development and user interface coding, where I have a
-          strong knowledge of Javascript and its tools and frameworks but I can
-          develop on the server side too, I can write code in PHP, Javascript
-          and Python.
+          Also I have {{ yearsOfExperience }} of experience as a developer and
+          my main focus is in frontend development and user interface coding,
+          where I have a strong knowledge of Javascript and its tools and
+          frameworks but I can develop on the server side too, I can write code
+          in PHP, Javascript and Python.
         </p>
       </div>
 
@@ -86,6 +86,7 @@ import PageContent from "@/components/PageContent.vue";
 import SkillBar from "@/components/SkillBar.vue";
 import ExperienceItem from "@/components/ExperienceItem.vue";
 import { isMobile, myAge } from "@/utils";
+import { formatDistanceToNowStrict } from "date-fns";
 
 interface Social {
   title: string;
@@ -276,12 +277,21 @@ export default defineComponent({
     ]);
     const experiences = ref<Experience[]>([
       {
+        name: "Kognity",
+        logo: "kognity.png",
+        role: "Senior Software Engineer",
+        description: "",
+        join: "2020-12-01",
+        leave: null
+      },
+      {
         name: "Genius Sports",
         logo: "genius-sports.png",
-        role: "Web Developer",
-        description: "",
+        role: "Software Engineer",
+        description:
+          "Responsible for the development of internal tools for bet monitoring.",
         join: "2019-04-14",
-        leave: null
+        leave: "2020-11-30"
       },
       {
         name: "Igarapé Institute",
@@ -319,6 +329,7 @@ export default defineComponent({
       //   leave: ""
       // }
     ]);
+    const yearsOfExperience = formatDistanceToNowStrict(new Date("2010-03-01"));
 
     function filterSocialsBy<P extends keyof Social, V>(
       property: P,
@@ -345,6 +356,7 @@ export default defineComponent({
       mouseOverOutSocial,
       myAge,
       isMobile,
+      yearsOfExperience
     };
   }
 });
