@@ -15,7 +15,7 @@ deploy:
 	make clean
 
 	$(call print, "Compile site")
-	npm run build
+	yarn run build
 
 	$(call print, "Copy not scanned files")
 	cp Makefile CNAME LICENSE README.md dist/
