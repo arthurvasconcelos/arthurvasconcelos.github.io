@@ -1,0 +1,50 @@
+/* @import url("https://fonts.googleapis.com/css?family=Raleway:200,400,700");
+@import url("https://fonts.googleapis.com/css?family=Slabo+27px");
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:600"); */
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+
+@theme {
+  --color-typescript-1: #377cc8;
+  --color-javascript-1: #f0db4f;
+  --color-javascript-2: #323330;
+  --color-python-1: #3d73a1;
+  --color-python-2: #ffd146;
+
+  --font-raleway: "Raleway", sans-serif;
+  --font-slabo: "Slabo 27px", serif;
+  --font-source: "Source Code Pro", monospace;
+}
+
+:root {
+  --light-background: radial-gradient(
+    ellipse at bottom,
+    var(--color-slate-50) 0,
+    var(--color-slate-300) 100%
+  );
+  --dark-background: radial-gradient(
+    ellipse at bottom,
+    var(--color-slate-700) 0,
+    var(--color-slate-950) 100%
+  );
+
+  --ui-container: var(--container-4xl);
+
+  ::selection {
+    color: var(--color-slate-50);
+    background-color: var(--color-slate-700);
+  }
+
+  background-color: var(--color-slate-300);
+}
+
+.dark {
+  ::selection {
+    color: var(--color-slate-700);
+    background-color: var(--color-slate-300);
+  }
+
+  background-color: var(--color-slate-950);
+}
