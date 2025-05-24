@@ -33,21 +33,21 @@ const level = ref(levelProp);
       'pr-2.5',
     ]"
   >
-    <ClientOnly>
-      <UAvatar :icon="icon" size="md" />
-      <div class="flex flex-col gap-1 grow">
-        <p class="font-source text-sm font-bold">{{ name }}</p>
-        <UProgress v-model="level" />
-      </div>
+    <!-- <ClientOnly> -->
+    <UAvatar :icon="icon" size="md" />
+    <div class="flex flex-col gap-1 grow">
+      <p class="font-source text-sm font-bold">{{ name }}</p>
+      <UProgress v-model="level" />
+    </div>
 
-      <template #fallback>
+    <!-- <template #fallback>
         <USkeleton class="h-8 w-8 rounded-full" />
         <div class="flex flex-col gap-1 grow">
           <USkeleton class="h-5 w-full" />
           <USkeleton class="h-2 w-full" />
         </div>
       </template>
-    </ClientOnly>
+    </ClientOnly> -->
   </div>
 </template>
 

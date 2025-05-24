@@ -46,17 +46,17 @@ const startViewTransition = (event: MouseEvent) => {
 </script>
 
 <template>
-  <ClientOnly>
-    <UButton
-      :aria-label="`Switch to ${nextTheme} mode`"
-      :icon="`i-lucide-${nextTheme === 'dark' ? 'sun' : 'moon'}`"
-      color="neutral"
-      variant="ghost"
-      size="sm"
-      class="rounded-full"
-      @click="startViewTransition"
-    />
-    <template #fallback>
+  <!-- <ClientOnly> -->
+  <UButton
+    :aria-label="`Switch to ${nextTheme} mode`"
+    :icon="`i-lucide-${nextTheme === 'dark' ? 'sun' : 'moon'}`"
+    color="neutral"
+    variant="ghost"
+    size="sm"
+    class="rounded-full"
+    @click="startViewTransition"
+  />
+  <!-- <template #fallback>
       <UButton
         aria-label="Fetching color mode..."
         loading
@@ -67,7 +67,7 @@ const startViewTransition = (event: MouseEvent) => {
         class="rounded-full"
       />
     </template>
-  </ClientOnly>
+  </ClientOnly> -->
 </template>
 
 <style>
