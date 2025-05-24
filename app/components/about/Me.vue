@@ -76,6 +76,8 @@ const workExperience = ref(
         can develop on the server side too, I can write code in PHP, Javascript
         and Python.
       </p>
+      <UIcon name="i-lucide-sun" />
+      <UIcon name="i-lucide-moon" />
     </div>
   </div>
 </template>

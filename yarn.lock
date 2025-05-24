@@ -468,6 +468,34 @@
     "@floating-ui/utils" "^0.2.9"
     vue-demi ">=0.13.0"
 
+"@iconify-json/logos@^1.2.4":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@iconify-json/logos/-/logos-1.2.4.tgz#1591937349a487da360fb10000d5e7ab0601bfd7"
+  integrity sha512-XC4If5D/hbaZvUkTV8iaZuGlQCyG6CNOlaAaJaGa13V5QMYwYjgtKk3vPP8wz3wtTVNVEVk3LRx1fOJz+YnSMw==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify-json/material-symbols@^1.2.21":
+  version "1.2.21"
+  resolved "https://registry.yarnpkg.com/@iconify-json/material-symbols/-/material-symbols-1.2.21.tgz#cc77b4383d29df9d102a472eb8cd6d5b0bce50d4"
+  integrity sha512-78o99N3oYeWY91EvZDl5bAPSPtO3rgkPwuOfgk4iBLbpb2peE6ueZFiMA/RURpy8jf4Pyt9rUtjP34UJIkVAcA==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify-json/mdi@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@iconify-json/mdi/-/mdi-1.2.3.tgz#5e4ee9d8c8aaad04381c8cc6c6edbe3327f031b5"
+  integrity sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify-json/twemoji@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@iconify-json/twemoji/-/twemoji-1.2.2.tgz#2f205c479061372c63d9e099a4d4700b5af07e96"
+  integrity sha512-ckWEY5KhIQgdFd9VGvfhecTtYUx3ihXycwlZcEws87LxuvIThMHNBCblrQQ5afhbGMfg21dF+z9F+ODMRDYHMg==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify/collections@^1.0.548":
   version "1.0.550"
   resolved "https://registry.yarnpkg.com/@iconify/collections/-/collections-1.0.550.tgz#244ed1139f4e8b8a5834c066d91e9d9dd524df65"

@@ -18,6 +18,11 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/main.css"],
 
+  icon: {
+    mode: "css",
+    cssLayer: "base",
+  },
+
   fonts: {
     families: [
       { name: "Raleway", global: true, provider: "google" },
