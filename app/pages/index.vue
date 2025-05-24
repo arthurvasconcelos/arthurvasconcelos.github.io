@@ -8,6 +8,7 @@ const words = ref(["web", "mobile", "desktop", "server"]);
 const languages = ref([
   { id: uuidv4(), name: "JS/TS", class: "js-ts" },
   { id: uuidv4(), name: "Python", class: "python" },
+  { id: uuidv4(), name: "PHP", class: "php" },
 ]);
 
 const h2Label = computed(() => {
@@ -176,9 +177,12 @@ onMounted(() => {
   }
 }
 
-@keyframes fadeCursor {
-  from {
-    opacity: 1;
+.php {
+  background-color: var(--color-php-1);
+  color: var(--color-black);
+
+  &:where(.dark, .dark *) {
+    color: var(--color-white);
   }
 
   to {
