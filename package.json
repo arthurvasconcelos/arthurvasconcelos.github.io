@@ -16,7 +16,7 @@
     "@nuxtjs/color-mode": "3.5.2",
     "@vueuse/nuxt": "^13.2.0",
     "date-fns": "^4.1.0",
-    "nuxt": "^3.17.3",
+    "nuxt": "^3.19.0",
     "nuxt-lodash": "^2.5.3",
     "type-fest": "^4.41.0",
     "uuid": "^11.1.0",
