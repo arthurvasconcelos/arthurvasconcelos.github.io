@@ -35,5 +35,26 @@ export default defineNuxtConfig({
     "nuxt-lodash",
     "@vueuse/nuxt",
     "@nuxt/eslint",
+    "@nuxtjs/i18n",
   ],
+
+  i18n: {
+    defaultLocale: "en-GB",
+    langDir: "locales",
+    locales: [
+      { code: "en-GB", language: "en-GB", name: "English", file: "en-GB.ts" },
+      { code: "pt-BR", language: "pt-BR", name: "Português", file: "pt-BR.ts" },
+      { code: "sv", language: "sv-SE", name: "Svenska", file: "sv.ts" },
+    ],
+    strategy: "prefix_except_default",
+    lazy: true,
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      redirectOn: "root",
+    },
+  },
 });

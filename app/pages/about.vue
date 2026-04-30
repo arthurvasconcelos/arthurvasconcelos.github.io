@@ -1,7 +1,7 @@
 <script setup lang="ts">
-definePageMeta({
-  title: "About Me",
-});
+const { t } = useI18n();
+
+useHead({ title: computed(() => t("about.pageTitle")) });
 </script>
 
 <template>

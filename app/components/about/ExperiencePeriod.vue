@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import type { WorkExperience } from "~/composables/useWorkExperience";
+
 defineProps<{
   experience: WorkExperience;
 }>();
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -29,6 +33,6 @@ defineProps<{
   >
     <span>{{ experience.start }}</span>
     <UIcon name="mdi:tilde" />
-    <span>{{ experience.end }}</span>
+    <span>{{ experience.end ?? t('about.workExperiences.present') }}</span>
   </div>
 </template>

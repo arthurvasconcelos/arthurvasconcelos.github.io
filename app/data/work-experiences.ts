@@ -1,0 +1,186 @@
+import kognityLogo from "~/assets/img/logos/companies/kognity.png";
+import geniusSportsLogo from "~/assets/img/logos/companies/genius-sports.png";
+import institutoIgarapeLogo from "~/assets/img/logos/companies/instituto-igarape.png";
+import fgvLogo from "~/assets/img/logos/companies/fgv.png";
+import pilotiLogo from "~/assets/img/logos/companies/piloti.png";
+
+export type WorkExperienceData = {
+  id: string;
+  title: string;
+  company: string;
+  companyLogo?: string;
+  locationIcon: string;
+  location: string;
+  locationType: "Remote" | "On-site" | "Hybrid";
+  descriptionKey: string;
+  keywords: string[];
+  start: string;
+  end?: string;
+};
+
+export const workExperiencesData: WorkExperienceData[] = [
+  {
+    id: "platform24",
+    title: "Senior Front-End Engineer",
+    company: "Platform24",
+    locationIcon: "twemoji:flag-sweden",
+    location: "Stockholm, Sweden",
+    locationType: "Hybrid",
+    descriptionKey: "about.workExperiences.descriptions.platform24",
+    keywords: ["TypeScript", "React", "Healthcare", "Digital Care"],
+    start: "2026-02-01",
+  },
+  {
+    id: "kognity-tech-lead",
+    title: "Senior Software Engineer / Technical Lead",
+    company: "Kognity",
+    companyLogo: kognityLogo,
+    locationIcon: "twemoji:flag-sweden",
+    location: "Stockholm, Sweden",
+    locationType: "Hybrid",
+    descriptionKey: "about.workExperiences.descriptions.kognityTechLead",
+    keywords: [
+      "JavaScript",
+      "TypeScript",
+      "Vue.js 2",
+      "Vue.js 3",
+      "Python",
+      "Django",
+      "PostgreSQL",
+      "Docker",
+      "Heroku",
+      "AWS",
+    ],
+    start: "2022-06-01",
+    end: "2025-12-01",
+  },
+  {
+    id: "kognity-senior-se",
+    title: "Senior Software Engineer",
+    company: "Kognity",
+    companyLogo: kognityLogo,
+    locationIcon: "twemoji:flag-sweden",
+    location: "Stockholm, Sweden",
+    locationType: "Hybrid",
+    descriptionKey: "about.workExperiences.descriptions.kognitySeniorSe",
+    keywords: [
+      "JavaScript",
+      "Angular 1.x",
+      "Vue.js 2",
+      "Python",
+      "Django",
+      "PostgreSQL",
+      "Docker",
+      "Heroku",
+      "AWS",
+    ],
+    start: "2020-12-01",
+    end: "2022-05-01",
+  },
+  {
+    id: "genius-sports",
+    title: "Software Engineer",
+    company: "Genius Sports",
+    companyLogo: geniusSportsLogo,
+    locationIcon: "twemoji:flag-estonia",
+    location: "Tallinn, Estonia",
+    locationType: "On-site",
+    descriptionKey: "about.workExperiences.descriptions.geniusSports",
+    keywords: [
+      "JavaScript",
+      "TypeScript",
+      "Preact",
+      "React",
+      ".NET",
+      "Kotlin",
+      "PostgreSQL",
+      "AWS",
+      "Terraform",
+      "Grafana",
+    ],
+    start: "2019-04-01",
+    end: "2020-11-01",
+  },
+  {
+    id: "igarape",
+    title: "Software Developer",
+    company: "Igarapé Institute",
+    companyLogo: institutoIgarapeLogo,
+    locationIcon: "twemoji:flag-brazil",
+    location: "Rio de Janeiro, Brazil",
+    locationType: "Hybrid",
+    descriptionKey: "about.workExperiences.descriptions.igarape",
+    keywords: [
+      "JavaScript",
+      "TypeScript",
+      "Angular 1.x",
+      "Ember.js",
+      "Python",
+      "Node.js",
+      "PostgreSQL",
+      "Java",
+      "AWS",
+    ],
+    start: "2016-04-01",
+    end: "2019-04-01",
+  },
+  {
+    id: "fgv",
+    title: "Full-Stack Developer",
+    company: "Getulio Vargas Foundation",
+    companyLogo: fgvLogo,
+    locationIcon: "twemoji:flag-brazil",
+    location: "Rio de Janeiro, Brazil",
+    locationType: "On-site",
+    descriptionKey: "about.workExperiences.descriptions.fgv",
+    keywords: [
+      "JavaScript",
+      "CoffeeScript",
+      "TypeScript",
+      "Node.js",
+      "Python",
+      "PostgreSQL",
+      "D3.js",
+      "AWS",
+    ],
+    start: "2014-07-01",
+    end: "2016-02-01",
+  },
+  {
+    id: "piloti",
+    title: "Full-Stack Developer",
+    company: "Piloti Mobile & Internet",
+    companyLogo: pilotiLogo,
+    locationIcon: "twemoji:flag-brazil",
+    location: "Rio de Janeiro, Brazil",
+    locationType: "On-site",
+    descriptionKey: "about.workExperiences.descriptions.piloti",
+    keywords: ["JavaScript", "SASS", "LESS", "PHP", "Symfony", "MySQL"],
+    start: "2013-03-01",
+    end: "2014-06-01",
+  },
+  {
+    id: "brasil-ooh",
+    title: "Junior Developer",
+    company: "Brasil OOH",
+    locationIcon: "twemoji:flag-brazil",
+    location: "Rio de Janeiro, Brazil",
+    locationType: "On-site",
+    descriptionKey: "about.workExperiences.descriptions.brasilOoh",
+    keywords: ["PHP"],
+    start: "2012-06-01",
+    end: "2013-02-01",
+  },
+  {
+    id: "help-ltda",
+    title: "Junior Developer",
+    company: "HELP LTDA",
+    locationIcon: "twemoji:flag-brazil",
+    location: "Rio de Janeiro, Brazil",
+    locationType: "On-site",
+    descriptionKey: "about.workExperiences.descriptions.helpLtda",
+    keywords: ["PHP"],
+    start: "2010-03-01",
+    end: "2011-08-01",
+  },
+];

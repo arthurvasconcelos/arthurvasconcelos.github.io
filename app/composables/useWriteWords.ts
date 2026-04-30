@@ -3,11 +3,11 @@ export const useWriteWords = (words: Ref<string[]>) => {
     throw new Error("No words provided");
   }
 
+  const currentIndex = ref(0);
   const currentWord = ref(words.value[0] || "");
-  const currentClass = ref(words.value[0] || "");
 
-  function write(nextIndex: number, delay: number, callback: () => void) {
-    const word = words.value[nextIndex] || "";
+  function write(index: number, delay: number, callback: () => void) {
+    const word = words.value[index] || "";
     const wordLetters = word.split("");
     const assembleWord: string[] = [];
     const interval = setInterval(() => {
@@ -36,13 +36,14 @@ export const useWriteWords = (words: Ref<string[]>) => {
   }
 
   function wordsInterval(delay = 1500) {
-    const currentIndex = words.value.indexOf(currentWord.value);
     const nextIndex =
-      currentIndex + 1 > words.value.length - 1 ? 0 : currentIndex + 1;
+      currentIndex.value + 1 > words.value.length - 1
+        ? 0
+        : currentIndex.value + 1;
 
     setTimeout(() => {
       erase(100, () => {
-        currentClass.value = words.value[nextIndex] || "";
+        currentIndex.value = nextIndex;
         write(nextIndex, 100, () => {
           wordsInterval();
         });
@@ -52,7 +53,7 @@ export const useWriteWords = (words: Ref<string[]>) => {
 
   return {
     currentWord,
-    currentClass,
+    currentIndex,
     wordsInterval,
   };
 };

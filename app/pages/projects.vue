@@ -1,18 +1,9 @@
 <script setup lang="ts">
-definePageMeta({
-  title: "Projects",
-});
+import { legacyProjects } from "~/data/projects";
 
-const projects = ref([
-  {
-    repo: "vue-izitoast",
-    npmCreateDate: "2018-01-28",
-  },
-  {
-    repo: "vue-cbsc",
-    npmCreateDate: "2018-02-16",
-  },
-]);
+const { t } = useI18n();
+
+useHead({ title: computed(() => t("projects.pageTitle")) });
 </script>
 
 <template>
@@ -30,10 +21,10 @@ const projects = ref([
       ]"
     >
       <projects-item
-        v-for="project in projects"
-        :key="project.repo"
+        v-for="project in legacyProjects"
+        :key="project.id"
         :repo="project.repo"
-        :npm-create-date="project.npmCreateDate"
+        :npm-create-date="project.npmCreateDate!"
       />
     </div>
   </UContainer>

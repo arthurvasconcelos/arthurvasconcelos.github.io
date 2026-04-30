@@ -2,27 +2,39 @@
 import capitalize from "lodash/capitalize";
 import { v4 as uuidv4 } from "uuid";
 
-// const runtimeConfig = useRuntimeConfig();
-// const appConfig = useAppConfig();
-const words = ref(["web", "mobile", "desktop", "server"]);
+const { t } = useI18n();
+
+const wordKeys = ["web", "mobile", "desktop", "server"] as const;
+const wordCssClasses: Record<string, string> = {
+  web: "web",
+  mobile: "mobile",
+  desktop: "desktop",
+  server: "server",
+};
+
 const languages = ref([
   { id: uuidv4(), name: "JS/TS", class: "js-ts" },
   { id: uuidv4(), name: "Python", class: "python" },
   { id: uuidv4(), name: "PHP", class: "php" },
 ]);
 
+const wordLabels = computed(() => wordKeys.map((key) => t(`home.words.${key}`)));
+
 const h2Label = computed(() => {
-  const capitalizedWords = words.value.map((word) => capitalize(word));
+  const capitalizedWords = wordKeys.map((k) => capitalize(t(`home.words.${k}`)));
   const lastWord = capitalizedWords.pop();
   const joinedWords = capitalizedWords.join(", ");
   const langNames = languages.value.map((lang) => lang.name);
   const lastLang = langNames.pop();
   const joinedLangs = langNames.join(", ");
 
-  return `Developing for ${joinedWords} and ${lastWord} with ${joinedLangs} and ${lastLang}`;
+  return `${t("home.developingFor")} ${joinedWords} ${t("home.and")} ${lastWord} ${t("home.with")} ${joinedLangs} ${t("home.and")} ${lastLang}`;
 });
 
-const { currentWord, currentClass, wordsInterval } = useWriteWords(words);
+const { currentWord, currentIndex, wordsInterval } = useWriteWords(wordLabels);
+const currentCssClass = computed(
+  () => wordCssClasses[wordKeys[currentIndex.value] ?? "web"] ?? "web"
+);
 
 onMounted(() => {
   wordsInterval();
@@ -65,16 +77,16 @@ onMounted(() => {
           ]"
           :aria-label="h2Label"
         >
-          Developing for&nbsp;
+          {{ t("home.developingFor") }}&nbsp;
           <HomeHighlight
             :capitalize="true"
             :does-transition="true"
-            :current-class="currentClass"
+            :current-class="currentCssClass"
           >
             {{ currentWord }}<span class="cursor">_</span>
           </HomeHighlight>
           <span class="phraseBreaker" />
-          &nbsp;with&nbsp;
+          &nbsp;{{ t("home.with") }}&nbsp;
           <div class="inline-flex gap-2">
             <HomeHighlight
               v-for="language in languages"

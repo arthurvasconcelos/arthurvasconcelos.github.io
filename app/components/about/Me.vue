@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { formatDistanceToNowStrict } from "date-fns";
 
+const { t } = useI18n();
+
 const socials = [
   {
     name: "GitHub",
@@ -71,21 +73,9 @@ const workExperience = ref(
       </div>
     </div>
     <div class="flex flex-col gap-2 font-slabo">
-      <p>HEY YOU,</p>
-      <p>
-        I'm Arthur Vasconcelos, a {{ age }} old nerd from Brazil living in
-        Stockholm, Sweden. I love being a developer and learning new stuff! I am
-        currently a senior software engineer at Kognity. But I am also actively
-        involved with the Open Source community and developing other projects in
-        my spare time.
-      </p>
-      <p>
-        Also I have {{ workExperience }} of experience as a developer and my
-        main focus is in frontend development and user interface coding, where I
-        have a strong knowledge of Javascript and its tools and frameworks but I
-        can develop on the server side too, I can write code in PHP, Javascript
-        and Python.
-      </p>
+      <p>{{ t('about.bio.greeting') }}</p>
+      <p>{{ t('about.bio.intro', { age, years: workExperience }) }}</p>
+      <p>{{ t('about.bio.experience', { years: workExperience }) }}</p>
     </div>
   </div>
 </template>

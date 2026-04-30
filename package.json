@@ -18,6 +18,7 @@
     "@nuxt/icon": "1.13.0",
     "@nuxt/ui": "^3.1.2",
     "@nuxtjs/color-mode": "3.5.2",
+    "@nuxtjs/i18n": "^9.5.6",
     "@vueuse/nuxt": "^13.2.0",
     "date-fns": "^4.1.0",
     "nuxt": "^3.17.3",

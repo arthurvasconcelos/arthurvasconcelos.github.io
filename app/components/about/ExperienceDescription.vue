@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import type { WorkExperience } from "~/composables/useWorkExperience";
+
 defineProps<{
   experience: WorkExperience;
 }>();
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -44,7 +48,7 @@ defineProps<{
         <UIcon :name="experience.locationIcon" />
         {{ experience.location }}
         <UIcon name="mdi:circle-medium" />
-        {{ experience.locationType }}
+        {{ t(`about.workExperiences.locationTypes.${experience.locationType}`) }}
         <UIcon name="mdi:circle-medium" />
         {{ experience.duration }}
       </p>
@@ -63,7 +67,7 @@ defineProps<{
         'group-even/experience:pr-4',
       ]"
     >
-      {{ experience.description }}
+      {{ t(experience.descriptionKey) }}
     </p>
   </div>
 </template>

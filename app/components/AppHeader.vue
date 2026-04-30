@@ -1,19 +1,23 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from "@nuxt/ui";
 
-const items = ref<NavigationMenuItem[][]>([
+const { t, locales, locale } = useI18n();
+const localePath = useLocalePath();
+const switchLocalePath = useSwitchLocalePath();
+
+const items = computed<NavigationMenuItem[][]>(() => [
   [
     {
-      label: "Home",
-      to: "/",
+      label: t("nav.home"),
+      to: localePath("/"),
     },
     {
-      label: "About",
-      to: "/about",
+      label: t("nav.about"),
+      to: localePath("/about"),
     },
     {
-      label: "Projects",
-      to: "/projects",
+      label: t("nav.projects"),
+      to: localePath("/projects"),
     },
   ],
   [
@@ -29,16 +33,34 @@ const items = ref<NavigationMenuItem[][]>([
 
 <template>
   <UContainer as="header" class="flex justify-between items-center">
-    <div
+    <NuxtLink
+      :to="localePath('/')"
       class="flex items-center justify-between flex-wrap w-35.5 font-raleway text-2xl"
     >
       Arthur
       <span aria-hidden="true" class="font-source font-bold">\n</span>
       Vasconcelos
-    </div>
+    </NuxtLink>
 
     <div class="flex gap-1.5 items-center">
       <UNavigationMenu :items="items" />
+      <div class="flex items-center gap-0.5 font-source text-xs">
+        <NuxtLink
+          v-for="loc in locales"
+          :key="loc.code"
+          :to="switchLocalePath(loc.code)"
+          :class="[
+            'px-1.5',
+            'py-0.5',
+            'rounded',
+            locale === loc.code
+              ? 'bg-violet-500 text-white'
+              : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200',
+          ]"
+        >
+          {{ loc.code.split('-')[0]?.toUpperCase() }}
+        </NuxtLink>
+      </div>
       <ColorModeButton />
     </div>
   </UContainer>

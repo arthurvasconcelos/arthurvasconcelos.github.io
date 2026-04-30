@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { locale } = useI18n();
+
 useHead({
   title: "Arthur Vasconcelos",
   meta: [
@@ -8,7 +10,7 @@ useHead({
   ],
   link: [{ rel: "icon", href: "/favicon.ico" }],
   htmlAttrs: {
-    lang: "en",
+    lang: locale,
   },
 });
 

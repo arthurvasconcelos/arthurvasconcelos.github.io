@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { WorkExperience } from "~/composables/useWorkExperience";
+
 defineProps<{
   experience: WorkExperience;
 }>();
