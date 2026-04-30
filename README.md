@@ -1,12 +1,30 @@
 # arthurvasconcelos.github.io
 
-:metal: My personal website https://arthurvasconcelos.com.br
+Personal website — [arthurvasconcelos.com.br](https://arthurvasconcelos.com.br)
 
-| Branch           | Tag                                                                                           | Description                |
-| ---------------- | --------------------------------------------------------------------------------------------- | -------------------------- |
-| **main**         | --                                                                                            | Active development version |
-| **github-pages** | --                                                                                            | Production Version         |
-| **landing**      | [v0.0.0](https://github.com/arthurvasconcelos/arthurvasconcelos.github.io/releases/tag/0.0.0) | Frist simple landing page  |
-| **v1**           | [v1.0.0](https://github.com/arthurvasconcelos/arthurvasconcelos.github.io/releases/tag/1.0.0) | First try of redoing it    |
-| **v2**           | [v2.0.0](https://github.com/arthurvasconcelos/arthurvasconcelos.github.io/releases/tag/2.0.0) | Tried Jekyll               |
-| **v3**           | [v3.0.0](https://github.com/arthurvasconcelos/arthurvasconcelos.github.io/releases/tag/3.0.0) | Vue 2 w/ Vue CLI 3         |
+Built with Nuxt 3 (compatibility v4), `@nuxt/ui`, Vue 3, and deployed to GitHub Pages.
+
+## Development
+
+```bash
+pnpm install
+pnpm dev
+```
+
+## Build & preview
+
+```bash
+pnpm build
+pnpm preview
+```
+
+## Checks
+
+```bash
+pnpm lint
+pnpm typecheck
+```
+
+## Deployment
+
+Pushes to `main` trigger the [deploy workflow](.github/workflows/deploy.yml) which builds and publishes to the `github-pages` environment.

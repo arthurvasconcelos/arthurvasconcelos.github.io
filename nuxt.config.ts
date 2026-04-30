@@ -7,15 +7,6 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: true },
 
-  runtimeConfig: {
-    // The private keys which are only available server-side
-    apiSecret: "123",
-    // Keys within public are also exposed client-side
-    public: {
-      apiBase: "/api",
-    },
-  },
-
   css: ["~/assets/css/main.css"],
 
   icon: {
@@ -36,18 +27,6 @@ export default defineNuxtConfig({
     classSuffix: "",
   },
 
-  // app: {
-  //   head: {
-  //     title: "Arthur Vasconcelos", // default fallback title
-  //     htmlAttrs: {
-  //       lang: "en",
-  //     },
-  //     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
-  //     charset: "utf-16",
-  //     viewport: "width=device-width, initial-scale=1, maximum-scale=1",
-  //   },
-  // },
-
   modules: [
     "@nuxt/icon",
     "@nuxtjs/color-mode",
@@ -55,5 +34,6 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "nuxt-lodash",
     "@vueuse/nuxt",
+    "@nuxt/eslint",
   ],
 });

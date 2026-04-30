@@ -31,7 +31,7 @@ defineProps<{
       v-if="experience.companyLogo"
       :src="experience.companyLogo"
       :alt="experience.company"
-    />
+    >
     <PlaceholderBox v-else class="w-full h-full bg-white dark:bg-black" />
   </div>
 </template>

@@ -73,7 +73,7 @@ onMounted(() => {
           >
             {{ currentWord }}<span class="cursor">_</span>
           </HomeHighlight>
-          <span class="phraseBreaker"></span>
+          <span class="phraseBreaker" />
           &nbsp;with&nbsp;
           <div class="inline-flex gap-2">
             <HomeHighlight

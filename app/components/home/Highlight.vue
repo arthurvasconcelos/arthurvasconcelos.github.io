@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const {
-  text,
-  currentClass,
+  text = undefined,
+  currentClass = undefined,
   capitalize = false,
   doesTransition = false,
 } = defineProps<{

@@ -1,9 +1,7 @@
 export default defineAppConfig({
-  // title: "Arthur Vasconcelos",
-  theme: {
-    dark: true,
+  ui: {
     colors: {
-      primary: "#ff0000",
+      primary: "violet",
     },
   },
 });

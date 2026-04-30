@@ -5,17 +5,27 @@ const socials = [
   {
     name: "GitHub",
     icon: "logos:github-icon",
-    link: "#",
+    link: "https://github.com/arthurvasconcelos",
   },
   {
     name: "LinkedIn",
     icon: "logos:linkedin-icon",
-    link: "#",
+    link: "https://www.linkedin.com/in/arthurvasconcelos/",
+  },
+  {
+    name: "Stack Overflow",
+    icon: "logos:stackoverflow-icon",
+    link: "https://stackoverflow.com/users/3130385/arthur-vasconcelos",
   },
   {
     name: "NPM",
     icon: "logos:npm-icon",
-    link: "#",
+    link: "https://www.npmjs.com/~arthurvasconcelos",
+  },
+  {
+    name: "PyPI",
+    icon: "logos:pypi",
+    link: "https://pypi.org/user/arthurvasconcelos/",
   },
 ];
 
@@ -76,8 +86,6 @@ const workExperience = ref(
         can develop on the server side too, I can write code in PHP, Javascript
         and Python.
       </p>
-      <!-- <UIcon name="i-lucide-sun" />
-      <UIcon name="i-lucide-moon" /> -->
     </div>
   </div>
 </template>
