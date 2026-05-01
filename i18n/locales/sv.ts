@@ -3,6 +3,7 @@ export default {
     home: "Hem",
     about: "Om mig",
     projects: "Projekt",
+    blog: "Blogg",
   },
   home: {
     developingFor: "Utvecklar för",
@@ -51,5 +52,13 @@ export default {
       standalone: "Bibliotek",
       legacy: "Äldre & Arkiverade",
     },
+  },
+  blog: {
+    pageTitle: "Blogg",
+    noPosts: "Inga inlägg ännu. Kom tillbaka snart.",
+    readingTime: "{n} min läsning",
+    alsoAvailableIn: "Även tillgänglig på:",
+    backToBlog: "Tillbaka till bloggen",
+    draft: "Utkast",
   },
 };

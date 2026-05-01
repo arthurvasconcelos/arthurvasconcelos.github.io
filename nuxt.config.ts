@@ -41,7 +41,37 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@nuxtjs/i18n",
     "@nuxtjs/sitemap",
+    "@nuxt/content",
   ],
+
+  content: {
+    highlight: {
+      theme: {
+        default: "github-light",
+        dark: "tokyo-night",
+      },
+      langs: [
+        "typescript",
+        "javascript",
+        "vue",
+        "bash",
+        "shell",
+        "python",
+        "go",
+        "json",
+        "yaml",
+        "html",
+        "css",
+        "markdown",
+      ],
+    },
+  },
+
+  nitro: {
+    prerender: {
+      routes: ["/rss.xml", "/pt-br/rss.xml", "/sv/rss.xml"],
+    },
+  },
 
   i18n: {
     defaultLocale: "en-GB",

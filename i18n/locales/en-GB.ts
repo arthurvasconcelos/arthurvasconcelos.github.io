@@ -3,6 +3,7 @@ export default {
     home: "Home",
     about: "About",
     projects: "Projects",
+    blog: "Blog",
   },
   home: {
     developingFor: "Developing for",
@@ -71,5 +72,13 @@ export default {
       standalone: "Libraries",
       legacy: "Legacy & Archived",
     },
+  },
+  blog: {
+    pageTitle: "Blog",
+    noPosts: "No posts yet. Check back soon.",
+    readingTime: "{n} min read",
+    alsoAvailableIn: "Also available in:",
+    backToBlog: "Back to blog",
+    draft: "Draft",
   },
 };

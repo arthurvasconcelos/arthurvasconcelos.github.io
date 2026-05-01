@@ -19,6 +19,10 @@ const items = computed<NavigationMenuItem[][]>(() => [
       label: t("nav.projects"),
       to: localePath("/projects"),
     },
+    {
+      label: t("nav.blog"),
+      to: localePath("/blog"),
+    },
   ],
   [
     {
