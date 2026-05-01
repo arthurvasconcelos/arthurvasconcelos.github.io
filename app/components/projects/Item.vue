@@ -88,7 +88,7 @@ const version = computed(() => packageJson.value?.version || 0);
 
     <USkeleton v-if="isLoading" class="h-5 w-full" />
     <template v-else>
-      <p class="text-base mb-6 text-slate-600 dark:text-slate-400">{{ description }}</p>
+      <p class="text-base mb-6 text-slate-600 dark:text-slate-300">{{ description }}</p>
 
       <div
         :class="[
@@ -106,7 +106,7 @@ const version = computed(() => packageJson.value?.version || 0);
           <UBadge
             icon="mdi:eye-outline"
             size="xl"
-            color="info"
+            color="neutral"
             variant="subtle"
           >
             {{ watchers }}
@@ -117,7 +117,7 @@ const version = computed(() => packageJson.value?.version || 0);
           <UBadge
             icon="mdi:star-outline"
             size="xl"
-            color="info"
+            color="neutral"
             variant="subtle"
           >
             {{ stars }}
@@ -128,7 +128,7 @@ const version = computed(() => packageJson.value?.version || 0);
           <UBadge
             icon="mdi:source-fork"
             size="xl"
-            color="info"
+            color="neutral"
             variant="subtle"
           >
             {{ forks }}
@@ -139,7 +139,7 @@ const version = computed(() => packageJson.value?.version || 0);
           <UBadge
             icon="mdi:alert-decagram-outline"
             size="xl"
-            color="info"
+            color="neutral"
             variant="subtle"
           >
             {{ issues }}
@@ -150,7 +150,7 @@ const version = computed(() => packageJson.value?.version || 0);
           <UBadge
             icon="mdi:cloud-download-outline"
             size="xl"
-            color="info"
+            color="neutral"
             variant="subtle"
           >
             {{ downloads }}
@@ -158,7 +158,7 @@ const version = computed(() => packageJson.value?.version || 0);
         </UTooltip>
 
         <UTooltip :delay-duration="0" text="Version">
-          <UBadge icon="mdi:code-json" size="xl" color="info" variant="subtle">
+          <UBadge icon="mdi:code-json" size="xl" color="neutral" variant="subtle">
             {{ version }}
           </UBadge>
         </UTooltip>
