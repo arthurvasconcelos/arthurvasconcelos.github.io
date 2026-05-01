@@ -56,5 +56,6 @@ useSeoMeta({
         <NuxtPage />
       </main>
     </NuxtLayout>
+    <DevA11yPanel />
   </UApp>
 </template>
