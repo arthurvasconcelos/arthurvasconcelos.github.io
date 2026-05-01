@@ -81,6 +81,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^8.59.1
         version: 8.59.1(eslint@10.2.1(jiti@2.6.1))(typescript@5.9.3)
+      eslint:
+        specifier: ^10.2.1
+        version: 10.2.1(jiti@2.6.1)
       prettier:
         specifier: ^3.5.3
         version: 3.8.3
