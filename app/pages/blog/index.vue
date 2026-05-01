@@ -51,7 +51,7 @@ function formatDate(date: Date | string): string {
             </NuxtLink>
             <time
               :datetime="new Date(post.date).toISOString()"
-              class="text-sm text-slate-400 shrink-0 mt-0.5 font-jetbrains"
+              class="text-sm text-[#64748b] dark:text-slate-400 shrink-0 mt-0.5 font-jetbrains"
             >
               {{ formatDate(post.date) }}
             </time>

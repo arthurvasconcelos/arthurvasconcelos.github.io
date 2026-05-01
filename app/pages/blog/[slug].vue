@@ -116,7 +116,7 @@ function translationName(contentPath: string): string {
       </h1>
 
       <div
-        class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500 font-jetbrains"
+        class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-[#64748b] dark:text-slate-400 font-jetbrains"
       >
         <time :datetime="new Date(post!.date).toISOString()">
           {{ formatDate(post!.date) }}
