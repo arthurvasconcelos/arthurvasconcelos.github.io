@@ -107,14 +107,13 @@ function translationName(contentPath: string): string {
 </script>
 
 <template>
-  <template v-if="post">
+  <UContainer v-if="post" as="article" class="py-12 max-w-3xl mx-auto">
     <div
       class="fixed top-0 left-0 z-50 h-0.5 bg-violet-500 transition-[width] duration-75 ease-out"
       :style="{ width: `${scrollProgress}%` }"
       aria-hidden="true"
     />
-    <UContainer as="article" class="py-12 max-w-3xl mx-auto">
-      <NuxtLink
+    <NuxtLink
         :to="localePath('/blog')"
         class="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-violet-500 transition-colors mb-10"
       >
@@ -171,6 +170,5 @@ function translationName(contentPath: string): string {
       >
         <ContentRenderer :value="post" />
       </div>
-    </UContainer>
-  </template>
+  </UContainer>
 </template>
