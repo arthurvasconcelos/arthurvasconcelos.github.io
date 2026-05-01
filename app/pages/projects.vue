@@ -8,6 +8,7 @@ useHead({ title: computed(() => t("projects.pageTitle")) });
 
 <template>
   <UContainer as="section" class="py-12 space-y-12">
+    <h1 class="text-3xl font-bold">{{ t("projects.pageTitle") }}</h1>
     <section>
       <AboutSectionsHeading :title="t('projects.sections.flagship')" class="mb-6" />
       <div class="grid gap-4">
