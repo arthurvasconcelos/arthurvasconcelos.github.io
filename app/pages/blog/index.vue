@@ -29,7 +29,7 @@ function formatDate(date: Date | string): string {
 
 <template>
   <UContainer as="section" class="py-12">
-    <AboutSectionsHeading :title="t('blog.pageTitle')" class="mb-8" />
+    <h1 class="text-3xl font-bold mb-8">{{ t("blog.pageTitle") }}</h1>
 
     <p v-if="!posts?.length" class="text-slate-500">
       {{ t("blog.noPosts") }}
