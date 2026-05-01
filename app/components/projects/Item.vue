@@ -70,7 +70,11 @@ const version = computed(() => packageJson.value?.version || 0);
         v-else
         class="flex items-center justify-between font-space-grotesk text-2xl font-bold"
       >
-        <ULink :href="REPO_URL" target="_blank" class="inline-flex items-center gap-1">
+        <ULink
+          :href="REPO_URL"
+          target="_blank"
+          class="inline-flex items-center gap-1 text-slate-900 dark:text-slate-100 hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
+        >
           {{ name }}
           <UIcon name="i-lucide:arrow-up-right" class="size-5 shrink-0" />
         </ULink>
@@ -88,7 +92,7 @@ const version = computed(() => packageJson.value?.version || 0);
 
     <USkeleton v-if="isLoading" class="h-5 w-full" />
     <template v-else>
-      <p class="text-base mb-6 text-slate-600 dark:text-slate-300">{{ description }}</p>
+      <p class="text-base mb-6 text-[#475569] dark:text-slate-300">{{ description }}</p>
 
       <div
         :class="[
@@ -103,64 +107,45 @@ const version = computed(() => packageJson.value?.version || 0);
         ]"
       >
         <UTooltip :delay-duration="0" text="Watchers">
-          <UBadge
-            icon="mdi:eye-outline"
-            size="xl"
-            color="neutral"
-            variant="subtle"
-          >
+          <span class="stat-badge">
+            <UIcon name="mdi:eye-outline" class="size-4 shrink-0" />
             {{ watchers }}
-          </UBadge>
+          </span>
         </UTooltip>
 
         <UTooltip :delay-duration="0" text="Stars">
-          <UBadge
-            icon="mdi:star-outline"
-            size="xl"
-            color="neutral"
-            variant="subtle"
-          >
+          <span class="stat-badge">
+            <UIcon name="mdi:star-outline" class="size-4 shrink-0" />
             {{ stars }}
-          </UBadge>
+          </span>
         </UTooltip>
 
         <UTooltip :delay-duration="0" text="Forks">
-          <UBadge
-            icon="mdi:source-fork"
-            size="xl"
-            color="neutral"
-            variant="subtle"
-          >
+          <span class="stat-badge">
+            <UIcon name="mdi:source-fork" class="size-4 shrink-0" />
             {{ forks }}
-          </UBadge>
+          </span>
         </UTooltip>
 
         <UTooltip :delay-duration="0" text="Issues">
-          <UBadge
-            icon="mdi:alert-decagram-outline"
-            size="xl"
-            color="neutral"
-            variant="subtle"
-          >
+          <span class="stat-badge">
+            <UIcon name="mdi:alert-decagram-outline" class="size-4 shrink-0" />
             {{ issues }}
-          </UBadge>
+          </span>
         </UTooltip>
 
         <UTooltip :delay-duration="0" text="Downloads">
-          <UBadge
-            icon="mdi:cloud-download-outline"
-            size="xl"
-            color="neutral"
-            variant="subtle"
-          >
+          <span class="stat-badge">
+            <UIcon name="mdi:cloud-download-outline" class="size-4 shrink-0" />
             {{ downloads }}
-          </UBadge>
+          </span>
         </UTooltip>
 
         <UTooltip :delay-duration="0" text="Version">
-          <UBadge icon="mdi:code-json" size="xl" color="neutral" variant="subtle">
+          <span class="stat-badge">
+            <UIcon name="mdi:code-json" class="size-4 shrink-0" />
             {{ version }}
-          </UBadge>
+          </span>
         </UTooltip>
       </div>
     </template>
@@ -191,4 +176,25 @@ const version = computed(() => packageJson.value?.version || 0);
   </UCard>
 </template>
 
-<style></style>
+<style scoped>
+.stat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: 500;
+  /* #475569 on any light bg gives ~7:1 contrast */
+  background-color: #f1f5f9;
+  color: #475569;
+  box-shadow: inset 0 0 0 1px #cbd5e1;
+}
+
+.dark .stat-badge {
+  /* #e2e8f0 on #1e293b gives ~9:1 contrast */
+  background-color: #1e293b;
+  color: #e2e8f0;
+  box-shadow: inset 0 0 0 1px #334155;
+}
+</style>
