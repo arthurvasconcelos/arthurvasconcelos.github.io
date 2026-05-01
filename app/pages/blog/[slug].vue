@@ -60,6 +60,14 @@ function formatDate(date: Date | string): string {
   }).format(new Date(date));
 }
 
+const { y } = useWindowScroll();
+const { height: windowHeight } = useWindowSize();
+const scrollProgress = computed(() => {
+  if (!import.meta.client) return 0;
+  const total = document.documentElement.scrollHeight - windowHeight.value;
+  return total > 0 ? Math.min(100, (y.value / total) * 100) : 0;
+});
+
 const DIR_TO_LOCALE: Record<string, string> = {
   "en-gb": "en-GB",
   "pt-br": "pt-BR",
@@ -88,6 +96,11 @@ function translationName(contentPath: string): string {
 </script>
 
 <template>
+  <div
+    class="fixed top-0 left-0 z-50 h-0.5 bg-violet-500 transition-[width] duration-75 ease-out"
+    :style="{ width: `${scrollProgress}%` }"
+    aria-hidden="true"
+  />
   <UContainer as="article" class="py-12 max-w-3xl mx-auto">
     <NuxtLink
       :to="localePath('/blog')"
@@ -137,7 +150,13 @@ function translationName(contentPath: string): string {
       </div>
     </header>
 
-    <div class="prose prose-slate dark:prose-invert max-w-none">
+    <div
+      class="prose prose-slate dark:prose-invert max-w-none
+             prose-p:leading-relaxed prose-p:text-base
+             prose-headings:font-space-grotesk prose-headings:font-bold
+             prose-code:font-jetbrains prose-code:text-sm prose-code:bg-slate-100 prose-code:dark:bg-slate-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+             prose-pre:bg-transparent prose-pre:p-0"
+    >
       <ContentRenderer :value="post!" />
     </div>
   </UContainer>

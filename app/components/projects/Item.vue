@@ -70,9 +70,9 @@ const version = computed(() => packageJson.value?.version || 0);
         v-else
         class="flex items-center justify-between font-space-grotesk text-2xl font-bold"
       >
-        <ULink :href="REPO_URL" target="_blank">
+        <ULink :href="REPO_URL" target="_blank" class="inline-flex items-center gap-1">
           {{ name }}
-          <UIcon name="i-lucide:arrow-up-right" />
+          <UIcon name="i-lucide:arrow-up-right" class="size-5 shrink-0" />
         </ULink>
         <UBadge
           v-if="archived"
