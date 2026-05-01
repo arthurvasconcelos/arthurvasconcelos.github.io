@@ -16,6 +16,15 @@ export default defineNuxtConfig({
 
   icon: {
     mode: "svg",
+    serverBundle: "local",
+    clientBundle: {
+      scan: {
+        globInclude: ["**/*.{vue,ts}"],
+      },
+      // dynamic icons not detectable by static scan
+      icons: ["lucide:sun", "lucide:moon", "lucide:loader"],
+      sizeLimitKb: 0,
+    },
   },
 
   fonts: {
