@@ -61,12 +61,22 @@ function formatDate(date: Date | string): string {
   }).format(new Date(date));
 }
 
-const { y } = useWindowScroll();
-const { height: windowHeight } = useWindowSize();
-const scrollProgress = computed(() => {
-  if (!import.meta.client) return 0;
-  const total = document.documentElement.scrollHeight - windowHeight.value;
-  return total > 0 ? Math.min(100, (y.value / total) * 100) : 0;
+const scrollProgress = ref(0);
+
+function calcScrollProgress() {
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  scrollProgress.value = total > 0 ? Math.min(100, (window.scrollY / total) * 100) : 0;
+}
+
+onMounted(() => {
+  window.addEventListener("scroll", calcScrollProgress, { passive: true });
+  window.addEventListener("resize", calcScrollProgress, { passive: true });
+  nextTick(calcScrollProgress);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", calcScrollProgress);
+  window.removeEventListener("resize", calcScrollProgress);
 });
 
 const DIR_TO_LOCALE: Record<string, string> = {
