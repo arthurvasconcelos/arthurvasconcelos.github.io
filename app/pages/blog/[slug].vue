@@ -81,9 +81,9 @@ function translationUrl(contentPath: string): string {
 }
 
 function translationName(contentPath: string): string {
-  const dir = contentPath.split("/")[1];
+  const dir = contentPath.split("/")[1] ?? "";
   const code = DIR_TO_LOCALE[dir];
-  return code ? LOCALE_NAMES[code] : dir;
+  return (code ? LOCALE_NAMES[code] : undefined) ?? dir;
 }
 </script>
 

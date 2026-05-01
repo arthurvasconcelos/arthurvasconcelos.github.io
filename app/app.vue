@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const localeHead = useLocaleHead({ addSeoAttributes: true });
+const localeHead = useLocaleHead({ seo: true });
 
 useHead(() => ({
   htmlAttrs: localeHead.value.htmlAttrs ?? {},

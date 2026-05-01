@@ -45,25 +45,29 @@ export default defineNuxtConfig({
   ],
 
   content: {
-    highlight: {
-      theme: {
-        default: "github-light",
-        dark: "tokyo-night",
+    build: {
+      markdown: {
+        highlight: {
+          theme: {
+            default: "github-light",
+            dark: "tokyo-night",
+          },
+          langs: [
+            "typescript",
+            "javascript",
+            "vue",
+            "bash",
+            "shell",
+            "python",
+            "go",
+            "json",
+            "yaml",
+            "html",
+            "css",
+            "markdown",
+          ],
+        },
       },
-      langs: [
-        "typescript",
-        "javascript",
-        "vue",
-        "bash",
-        "shell",
-        "python",
-        "go",
-        "json",
-        "yaml",
-        "html",
-        "css",
-        "markdown",
-      ],
     },
   },
 
