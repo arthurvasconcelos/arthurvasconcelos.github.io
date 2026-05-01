@@ -70,6 +70,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: ["/rss.xml", "/pt-br/rss.xml", "/sv/rss.xml"],
+      failOnError: false,
     },
   },
 
