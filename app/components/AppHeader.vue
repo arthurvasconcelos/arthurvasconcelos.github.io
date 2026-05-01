@@ -58,7 +58,7 @@ const items = computed<NavigationMenuItem[][]>(() => [
             'py-0.5',
             'rounded',
             locale === loc.code
-              ? 'bg-violet-500 text-white'
+              ? 'bg-violet-600 text-white'
               : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200',
           ]"
         >
