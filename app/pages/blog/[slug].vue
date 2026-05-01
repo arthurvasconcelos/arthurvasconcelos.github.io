@@ -12,8 +12,9 @@ const { data: post } = await useAsyncData(`post-${localeDir}-${slug}`, () =>
     .first(),
 );
 
+// No translation for this locale → send to the blog list instead of 404
 if (!post.value) {
-  throw createError({ statusCode: 404, statusMessage: "Post not found" });
+  await navigateTo(localePath("/blog"));
 }
 
 const { data: translations } = await useAsyncData(
@@ -96,68 +97,70 @@ function translationName(contentPath: string): string {
 </script>
 
 <template>
-  <div
-    class="fixed top-0 left-0 z-50 h-0.5 bg-violet-500 transition-[width] duration-75 ease-out"
-    :style="{ width: `${scrollProgress}%` }"
-    aria-hidden="true"
-  />
-  <UContainer as="article" class="py-12 max-w-3xl mx-auto">
-    <NuxtLink
-      :to="localePath('/blog')"
-      class="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-violet-500 transition-colors mb-10"
-    >
-      <UIcon name="i-material-symbols-arrow-back" class="size-4" />
-      {{ t("blog.backToBlog") }}
-    </NuxtLink>
-
-    <header class="mb-10">
-      <h1 class="text-4xl font-bold leading-tight mb-4">
-        {{ post!.title }}
-      </h1>
-
-      <div
-        class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-[#64748b] dark:text-slate-400 font-jetbrains"
-      >
-        <time :datetime="new Date(post!.date).toISOString()">
-          {{ formatDate(post!.date) }}
-        </time>
-        <span aria-hidden="true">·</span>
-        <span>{{ t("blog.readingTime", { n: readingTime(post!.body) }) }}</span>
-        <UBadge
-          v-if="post!.draft"
-          color="warning"
-          variant="subtle"
-          size="sm"
-          class="font-jetbrains"
-        >
-          {{ t("blog.draft") }}
-        </UBadge>
-      </div>
-
-      <div
-        v-if="translations?.length"
-        class="mt-4 text-sm text-slate-500 flex flex-wrap items-center gap-2"
-      >
-        <span>{{ t("blog.alsoAvailableIn") }}</span>
-        <NuxtLink
-          v-for="tr in translations"
-          :key="tr.path"
-          :to="translationUrl(tr.path)"
-          class="text-violet-500 hover:text-violet-400 transition-colors"
-        >
-          {{ translationName(tr.path) }}
-        </NuxtLink>
-      </div>
-    </header>
-
+  <template v-if="post">
     <div
-      class="prose prose-slate dark:prose-invert max-w-none
-             prose-p:leading-relaxed prose-p:text-base
-             prose-headings:font-space-grotesk prose-headings:font-bold
-             prose-code:font-jetbrains prose-code:text-sm prose-code:bg-slate-100 prose-code:dark:bg-slate-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
-             prose-pre:bg-transparent prose-pre:p-0"
-    >
-      <ContentRenderer :value="post!" />
-    </div>
-  </UContainer>
+      class="fixed top-0 left-0 z-50 h-0.5 bg-violet-500 transition-[width] duration-75 ease-out"
+      :style="{ width: `${scrollProgress}%` }"
+      aria-hidden="true"
+    />
+    <UContainer as="article" class="py-12 max-w-3xl mx-auto">
+      <NuxtLink
+        :to="localePath('/blog')"
+        class="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-violet-500 transition-colors mb-10"
+      >
+        <UIcon name="i-material-symbols-arrow-back" class="size-4" />
+        {{ t("blog.backToBlog") }}
+      </NuxtLink>
+
+      <header class="mb-10">
+        <h1 class="text-4xl font-bold leading-tight mb-4">
+          {{ post.title }}
+        </h1>
+
+        <div
+          class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-[#64748b] dark:text-slate-400 font-jetbrains"
+        >
+          <time :datetime="new Date(post.date).toISOString()">
+            {{ formatDate(post.date) }}
+          </time>
+          <span aria-hidden="true">·</span>
+          <span>{{ t("blog.readingTime", { n: readingTime(post.body) }) }}</span>
+          <UBadge
+            v-if="post.draft"
+            color="warning"
+            variant="subtle"
+            size="sm"
+            class="font-jetbrains"
+          >
+            {{ t("blog.draft") }}
+          </UBadge>
+        </div>
+
+        <div
+          v-if="translations?.length"
+          class="mt-4 text-sm text-slate-500 flex flex-wrap items-center gap-2"
+        >
+          <span>{{ t("blog.alsoAvailableIn") }}</span>
+          <NuxtLink
+            v-for="tr in translations"
+            :key="tr.path"
+            :to="translationUrl(tr.path)"
+            class="text-violet-500 hover:text-violet-400 transition-colors"
+          >
+            {{ translationName(tr.path) }}
+          </NuxtLink>
+        </div>
+      </header>
+
+      <div
+        class="prose prose-slate dark:prose-invert max-w-none
+               prose-p:leading-relaxed prose-p:text-base
+               prose-headings:font-space-grotesk prose-headings:font-bold
+               prose-code:font-jetbrains prose-code:text-sm prose-code:bg-slate-100 prose-code:dark:bg-slate-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+               prose-pre:bg-transparent prose-pre:p-0"
+      >
+        <ContentRenderer :value="post" />
+      </div>
+    </UContainer>
+  </template>
 </template>
