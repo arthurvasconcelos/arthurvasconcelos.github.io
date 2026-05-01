@@ -44,7 +44,7 @@ useSeoMeta({
   ogTitle: "Arthur Vasconcelos",
   description: "Arthur Vasconcelos — Senior Front-End Engineer",
   ogDescription: "Arthur Vasconcelos — Senior Front-End Engineer",
-  ogImage: "/og-image.svg",
+  ogImage: "/og-image.png",
   twitterCard: "summary_large_image",
 });
 </script>
