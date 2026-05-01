@@ -35,16 +35,16 @@ const items = computed<NavigationMenuItem[][]>(() => [
   <UContainer as="header" class="flex justify-between items-center">
     <NuxtLink
       :to="localePath('/')"
-      class="flex items-center justify-between flex-wrap w-35.5 font-raleway text-2xl"
+      class="flex items-center justify-between flex-wrap w-35.5 font-space-grotesk text-2xl"
     >
       Arthur
-      <span aria-hidden="true" class="font-source font-bold">\n</span>
+      <span aria-hidden="true" class="font-jetbrains font-bold">\n</span>
       Vasconcelos
     </NuxtLink>
 
     <div class="flex gap-1.5 items-center">
       <UNavigationMenu :items="items" />
-      <div class="flex items-center gap-0.5 font-source text-xs">
+      <div class="flex items-center gap-0.5 font-jetbrains text-xs">
         <NuxtLink
           v-for="loc in locales"
           :key="loc.code"

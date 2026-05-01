@@ -28,7 +28,7 @@ const { t } = useI18n();
       'group-odd/experience:rounded-r-4xl',
       'group-even/experience:rounded-l-4xl',
       // Text
-      'font-source',
+      'font-jetbrains',
     ]"
   >
     <span>{{ experience.start }}</span>

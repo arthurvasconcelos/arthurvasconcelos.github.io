@@ -39,12 +39,12 @@ const { t } = useI18n();
         'group-even/experience:pr-4',
       ]"
     >
-      <h3 class="flex items-center gap-1 text-lg font-semibold font-raleway">
+      <h3 class="flex items-center gap-1 text-lg font-semibold font-space-grotesk">
         {{ experience.title }}
         <UIcon name="mdi:at" />
         {{ experience.company }}
       </h3>
-      <p class="flex items-center gap-1 text-sm font-raleway">
+      <p class="flex items-center gap-1 text-sm font-space-grotesk">
         <UIcon :name="experience.locationIcon" />
         {{ experience.location }}
         <UIcon name="mdi:circle-medium" />
@@ -59,7 +59,7 @@ const { t } = useI18n();
     <p
       :class="[
         // Text
-        'font-slabo',
+        'text-sm',
         // Spacing
         'py-2',
         'px-2',

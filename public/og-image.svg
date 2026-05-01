@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="100%" r="80%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="0" width="8" height="630" fill="#8b5cf6"/>
+  <text
+    x="80"
+    y="340"
+    font-family="'JetBrains Mono', 'Courier New', monospace"
+    font-size="160"
+    font-weight="700"
+    fill="#8b5cf6"
+    opacity="0.12"
+  >av_</text>
+  <text
+    x="80"
+    y="310"
+    font-family="'Space Grotesk', system-ui, sans-serif"
+    font-size="72"
+    font-weight="700"
+    fill="white"
+  >Arthur Vasconcelos</text>
+  <text
+    x="80"
+    y="390"
+    font-family="'JetBrains Mono', 'Courier New', monospace"
+    font-size="30"
+    fill="#94a3b8"
+  >Senior Front-End Engineer</text>
+  <text
+    x="80"
+    y="560"
+    font-family="'JetBrains Mono', 'Courier New', monospace"
+    font-size="22"
+    fill="#8b5cf6"
+  >arthurvasconcelos.com.br</text>
+  <rect x="80" y="430" width="120" height="4" rx="2" fill="#10b981"/>
+</svg>

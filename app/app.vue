@@ -1,5 +1,11 @@
 <script setup lang="ts">
-const { locale } = useI18n();
+const localeHead = useLocaleHead({ addSeoAttributes: true });
+
+useHead(() => ({
+  htmlAttrs: localeHead.value.htmlAttrs ?? {},
+  link: localeHead.value.link ?? [],
+  meta: localeHead.value.meta ?? [],
+}));
 
 useHead({
   title: "Arthur Vasconcelos",
@@ -8,10 +14,29 @@ useHead({
     { name: "viewport", content: "width=device-width, initial-scale=1" },
     { name: "description", content: "Arthur Vasconcelos — Senior Front-End Engineer" },
   ],
-  link: [{ rel: "icon", href: "/favicon.ico" }],
-  htmlAttrs: {
-    lang: locale,
-  },
+  link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Arthur Vasconcelos",
+        jobTitle: "Senior Front-End Engineer",
+        url: "https://arthurvasconcelos.com.br",
+        sameAs: [
+          "https://github.com/arthurvasconcelos",
+          "https://www.linkedin.com/in/arthurvasconcelos/",
+          "https://stackoverflow.com/users/3130385/arthur-vasconcelos",
+        ],
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Stockholm",
+          addressCountry: "SE",
+        },
+      }),
+    },
+  ],
 });
 
 useSeoMeta({
@@ -19,7 +44,8 @@ useSeoMeta({
   ogTitle: "Arthur Vasconcelos",
   description: "Arthur Vasconcelos — Senior Front-End Engineer",
   ogDescription: "Arthur Vasconcelos — Senior Front-End Engineer",
-  twitterCard: "summary",
+  ogImage: "/og-image.svg",
+  twitterCard: "summary_large_image",
 });
 </script>
 

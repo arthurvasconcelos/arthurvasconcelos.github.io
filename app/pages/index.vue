@@ -1,21 +1,14 @@
 <script setup lang="ts">
 import capitalize from "lodash/capitalize";
-import { v4 as uuidv4 } from "uuid";
 
 const { t } = useI18n();
 
 const wordKeys = ["web", "mobile", "desktop", "server"] as const;
-const wordCssClasses: Record<string, string> = {
-  web: "web",
-  mobile: "mobile",
-  desktop: "desktop",
-  server: "server",
-};
 
 const languages = ref([
-  { id: uuidv4(), name: "JS/TS", class: "js-ts" },
-  { id: uuidv4(), name: "Python", class: "python" },
-  { id: uuidv4(), name: "PHP", class: "php" },
+  { id: "js-ts", name: "JS/TS" },
+  { id: "python", name: "Python" },
+  { id: "php", name: "PHP" },
 ]);
 
 const wordLabels = computed(() => wordKeys.map((key) => t(`home.words.${key}`)));
@@ -31,13 +24,13 @@ const h2Label = computed(() => {
   return `${t("home.developingFor")} ${joinedWords} ${t("home.and")} ${lastWord} ${t("home.with")} ${joinedLangs} ${t("home.and")} ${lastLang}`;
 });
 
-const { currentWord, currentIndex, wordsInterval } = useWriteWords(wordLabels);
-const currentCssClass = computed(
-  () => wordCssClasses[wordKeys[currentIndex.value] ?? "web"] ?? "web"
-);
+const { currentWord, wordsInterval } = useWriteWords(wordLabels);
+const prefersReducedMotion = usePreferredReducedMotion();
 
 onMounted(() => {
-  wordsInterval();
+  if (prefersReducedMotion.value !== "reduce") {
+    wordsInterval();
+  }
 });
 </script>
 
@@ -51,7 +44,7 @@ onMounted(() => {
             'text-slate-950',
             'dark:text-slate-300',
             // text
-            'font-raleway',
+            'font-space-grotesk',
             'text-4xl',
             'font-bold',
             'uppercase',
@@ -69,7 +62,6 @@ onMounted(() => {
             'text-slate-950',
             'dark:text-slate-300',
             // text
-            'font-slabo',
             'text-xl',
             // spacing
             'm-0',
@@ -78,11 +70,7 @@ onMounted(() => {
           :aria-label="h2Label"
         >
           {{ t("home.developingFor") }}&nbsp;
-          <HomeHighlight
-            :capitalize="true"
-            :does-transition="true"
-            :current-class="currentCssClass"
-          >
+          <HomeHighlight :capitalize="true" current-class="word-highlight">
             {{ currentWord }}<span class="cursor">_</span>
           </HomeHighlight>
           <span class="phraseBreaker" />
@@ -92,7 +80,7 @@ onMounted(() => {
               v-for="language in languages"
               :key="language.id"
               :text="language.name"
-              :current-class="language.class"
+              current-class="lang-badge"
             />
           </div>
         </h2>
@@ -102,103 +90,34 @@ onMounted(() => {
 </template>
 
 <style>
-.web {
-  background-color: #e65126;
-  color: #eeeff1;
+.word-highlight {
+  background-color: var(--color-violet-500);
+  color: white;
 }
 
-.mobile {
-  background-color: #488aff;
-  color: #ffffff;
+.lang-badge {
+  background-color: color-mix(in srgb, var(--color-emerald-500) 15%, transparent);
+  color: var(--color-emerald-700);
 }
 
-.desktop {
-  background-color: #393c4b;
-  color: #a9edfa;
-}
-
-.server {
-  background-color: #83cd29;
-  color: #404137;
+:where(.dark, .dark *) .lang-badge {
+  background-color: color-mix(in srgb, var(--color-emerald-500) 20%, transparent);
+  color: var(--color-emerald-300);
 }
 
 .cursor {
   animation: fadeCursor 0.5s ease-in-out infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+  }
+}
+
 .phraseBreaker {
   display: block;
   height: 0.8rem;
   width: 100%;
-}
-
-.js-ts {
-  background-image: linear-gradient(
-    115deg,
-    var(--color-javascript-2) 50%,
-    var(--color-black) 50%
-  );
-  color: transparent;
-  position: relative;
-
-  &:before,
-  &:after {
-    content: attr(data-text);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    user-select: none;
-  }
-
-  &:before {
-    color: var(--color-javascript-1);
-    z-index: 1;
-  }
-
-  &:after {
-    color: var(--color-white);
-    z-index: 2;
-    clip-path: polygon(61% 0, 100% 0, 100% 100%, 40% 100%);
-  }
-
-  &:where(.dark, .dark *) {
-    background-image: linear-gradient(
-      115deg,
-      var(--color-javascript-1) 50%,
-      var(--color-typescript-1) 50%
-    );
-
-    &:before {
-      color: var(--color-javascript-2);
-    }
-
-    &:after {
-      color: var(--color-white);
-    }
-  }
-}
-
-.python {
-  background-color: var(--color-python-1);
-  color: var(--color-python-2);
-
-  &:where(.dark, .dark *) {
-    background-color: var(--color-python-2);
-    color: var(--color-python-1);
-  }
-}
-
-.php {
-  background-color: var(--color-php-1);
-  color: var(--color-black);
-
-  &:where(.dark, .dark *) {
-    color: var(--color-white);
-  }
-
-  to {
-    opacity: 0;
-  }
 }
 </style>

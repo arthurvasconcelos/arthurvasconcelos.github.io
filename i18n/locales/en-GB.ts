@@ -66,5 +66,10 @@ export default {
   },
   projects: {
     pageTitle: "Projects",
+    sections: {
+      flagship: "Featured Projects",
+      standalone: "Libraries",
+      legacy: "Legacy & Archived",
+    },
   },
 };

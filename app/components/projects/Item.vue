@@ -68,7 +68,7 @@ const version = computed(() => packageJson.value?.version || 0);
       <USkeleton v-if="isLoading" class="h-5 w-full" />
       <h2
         v-else
-        class="flex items-center justify-between font-raleway text-2xl font-bold"
+        class="flex items-center justify-between font-space-grotesk text-2xl font-bold"
       >
         <ULink :href="REPO_URL" target="_blank">
           {{ name }}
@@ -88,7 +88,7 @@ const version = computed(() => packageJson.value?.version || 0);
 
     <USkeleton v-if="isLoading" class="h-5 w-full" />
     <template v-else>
-      <p class="font-slabo text-base mb-6">{{ description }}</p>
+      <p class="text-base mb-6 text-slate-600 dark:text-slate-400">{{ description }}</p>
 
       <div
         :class="[
@@ -169,7 +169,7 @@ const version = computed(() => packageJson.value?.version || 0);
       <code
         :class="[
           // Text
-          'font-source',
+          'font-jetbrains',
           'text-xs',
           'whitespace-nowrap',
           // Colors

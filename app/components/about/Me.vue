@@ -72,7 +72,7 @@ const workExperience = ref(
         </ULink>
       </div>
     </div>
-    <div class="flex flex-col gap-2 font-slabo">
+    <div class="flex flex-col gap-2">
       <p>{{ t('about.bio.greeting') }}</p>
       <p>{{ t('about.bio.intro', { age, years: workExperience }) }}</p>
       <p>{{ t('about.bio.experience', { years: workExperience }) }}</p>

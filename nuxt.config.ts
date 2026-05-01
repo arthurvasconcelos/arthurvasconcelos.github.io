@@ -7,6 +7,11 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: true },
 
+  site: {
+    url: "https://arthurvasconcelos.com.br",
+    name: "Arthur Vasconcelos",
+  },
+
   css: ["~/assets/css/main.css"],
 
   icon: {
@@ -16,9 +21,8 @@ export default defineNuxtConfig({
 
   fonts: {
     families: [
-      { name: "Raleway", global: true, provider: "google" },
-      { name: "Slabo 27px", global: true, provider: "google" },
-      { name: "Source Code Pro", global: true, provider: "google" },
+      { name: "Space Grotesk", global: true, provider: "google", weights: [400, 600, 700] },
+      { name: "JetBrains Mono", global: true, provider: "google", weights: [400, 700] },
     ],
   },
 
@@ -36,6 +40,7 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxt/eslint",
     "@nuxtjs/i18n",
+    "@nuxtjs/sitemap",
   ],
 
   i18n: {

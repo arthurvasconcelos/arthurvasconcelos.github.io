@@ -17,7 +17,7 @@ const {
     :class="[
       // text
       { capitalize: capitalize },
-      'font-source',
+      'font-jetbrains',
       'font-bold',
       // spacing
       'py-1.5',

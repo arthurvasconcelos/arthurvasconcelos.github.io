@@ -1,52 +1,12 @@
 <script lang="ts" setup>
-const {
-  icon,
-  name,
-  level: levelProp,
-} = defineProps<{
+defineProps<{
   icon: string;
   name: string;
-  level: number;
 }>();
-
-const level = ref(levelProp);
 </script>
 
 <template>
-  <div
-    :class="[
-      // Flex
-      'flex',
-      'items-center',
-      'gap-2',
-      // Colors
-      'text-neutral-200',
-      'bg-slate-700',
-      'dark:text-neutral-700',
-      'dark:bg-slate-200',
-      // Border
-      'border',
-      'rounded-l-3xl',
-      'rounded-r-2xl',
-      // Spacing
-      'p-1',
-      'pr-2.5',
-    ]"
-  >
-    <UAvatar :icon="icon" size="md" />
-    <div class="flex flex-col gap-1 grow">
-      <p class="font-source text-sm font-bold">{{ name }}</p>
-      <UProgress v-model="level" />
-    </div>
-  </div>
+  <UBadge :icon="icon" color="primary" variant="subtle" size="md" class="font-jetbrains">
+    {{ name }}
+  </UBadge>
 </template>
-
-<style>
-meter {
-  width: 100%;
-}
-
-meter::-webkit-meter-bar {
-  background-color: var(--color-red-400);
-}
-</style>

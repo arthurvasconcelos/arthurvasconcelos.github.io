@@ -46,5 +46,10 @@ export default {
   },
   projects: {
     pageTitle: "Projekt",
+    sections: {
+      flagship: "Utvalda Projekt",
+      standalone: "Bibliotek",
+      legacy: "Äldre & Arkiverade",
+    },
   },
 };

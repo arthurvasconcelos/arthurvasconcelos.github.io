@@ -18,7 +18,6 @@ const { t } = useI18n();
         :key="skill.id"
         :icon="skill.icon"
         :name="skill.name"
-        :level="skill.level"
       />
     </AboutSkillsContainer>
   </template>

@@ -46,5 +46,10 @@ export default {
   },
   projects: {
     pageTitle: "Projetos",
+    sections: {
+      flagship: "Projetos em Destaque",
+      standalone: "Bibliotecas",
+      legacy: "Legado e Arquivado",
+    },
   },
 };
