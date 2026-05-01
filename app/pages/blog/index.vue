@@ -45,7 +45,7 @@ function formatDate(date: Date | string): string {
           <div class="flex items-start justify-between gap-4">
             <NuxtLink
               :to="localePath(`/blog/${postSlug(post.path)}`)"
-              class="text-xl font-semibold hover:text-violet-500 transition-colors leading-snug"
+              class="text-xl font-semibold text-slate-900 dark:text-slate-100 hover:text-violet-500 dark:hover:text-violet-400 transition-colors leading-snug"
             >
               {{ post.title }}
             </NuxtLink>
