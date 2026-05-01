@@ -15,8 +15,7 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
 
   icon: {
-    mode: "css",
-    cssLayer: "base",
+    mode: "svg",
   },
 
   fonts: {
@@ -79,6 +78,7 @@ export default defineNuxtConfig({
   },
 
   i18n: {
+    baseUrl: "https://arthurvasconcelos.com.br",
     defaultLocale: "en-GB",
     langDir: "locales",
     locales: [
