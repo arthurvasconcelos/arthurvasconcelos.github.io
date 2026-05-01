@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import capitalize from "lodash/capitalize";
-
 const { t } = useI18n();
 
 const wordKeys = ["web", "mobile", "desktop", "server"] as const;
@@ -14,7 +12,7 @@ const languages = ref([
 const wordLabels = computed(() => wordKeys.map((key) => t(`home.words.${key}`)));
 
 const h2Label = computed(() => {
-  const capitalizedWords = wordKeys.map((k) => capitalize(t(`home.words.${k}`)));
+  const capitalizedWords = wordKeys.map((k) => useCapitalize(t(`home.words.${k}`)));
   const lastWord = capitalizedWords.pop();
   const joinedWords = capitalizedWords.join(", ");
   const langNames = languages.value.map((lang) => lang.name);
