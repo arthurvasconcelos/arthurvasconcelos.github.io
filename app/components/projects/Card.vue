@@ -70,27 +70,27 @@ const issues = computed(() => ghData.value?.open_issues_count ?? 0);
       </code>
     </template>
 
-    <template v-if="project.sdks?.length">
+    <template v-if="project.subPackages?.length">
       <div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
         <h3
           class="font-space-grotesk text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400 mb-3"
         >
-          SDKs
+          {{ project.subPackagesLabel ?? "Sub-packages" }}
         </h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
           <div
-            v-for="sdk in project.sdks"
-            :key="sdk.id"
+            v-for="pkg in project.subPackages"
+            :key="pkg.id"
             class="flex flex-col gap-2 p-3 rounded-lg bg-slate-100 dark:bg-slate-800/50"
           >
             <div class="flex items-center gap-1.5">
-              <UIcon :name="sdk.languageIcon" class="size-4 shrink-0" />
-              <span class="text-sm font-medium">{{ sdk.language }}</span>
+              <UIcon :name="pkg.languageIcon" class="size-4 shrink-0" />
+              <span class="text-sm font-medium">{{ pkg.language }}</span>
             </div>
             <code
               class="font-jetbrains text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 px-2 py-1.5 rounded"
             >
-              {{ sdk.pkg.installCommand }}
+              {{ pkg.pkg.installCommand }}
             </code>
           </div>
         </div>

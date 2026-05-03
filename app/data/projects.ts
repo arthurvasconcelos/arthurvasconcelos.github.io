@@ -8,7 +8,7 @@ export type ProjectPackage = {
 
 export type ProjectType = "flagship" | "standalone" | "legacy";
 
-export type ProjectSDK = {
+export type ProjectSubPackage = {
   id: string;
   repo: string;
   language: string;
@@ -25,11 +25,83 @@ export type Project = {
   language: string;
   languageIcon: string;
   pkg?: ProjectPackage;
-  sdks?: ProjectSDK[];
+  subPackages?: ProjectSubPackage[];
+  subPackagesLabel?: string;
   npmCreateDate?: string;
 };
 
 export const projects: Project[] = [
+  {
+    id: "a11y-hud",
+    name: "a11y-hud",
+    repo: "a11y-hud",
+    type: "flagship",
+    language: "TypeScript",
+    languageIcon: "logos:typescript-icon",
+    pkg: {
+      ecosystem: "npm",
+      name: "a11y-hud",
+      installCommand: "npm install --save-dev a11y-hud",
+    },
+    subPackagesLabel: "Adapters",
+    subPackages: [
+      {
+        id: "a11y-hud-react",
+        repo: "a11y-hud",
+        language: "React",
+        languageIcon: "logos:react",
+        pkg: {
+          ecosystem: "npm",
+          name: "@a11y-hud/react",
+          installCommand: "npm install --save-dev @a11y-hud/react",
+        },
+      },
+      {
+        id: "a11y-hud-vue",
+        repo: "a11y-hud",
+        language: "Vue",
+        languageIcon: "logos:vue",
+        pkg: {
+          ecosystem: "npm",
+          name: "@a11y-hud/vue",
+          installCommand: "npm install --save-dev @a11y-hud/vue",
+        },
+      },
+      {
+        id: "a11y-hud-angular",
+        repo: "a11y-hud",
+        language: "Angular",
+        languageIcon: "logos:angular-icon",
+        pkg: {
+          ecosystem: "npm",
+          name: "@a11y-hud/angular",
+          installCommand: "npm install --save-dev @a11y-hud/angular",
+        },
+      },
+      {
+        id: "a11y-hud-svelte",
+        repo: "a11y-hud",
+        language: "Svelte",
+        languageIcon: "logos:svelte-icon",
+        pkg: {
+          ecosystem: "npm",
+          name: "@a11y-hud/svelte",
+          installCommand: "npm install --save-dev @a11y-hud/svelte",
+        },
+      },
+      {
+        id: "a11y-hud-solid",
+        repo: "a11y-hud",
+        language: "Solid",
+        languageIcon: "logos:solidjs-icon",
+        pkg: {
+          ecosystem: "npm",
+          name: "@a11y-hud/solid",
+          installCommand: "npm install --save-dev @a11y-hud/solid",
+        },
+      },
+    ],
+  },
   {
     id: "overseer",
     name: "overseer",
@@ -43,7 +115,8 @@ export const projects: Project[] = [
       name: "overseer",
       installCommand: "brew install arthurvasconcelos/tap/overseer",
     },
-    sdks: [
+    subPackagesLabel: "SDKs",
+    subPackages: [
       {
         id: "overseer-sdk-python",
         repo: "overseer-sdk-python",
