@@ -53,7 +53,7 @@ export const projects: Project[] = [
         pkg: {
           ecosystem: "npm",
           name: "@a11y-hud/react",
-          installCommand: "npm install --save-dev @a11y-hud/react",
+          installCommand: "npm install --save-dev a11y-hud @a11y-hud/react",
         },
       },
       {
@@ -64,7 +64,7 @@ export const projects: Project[] = [
         pkg: {
           ecosystem: "npm",
           name: "@a11y-hud/vue",
-          installCommand: "npm install --save-dev @a11y-hud/vue",
+          installCommand: "npm install --save-dev a11y-hud @a11y-hud/vue",
         },
       },
       {
@@ -75,7 +75,7 @@ export const projects: Project[] = [
         pkg: {
           ecosystem: "npm",
           name: "@a11y-hud/angular",
-          installCommand: "npm install --save-dev @a11y-hud/angular",
+          installCommand: "npm install --save-dev a11y-hud @a11y-hud/angular",
         },
       },
       {
@@ -86,7 +86,7 @@ export const projects: Project[] = [
         pkg: {
           ecosystem: "npm",
           name: "@a11y-hud/svelte",
-          installCommand: "npm install --save-dev @a11y-hud/svelte",
+          installCommand: "npm install --save-dev a11y-hud @a11y-hud/svelte",
         },
       },
       {
@@ -97,7 +97,7 @@ export const projects: Project[] = [
         pkg: {
           ecosystem: "npm",
           name: "@a11y-hud/solid",
-          installCommand: "npm install --save-dev @a11y-hud/solid",
+          installCommand: "npm install --save-dev a11y-hud @a11y-hud/solid",
         },
       },
     ],
