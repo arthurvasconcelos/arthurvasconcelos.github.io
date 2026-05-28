@@ -165,8 +165,7 @@ function translationName(contentPath: string): string {
         class="prose prose-slate dark:prose-invert max-w-none
                prose-p:leading-relaxed prose-p:text-base
                prose-headings:font-space-grotesk prose-headings:font-bold
-               prose-code:font-jetbrains prose-code:text-sm prose-code:bg-slate-100 prose-code:dark:bg-slate-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
-               prose-pre:bg-transparent prose-pre:p-0"
+               prose-code:font-jetbrains prose-code:text-sm prose-code:bg-slate-100 prose-code:dark:bg-slate-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none"
       >
         <ContentRenderer :value="post" />
       </div>

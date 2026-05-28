@@ -22,7 +22,13 @@ export default defineNuxtConfig({
         globInclude: ["**/*.{vue,ts}"],
       },
       // dynamic icons not detectable by static scan
-      icons: ["lucide:sun", "lucide:moon", "lucide:loader"],
+      icons: [
+        "lucide:sun",
+        "lucide:moon",
+        "lucide:loader",
+        "material-symbols:check",
+        "material-symbols:content-copy-outline",
+      ],
       sizeLimitKb: 0,
     },
   },

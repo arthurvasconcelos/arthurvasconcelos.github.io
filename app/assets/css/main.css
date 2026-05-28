@@ -58,3 +58,30 @@ html.dark .shiki span {
   font-weight: var(--shiki-dark-font-weight) !important;
   text-decoration: var(--shiki-dark-text-decoration) !important;
 }
+
+/* Line numbers for Shiki code blocks */
+.shiki code {
+  counter-reset: line;
+}
+
+.shiki code .line {
+  display: block;
+  position: relative;
+  padding-left: 3.5rem;
+  counter-increment: line;
+  min-height: 1.5em;
+}
+
+.shiki code .line::before {
+  content: counter(line);
+  position: absolute;
+  left: 0;
+  width: 2.5rem;
+  text-align: right;
+  padding-right: 0.75rem;
+  color: rgba(148, 163, 184, 0.4);
+  font-size: 0.8em;
+  line-height: inherit;
+  user-select: none;
+  pointer-events: none;
+}
