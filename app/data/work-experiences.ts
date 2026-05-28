@@ -1,3 +1,4 @@
+import platform24Logo from "~/assets/img/logos/companies/platform24.png";
 import kognityLogo from "~/assets/img/logos/companies/kognity.png";
 import geniusSportsLogo from "~/assets/img/logos/companies/genius-sports.png";
 import institutoIgarapeLogo from "~/assets/img/logos/companies/instituto-igarape.png";
@@ -23,6 +24,7 @@ export const workExperiencesData: WorkExperienceData[] = [
     id: "platform24",
     title: "Senior Front-End Engineer",
     company: "Platform24",
+    companyLogo: platform24Logo,
     locationIcon: "twemoji:flag-sweden",
     location: "Stockholm, Sweden",
     locationType: "Hybrid",
