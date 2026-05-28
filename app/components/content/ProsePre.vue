@@ -3,6 +3,7 @@
     <div
       class="flex items-center gap-2 border-b border-slate-200 bg-slate-100 px-4 py-2 dark:border-slate-700/50 dark:bg-slate-800/80"
     >
+      <UIcon v-if="iconName" :name="iconName" class="size-4 shrink-0" />
       <span class="select-none font-jetbrains text-xs text-slate-500 dark:text-slate-400">
         {{ filename ?? language ?? 'code' }}
       </span>
@@ -35,6 +36,36 @@ const props = defineProps<{
   meta?: string
   class?: string
 }>()
+
+const LANG_ICONS: Record<string, string> = {
+  typescript: 'logos:typescript-icon',
+  ts: 'logos:typescript-icon',
+  javascript: 'logos:javascript',
+  js: 'logos:javascript',
+  vue: 'logos:vue',
+  python: 'logos:python',
+  py: 'logos:python',
+  go: 'logos:go',
+  html: 'logos:html-5',
+  css: 'logos:css-3',
+  scss: 'logos:sass',
+  bash: 'logos:bash-icon',
+  shell: 'logos:bash-icon',
+  sh: 'logos:bash-icon',
+  markdown: 'logos:markdown',
+  md: 'logos:markdown',
+  json: 'logos:json',
+  yaml: 'logos:yaml',
+  yml: 'logos:yaml',
+}
+
+const iconName = computed<string | null>(() => {
+  if (props.filename) {
+    const ext = props.filename.split('.').pop()?.toLowerCase() ?? ''
+    return LANG_ICONS[ext] ?? null
+  }
+  return LANG_ICONS[props.language?.toLowerCase() ?? ''] ?? null
+})
 
 const copied = ref(false)
 

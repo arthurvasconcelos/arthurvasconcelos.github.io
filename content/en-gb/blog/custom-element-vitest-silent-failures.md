@@ -98,8 +98,7 @@ This is the right behaviour in a browser — you don't want a single misbehaving
 
 **The fix:** stub `window.matchMedia` in the test setup file. Since Vitest supports a `setupFiles` option, this runs once before any tests:
 
-```typescript
-// src/test-setup.ts
+```typescript [src/test-setup.ts]
 if (!window.matchMedia) {
   Object.defineProperty(window, "matchMedia", {
     value: (query: string): MediaQueryList => ({
@@ -138,8 +137,7 @@ If you're testing Custom Elements in Vitest with jsdom, do these three things up
 
 3. **Stub `Element.prototype.scrollIntoView`** in your `setupFiles`. jsdom doesn't implement it and the error will appear at an inconvenient time.
 
-```typescript
-// vitest.config.ts
+```typescript [vitest.config.ts]
 export default defineConfig({
   test: {
     environment: "jsdom",
