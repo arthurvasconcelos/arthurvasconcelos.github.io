@@ -1,3 +1,43 @@
 [tools]
 node = "24"
 pnpm = "10.10.0"
+
+[tasks.install]
+description = "Install dependencies"
+run = "pnpm install"
+
+[tasks.dev]
+description = "Start the Nuxt dev server"
+run = "pnpm dev"
+
+[tasks.build]
+description = "Build the site"
+run = "pnpm build"
+
+[tasks.generate]
+description = "Generate the static site"
+run = "pnpm generate"
+
+[tasks.preview]
+description = "Preview the built site"
+run = "pnpm preview"
+
+[tasks.lint]
+description = "Run eslint"
+run = "pnpm lint"
+
+[tasks."lint:fix"]
+description = "Run eslint with --fix"
+run = "pnpm lint:fix"
+
+[tasks.format]
+description = "Format with prettier"
+run = "pnpm format"
+
+[tasks.typecheck]
+description = "Run nuxt typecheck"
+run = "pnpm typecheck"
+
+[tasks."stats:refresh"]
+description = "Refresh project stats"
+run = "pnpm stats:refresh"

@@ -1,6 +1,7 @@
 <script setup lang="ts">
+defineProps<{ originalPath: string }>()
+
 const { t } = useI18n()
-const switchLocalePath = useSwitchLocalePath()
 </script>
 
 <template>
@@ -12,7 +13,7 @@ const switchLocalePath = useSwitchLocalePath()
   >
     <template #description>
       {{ t("content.machineTranslated.description") }}
-      <ULink :to="switchLocalePath('en-GB')" class="font-medium underline underline-offset-2">
+      <ULink :to="originalPath" locale="en-GB" class="font-medium underline underline-offset-2">
         {{ t("content.machineTranslated.readOriginal") }}
       </ULink>
     </template>

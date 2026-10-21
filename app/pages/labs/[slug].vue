@@ -86,7 +86,11 @@ function formatDate(date: Date | string): string {
       <TranslationLinks :translations="translations ?? []" class="mt-4" />
     </header>
 
-    <TranslationNotice v-if="experiment.machineTranslated" class="mb-10" />
+    <TranslationNotice
+      v-if="experiment.machineTranslated"
+      :original-path="`/labs/${slug}`"
+      class="mb-10"
+    />
 
     <div
       class="prose prose-slate dark:prose-invert prose-p:text-base prose-p:leading-relaxed prose-headings:font-space-grotesk prose-headings:font-bold prose-code:rounded prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-jetbrains prose-code:text-sm prose-code:before:content-none prose-code:after:content-none prose-code:dark:bg-slate-800 max-w-none"

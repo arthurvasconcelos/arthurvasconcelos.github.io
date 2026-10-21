@@ -107,7 +107,11 @@ onUnmounted(() => {
       <TranslationLinks :translations="translations ?? []" class="mt-4" />
     </header>
 
-    <TranslationNotice v-if="post.machineTranslated" class="mb-10" />
+    <TranslationNotice
+      v-if="post.machineTranslated"
+      :original-path="`/blog/${slug}`"
+      class="mb-10"
+    />
 
     <div
       class="prose prose-slate dark:prose-invert prose-p:leading-relaxed prose-p:text-base prose-headings:font-space-grotesk prose-headings:font-bold prose-code:font-jetbrains prose-code:text-sm prose-code:bg-slate-100 prose-code:dark:bg-slate-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none max-w-none"
