@@ -13,7 +13,7 @@ export default {
     words: {
       web: "webb",
       mobile: "mobil",
-      desktop: "skrivbord",
+      desktop: "desktop",
       server: "server",
     },
   },
