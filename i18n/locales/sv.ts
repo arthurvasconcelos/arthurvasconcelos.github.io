@@ -97,6 +97,13 @@ export default {
       legacy: "Äldre & Arkiverade",
     },
   },
+  content: {
+    machineTranslated: {
+      title: "Översatt med AI",
+      description: "Den här översättningen är gjord med AI och har inte granskats ännu.",
+      readOriginal: "Läs originalet på engelska.",
+    },
+  },
   blog: {
     pageTitle: "Blogg",
     noPosts: "Inga inlägg ännu. Kom tillbaka snart.",

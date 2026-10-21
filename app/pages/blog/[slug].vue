@@ -163,6 +163,8 @@ function translationName(contentPath: string): string {
         </div>
       </header>
 
+      <TranslationNotice v-if="post.machineTranslated" class="mb-10" />
+
       <div
         class="prose prose-slate dark:prose-invert max-w-none
                prose-p:leading-relaxed prose-p:text-base

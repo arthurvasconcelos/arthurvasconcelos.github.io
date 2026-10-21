@@ -1,4 +1,4 @@
-import { defineCollection, defineContentConfig, z } from "@nuxt/content";
+import { defineCollection, defineContentConfig, z } from "@nuxt/content"
 
 export default defineContentConfig({
   collections: {
@@ -11,6 +11,7 @@ export default defineContentConfig({
         date: z.coerce.date(),
         draft: z.boolean().optional().default(false),
         translationKey: z.string().optional(),
+        machineTranslated: z.boolean().optional().default(false),
       }),
     }),
     labs: defineCollection({
@@ -22,8 +23,9 @@ export default defineContentConfig({
         date: z.coerce.date(),
         draft: z.boolean().optional().default(false),
         translationKey: z.string().optional(),
+        machineTranslated: z.boolean().optional().default(false),
         tags: z.array(z.string()).optional().default([]),
       }),
     }),
   },
-});
+})

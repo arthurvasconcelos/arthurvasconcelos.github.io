@@ -97,6 +97,13 @@ export default {
       legacy: "Legado e Arquivado",
     },
   },
+  content: {
+    machineTranslated: {
+      title: "Traduzido com IA",
+      description: "Esta tradução foi gerada com IA e ainda não foi revisada.",
+      readOriginal: "Leia o original em inglês.",
+    },
+  },
   blog: {
     pageTitle: "Blog",
     noPosts: "Nenhum post por enquanto. Volte em breve.",

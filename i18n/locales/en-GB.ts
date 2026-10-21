@@ -97,6 +97,13 @@ export default {
       legacy: "Legacy & Archived",
     },
   },
+  content: {
+    machineTranslated: {
+      title: "Translated with AI",
+      description: "This translation was generated with AI and has not been reviewed yet.",
+      readOriginal: "Read the original in English.",
+    },
+  },
   blog: {
     pageTitle: "Blog",
     noPosts: "No posts yet. Check back soon.",
