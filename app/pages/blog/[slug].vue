@@ -41,15 +41,17 @@ useSeoMeta({
   ogDescription: computed(() => post.value?.description ?? ""),
 });
 
-function readingTime(body: any): number {
+type ContentNode = { type?: string; value?: unknown; children?: ContentNode[] };
+
+function readingTime(body: unknown): number {
   let words = 0;
-  const walk = (node: any) => {
-    if (node.type === "text" && node.value) {
-      words += (node.value as string).trim().split(/\s+/).filter(Boolean).length;
+  const walk = (node: ContentNode) => {
+    if (node.type === "text" && typeof node.value === "string") {
+      words += node.value.trim().split(/\s+/).filter(Boolean).length;
     }
     node.children?.forEach(walk);
   };
-  body?.children?.forEach(walk);
+  (body as ContentNode | undefined)?.children?.forEach(walk);
   return Math.max(1, Math.ceil(words / 200));
 }
 
