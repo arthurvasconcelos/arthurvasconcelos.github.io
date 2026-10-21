@@ -38,7 +38,10 @@
       "esbuild",
       "unrs-resolver",
       "vue-demi"
-    ]
+    ],
+    "overrides": {
+      "postcss-selector-parser@<7.1.6": "^7.1.7"
+    }
   },
   "devDependencies": {
     "@iconify-json/logos": "^1.2.17",
