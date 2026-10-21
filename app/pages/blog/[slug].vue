@@ -18,7 +18,7 @@ if (!post.value) {
 }
 
 const { data: translations } = await useAsyncData(
-  `translations-${post.value?.translationKey ?? `${localeDir}-${slug}`}`,
+  `translations-${localeDir}-${post.value?.translationKey ?? slug}`,
   async () => {
     const key = post.value?.translationKey;
     if (!key) return [];
@@ -41,17 +41,20 @@ useSeoMeta({
   ogDescription: computed(() => post.value?.description ?? ""),
 });
 
-type ContentNode = { type?: string; value?: unknown; children?: ContentNode[] };
+// @nuxt/content v3 stores the body as minimark: ["tag", props, ...children], children are strings or nested nodes
+type MinimarkNode = string | [string, Record<string, unknown>, ...MinimarkNode[]];
 
 function readingTime(body: unknown): number {
   let words = 0;
-  const walk = (node: ContentNode) => {
-    if (node.type === "text" && typeof node.value === "string") {
-      words += node.value.trim().split(/\s+/).filter(Boolean).length;
+  const walk = (node: MinimarkNode) => {
+    if (typeof node === "string") {
+      words += node.trim().split(/\s+/).filter(Boolean).length;
+      return;
     }
-    node.children?.forEach(walk);
+    if (Array.isArray(node)) node.slice(2).forEach((child) => walk(child as MinimarkNode));
   };
-  (body as ContentNode | undefined)?.children?.forEach(walk);
+  const value = (body as { value?: MinimarkNode[] } | undefined)?.value;
+  value?.forEach(walk);
   return Math.max(1, Math.ceil(words / 200));
 }
 
