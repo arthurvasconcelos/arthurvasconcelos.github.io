@@ -1,15 +1,15 @@
 export type Skill = {
-  id: string;
-  name: string;
-  icon: string;
-};
+  id: string
+  name: string
+  icon: string
+}
 
 export type SkillCategory = {
-  id: string;
-  labelKey: string;
-  icon: string;
-  skills: Skill[];
-};
+  id: string
+  labelKey: string
+  icon: string
+  skills: Skill[]
+}
 
 export const skillCategories: SkillCategory[] = [
   {
@@ -33,6 +33,11 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { id: "react", name: "React", icon: "logos:react" },
       { id: "vue", name: "Vue.js", icon: "logos:vue" },
+      {
+        id: "microfrontends",
+        name: "Micro-frontends",
+        icon: "material-symbols:grid-view-outline-rounded",
+      },
       { id: "nuxt", name: "Nuxt", icon: "logos:nuxt-icon" },
       { id: "angular", name: "Angular 1.x", icon: "logos:angular-icon" },
       { id: "preact", name: "Preact", icon: "logos:preact" },
@@ -69,11 +74,31 @@ export const skillCategories: SkillCategory[] = [
     labelKey: "about.skills.categories.practices",
     icon: "material-symbols:checklist-rounded",
     skills: [
-      { id: "tech-leadership", name: "Technical Leadership", icon: "material-symbols:groups-rounded" },
-      { id: "code-review", name: "Code Review", icon: "material-symbols:rate-review-outline-rounded" },
-      { id: "accessibility", name: "Accessibility (WCAG)", icon: "material-symbols:accessibility-new-rounded" },
-      { id: "e2e-testing", name: "E2E Testing (Cypress)", icon: "material-symbols:bug-report-outline-rounded" },
-      { id: "hiring", name: "Hiring & Interviewing", icon: "material-symbols:person-search-rounded" },
+      {
+        id: "tech-leadership",
+        name: "Technical Leadership",
+        icon: "material-symbols:groups-rounded",
+      },
+      {
+        id: "code-review",
+        name: "Code Review",
+        icon: "material-symbols:rate-review-outline-rounded",
+      },
+      {
+        id: "accessibility",
+        name: "Accessibility (WCAG)",
+        icon: "material-symbols:accessibility-new-rounded",
+      },
+      {
+        id: "e2e-testing",
+        name: "E2E Testing (Cypress)",
+        icon: "material-symbols:bug-report-outline-rounded",
+      },
+      {
+        id: "hiring",
+        name: "Hiring & Interviewing",
+        icon: "material-symbols:person-search-rounded",
+      },
     ],
   },
-];
+]

@@ -41,7 +41,7 @@ export const workExperiencesData: WorkExperienceData[] = [
         title: "Senior Front-End Engineer",
         locationType: "Hybrid",
         descriptionKey: "about.workExperiences.descriptions.platform24",
-        keywords: ["TypeScript", "React", "Healthcare", "Digital Care"],
+        keywords: ["TypeScript", "React", "Micro-frontends", "Healthcare", "Digital Care"],
         start: "2026-02-01",
       },
     ],
