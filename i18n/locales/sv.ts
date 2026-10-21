@@ -4,6 +4,7 @@ export default {
     about: "Om mig",
     projects: "Projekt",
     blog: "Blogg",
+    labs: "Labb",
   },
   home: {
     developingFor: "Utvecklar för",
@@ -60,5 +61,20 @@ export default {
     alsoAvailableIn: "Även tillgänglig på:",
     backToBlog: "Tillbaka till bloggen",
     draft: "Utkast",
+  },
+  labs: {
+    pageTitle: "Labb",
+    intro: "Små front-end-experiment, isärplockade och förklarade.",
+    noExperiments: "Inga experiment ännu. Kom tillbaka snart.",
+    backToLabs: "Tillbaka till labbet",
+    draft: "Utkast",
+    showWiring: "Visa hur det fungerar",
+    hideWiring: "Dölj hur det fungerar",
+    aiMode: {
+      hint: "Svep markören över knappen från vänster till höger, och sedan från höger till vänster. Samma gradient båda gångerna — bara skivan du ser ändras.",
+      coloursNote:
+        "Ett enda färgband, inte två. De två riktningarnas bågar överlappar med ungefär två tredjedelar, så de kan inte ha separata paletter — men deras ljusa zoner överlappar inte alls, så varje riktnings dominerande färger är dina att välja. Pilarna under varje färgruta visar hur starkt den lyses upp åt höger respektive åt vänster.",
+      resetColours: "Återställ Googles färger",
+    },
   },
 };

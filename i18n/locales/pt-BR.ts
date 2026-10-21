@@ -4,6 +4,7 @@ export default {
     about: "Sobre",
     projects: "Projetos",
     blog: "Blog",
+    labs: "Labs",
   },
   home: {
     developingFor: "Desenvolvendo para",
@@ -60,5 +61,20 @@ export default {
     alsoAvailableIn: "Também disponível em:",
     backToBlog: "Voltar ao blog",
     draft: "Rascunho",
+  },
+  labs: {
+    pageTitle: "Labs",
+    intro: "Pequenos experimentos de front-end, desmontados e explicados.",
+    noExperiments: "Nenhum experimento por enquanto. Volte em breve.",
+    backToLabs: "Voltar aos labs",
+    draft: "Rascunho",
+    showWiring: "Ver os bastidores",
+    hideWiring: "Ocultar os bastidores",
+    aiMode: {
+      hint: "Passe o cursor pelo botão da esquerda para a direita e depois da direita para a esquerda. O gradiente é o mesmo nas duas vezes — só muda a fatia que aparece.",
+      coloursNote:
+        "Uma única faixa de cores, não duas. Os arcos das duas direções se sobrepõem em cerca de dois terços, então não dá para ter paletas separadas — mas as zonas mais claras não se sobrepõem, então as cores dominantes de cada direção são suas para definir. As setas embaixo de cada amostra mostram o quanto ela é iluminada indo para a direita e para a esquerda.",
+      resetColours: "Restaurar as cores do Google",
+    },
   },
 };

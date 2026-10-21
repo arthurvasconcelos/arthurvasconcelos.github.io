@@ -4,6 +4,7 @@ export default {
     about: "About",
     projects: "Projects",
     blog: "Blog",
+    labs: "Labs",
   },
   home: {
     developingFor: "Developing for",
@@ -80,5 +81,20 @@ export default {
     alsoAvailableIn: "Also available in:",
     backToBlog: "Back to blog",
     draft: "Draft",
+  },
+  labs: {
+    pageTitle: "Labs",
+    intro: "Small front-end experiments, taken apart and explained.",
+    noExperiments: "No experiments yet. Check back soon.",
+    backToLabs: "Back to labs",
+    draft: "Draft",
+    showWiring: "Show the wiring",
+    hideWiring: "Hide the wiring",
+    aiMode: {
+      hint: "Sweep the cursor across the pill left to right, then right to left. Same gradient both times — only the slice you see changes.",
+      coloursNote:
+        "One band of colour, not two. The two directions' arcs overlap by about two thirds, so they cannot have separate palettes — but their bright zones are disjoint, so each direction's dominant colours are yours to set. The arrows under each swatch show how strongly it is lit moving right and moving left.",
+      resetColours: "Reset colours to Google's",
+    },
   },
 };
