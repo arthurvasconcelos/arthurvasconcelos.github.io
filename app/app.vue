@@ -1,11 +1,11 @@
 <script setup lang="ts">
-const localeHead = useLocaleHead({ seo: true });
+const localeHead = useLocaleHead({ seo: true })
 
 useHead(() => ({
   htmlAttrs: localeHead.value.htmlAttrs ?? {},
   link: localeHead.value.link ?? [],
   meta: localeHead.value.meta ?? [],
-}));
+}))
 
 useHead({
   title: "Arthur Vasconcelos",
@@ -37,7 +37,7 @@ useHead({
       }),
     },
   ],
-});
+})
 
 useSeoMeta({
   title: "Arthur Vasconcelos",
@@ -46,7 +46,7 @@ useSeoMeta({
   ogDescription: "Arthur Vasconcelos — Senior Front-End Engineer",
   ogImage: "/og-image.png",
   twitterCard: "summary_large_image",
-});
+})
 </script>
 
 <template>
@@ -56,6 +56,8 @@ useSeoMeta({
         <NuxtPage />
       </main>
     </NuxtLayout>
-    <DevA11yPanel />
+    <DevOnly>
+      <LazyDevA11yHud />
+    </DevOnly>
   </UApp>
 </template>
