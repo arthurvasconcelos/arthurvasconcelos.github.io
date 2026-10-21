@@ -18,7 +18,7 @@ const { repo, npmCreateDate } = defineProps<{
   npmCreateDate: string
 }>()
 
-const { t } = useI18n()
+const { t, n } = useI18n()
 
 const TODAY = format(new Date(), "yyyy-MM-dd")
 const REPO_URL = `https://github.com/arthurvasconcelos/${repo}`
@@ -101,42 +101,42 @@ const version = computed(() => packageJson.value?.version || 0)
           'gap-2',
         ]"
       >
-        <UTooltip :delay-duration="0" text="Watchers">
+        <UTooltip :delay-duration="0" :text="t('projects.stats.watchers')">
           <span class="stat-badge">
             <UIcon name="mdi:eye-outline" class="size-4 shrink-0" />
-            {{ watchers }}
+            {{ n(watchers) }}
           </span>
         </UTooltip>
 
-        <UTooltip :delay-duration="0" text="Stars">
+        <UTooltip :delay-duration="0" :text="t('projects.stats.stars')">
           <span class="stat-badge">
             <UIcon name="mdi:star-outline" class="size-4 shrink-0" />
-            {{ stars }}
+            {{ n(stars) }}
           </span>
         </UTooltip>
 
-        <UTooltip :delay-duration="0" text="Forks">
+        <UTooltip :delay-duration="0" :text="t('projects.stats.forks')">
           <span class="stat-badge">
             <UIcon name="mdi:source-fork" class="size-4 shrink-0" />
-            {{ forks }}
+            {{ n(forks) }}
           </span>
         </UTooltip>
 
-        <UTooltip :delay-duration="0" text="Issues">
+        <UTooltip :delay-duration="0" :text="t('projects.stats.issues')">
           <span class="stat-badge">
             <UIcon name="mdi:alert-decagram-outline" class="size-4 shrink-0" />
-            {{ issues }}
+            {{ n(issues) }}
           </span>
         </UTooltip>
 
-        <UTooltip :delay-duration="0" text="Downloads">
+        <UTooltip :delay-duration="0" :text="t('projects.stats.downloads')">
           <span class="stat-badge">
             <UIcon name="mdi:cloud-download-outline" class="size-4 shrink-0" />
-            {{ downloads }}
+            {{ n(downloads) }}
           </span>
         </UTooltip>
 
-        <UTooltip :delay-duration="0" text="Version">
+        <UTooltip :delay-duration="0" :text="t('projects.stats.version')">
           <span class="stat-badge">
             <UIcon name="mdi:code-json" class="size-4 shrink-0" />
             {{ version }}

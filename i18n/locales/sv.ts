@@ -70,6 +70,20 @@ export default {
     archived: "Arkiverat",
     copy: "Kopiera kommando",
     copied: "Kopierat!",
+    stats: {
+      stars: "Stjärnor",
+      forks: "Forkar",
+      watchers: "Bevakare",
+      openIssues: "Öppna ärenden",
+      issues: "Ärenden",
+      downloads: "Nedladdningar",
+      version: "Version",
+    },
+    subPackages: {
+      adapters: "Adaptrar",
+      sdks: "SDK:er",
+      default: "Underpaket",
+    },
     sections: {
       flagship: "Utvalda Projekt",
       standalone: "Bibliotek",

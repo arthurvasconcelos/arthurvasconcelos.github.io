@@ -6,6 +6,8 @@ type UserRepoResponse = Endpoints["GET /repos/{owner}/{repo}"]["response"]["data
 
 const { project } = defineProps<{ project: Project }>()
 
+const { t, n } = useI18n()
+
 const REPO_URL = `https://github.com/arthurvasconcelos/${project.repo}`
 const GITHUB_ENDPOINT = `https://api.github.com/repos/arthurvasconcelos/${project.repo}`
 
@@ -40,24 +42,24 @@ const issues = computed(() => ghData.value?.open_issues_count ?? 0)
       <p class="mb-4 text-base text-slate-600 dark:text-slate-400">{{ description }}</p>
 
       <div class="mb-4 flex flex-wrap gap-2">
-        <UTooltip text="Stars" :delay-duration="0">
+        <UTooltip :text="t('projects.stats.stars')" :delay-duration="0">
           <UBadge icon="mdi:star-outline" color="primary" variant="subtle" size="md">
-            {{ stars }}
+            {{ n(stars) }}
           </UBadge>
         </UTooltip>
-        <UTooltip text="Forks" :delay-duration="0">
+        <UTooltip :text="t('projects.stats.forks')" :delay-duration="0">
           <UBadge icon="mdi:source-fork" color="primary" variant="subtle" size="md">
-            {{ forks }}
+            {{ n(forks) }}
           </UBadge>
         </UTooltip>
-        <UTooltip text="Watchers" :delay-duration="0">
+        <UTooltip :text="t('projects.stats.watchers')" :delay-duration="0">
           <UBadge icon="mdi:eye-outline" color="neutral" variant="subtle" size="md">
-            {{ watchers }}
+            {{ n(watchers) }}
           </UBadge>
         </UTooltip>
-        <UTooltip text="Open issues" :delay-duration="0">
+        <UTooltip :text="t('projects.stats.openIssues')" :delay-duration="0">
           <UBadge icon="mdi:alert-decagram-outline" color="neutral" variant="subtle" size="md">
-            {{ issues }}
+            {{ n(issues) }}
           </UBadge>
         </UTooltip>
       </div>
@@ -70,7 +72,7 @@ const issues = computed(() => ghData.value?.open_issues_count ?? 0)
         <h3
           class="font-space-grotesk mb-3 text-xs font-semibold tracking-wide text-slate-500 uppercase dark:text-slate-400"
         >
-          {{ project.subPackagesLabel ?? "Sub-packages" }}
+          {{ t(`projects.subPackages.${project.subPackagesLabelKey ?? "default"}`) }}
         </h3>
         <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
           <div

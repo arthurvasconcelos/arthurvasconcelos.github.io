@@ -55,8 +55,7 @@ export default {
           "As a member of the risk team, I was one of the engineers responsible for developing a realtime bet monitoring system. Migrated the trading risk frontend from Preact to React, introduced TypeScript to the codebase, and modernised the end-to-end test suite using Cypress.",
         igarape:
           "I was one of the engineers responsible for the development of web, desktop, and mobile applications, data visualizations, and interfaces for internal tools. Key projects included Copcast (an Android app monitoring police operations), Crime Radar, and the Forced Migration Observatory.",
-        fgv:
-          "I was one of the engineers responsible for the development of interfaces and tools for data visualization, data processing, server management and maintenance. Key projects included Budgetary Mosaic, Budgetary Geology, and Budgetary Transfers — transparency tools for Brazilian federal budget data.",
+        fgv: "I was one of the engineers responsible for the development of interfaces and tools for data visualization, data processing, server management and maintenance. Key projects included Budgetary Mosaic, Budgetary Geology, and Budgetary Transfers — transparency tools for Brazilian federal budget data.",
         piloti:
           "I was one of the engineers responsible for the development of websites and systems for a variety of clients using the Symfony framework.",
         brasilOoh:
@@ -71,6 +70,20 @@ export default {
     archived: "Archived",
     copy: "Copy command",
     copied: "Copied!",
+    stats: {
+      stars: "Stars",
+      forks: "Forks",
+      watchers: "Watchers",
+      openIssues: "Open issues",
+      issues: "Issues",
+      downloads: "Downloads",
+      version: "Version",
+    },
+    subPackages: {
+      adapters: "Adapters",
+      sdks: "SDKs",
+      default: "Sub-packages",
+    },
     sections: {
       flagship: "Featured Projects",
       standalone: "Libraries",
@@ -100,4 +113,4 @@ export default {
       resetColours: "Reset colours to Google's",
     },
   },
-};
+}

@@ -70,6 +70,20 @@ export default {
     archived: "Arquivado",
     copy: "Copiar comando",
     copied: "Copiado!",
+    stats: {
+      stars: "Estrelas",
+      forks: "Forks",
+      watchers: "Observadores",
+      openIssues: "Issues abertas",
+      issues: "Issues",
+      downloads: "Downloads",
+      version: "Versão",
+    },
+    subPackages: {
+      adapters: "Adaptadores",
+      sdks: "SDKs",
+      default: "Subpacotes",
+    },
     sections: {
       flagship: "Projetos em Destaque",
       standalone: "Bibliotecas",

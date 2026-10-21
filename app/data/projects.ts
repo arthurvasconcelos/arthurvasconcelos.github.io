@@ -1,34 +1,34 @@
-export type ProjectEcosystem = "npm" | "pypi" | "brew" | "github";
+export type ProjectEcosystem = "npm" | "pypi" | "brew" | "github"
 
 export type ProjectPackage = {
-  ecosystem: ProjectEcosystem;
-  name: string;
-  installCommand: string;
-};
+  ecosystem: ProjectEcosystem
+  name: string
+  installCommand: string
+}
 
-export type ProjectType = "flagship" | "standalone" | "legacy";
+export type ProjectType = "flagship" | "standalone" | "legacy"
 
 export type ProjectSubPackage = {
-  id: string;
-  repo: string;
-  language: string;
-  languageIcon: string;
-  pkg: ProjectPackage;
-};
+  id: string
+  repo: string
+  language: string
+  languageIcon: string
+  pkg: ProjectPackage
+}
 
 export type Project = {
-  id: string;
-  name: string;
-  repo: string;
-  type: ProjectType;
-  groupId?: string;
-  language: string;
-  languageIcon: string;
-  pkg?: ProjectPackage;
-  subPackages?: ProjectSubPackage[];
-  subPackagesLabel?: string;
-  npmCreateDate?: string;
-};
+  id: string
+  name: string
+  repo: string
+  type: ProjectType
+  groupId?: string
+  language: string
+  languageIcon: string
+  pkg?: ProjectPackage
+  subPackages?: ProjectSubPackage[]
+  subPackagesLabelKey?: "adapters" | "sdks"
+  npmCreateDate?: string
+}
 
 export const projects: Project[] = [
   {
@@ -43,7 +43,7 @@ export const projects: Project[] = [
       name: "a11y-hud",
       installCommand: "npm install --save-dev a11y-hud",
     },
-    subPackagesLabel: "Adapters",
+    subPackagesLabelKey: "adapters",
     subPackages: [
       {
         id: "a11y-hud-react",
@@ -115,7 +115,7 @@ export const projects: Project[] = [
       name: "overseer",
       installCommand: "brew install arthurvasconcelos/tap/overseer",
     },
-    subPackagesLabel: "SDKs",
+    subPackagesLabelKey: "sdks",
     subPackages: [
       {
         id: "overseer-sdk-python",
@@ -196,8 +196,8 @@ export const projects: Project[] = [
     },
     npmCreateDate: "2018-02-16",
   },
-];
+]
 
-export const legacyProjects = projects.filter((p) => p.type === "legacy");
-export const flagshipProjects = projects.filter((p) => p.type === "flagship");
-export const standaloneProjects = projects.filter((p) => p.type === "standalone");
+export const legacyProjects = projects.filter((p) => p.type === "legacy")
+export const flagshipProjects = projects.filter((p) => p.type === "flagship")
+export const standaloneProjects = projects.filter((p) => p.type === "standalone")
