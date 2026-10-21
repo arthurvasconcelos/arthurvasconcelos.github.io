@@ -1,16 +1,15 @@
 <script setup lang="ts">
-const { repo, npmCreateDate } = defineProps<{
-  repo: string
-  npmCreateDate: string
-}>()
+import type { Project } from "~/data/projects"
+
+const { project } = defineProps<{ project: Project }>()
 
 const { t, n } = useI18n()
 
-const REPO_URL = `https://github.com/arthurvasconcelos/${repo}`
+const REPO_URL = `https://github.com/arthurvasconcelos/${project.repo}`
 
-const stats = useProjectStats(repo, { npmCreateDate })
+const stats = useProjectStats(project.repo, { npmCreateDate: project.npmCreateDate })
 
-const name = computed(() => stats.value?.name || repo)
+const name = computed(() => stats.value?.name || project.name)
 const archived = computed(() => stats.value?.archived ?? false)
 const description = computed(() => stats.value?.description ?? "")
 const watchers = computed(() => stats.value?.watchers ?? 0)
@@ -18,7 +17,6 @@ const stars = computed(() => stats.value?.stars ?? 0)
 const forks = computed(() => stats.value?.forks ?? 0)
 const issues = computed(() => stats.value?.openIssues ?? 0)
 const downloads = computed(() => stats.value?.downloads ?? 0)
-const version = computed(() => stats.value?.version ?? "–")
 </script>
 
 <template>
@@ -49,18 +47,7 @@ const version = computed(() => stats.value?.version ?? "–")
       {{ description }}
     </p>
 
-    <div
-      :class="[
-        // display
-        'grid',
-        'grid-flow-dense',
-        // layout
-        'grid-cols-1',
-        'md:grid-cols-3',
-        // spacing
-        'gap-2',
-      ]"
-    >
+    <div class="flex flex-wrap gap-2">
       <UTooltip :delay-duration="0" :text="t('projects.stats.watchers')">
         <span class="stat-badge">
           <UIcon name="mdi:eye-outline" class="size-4 shrink-0" />
@@ -95,17 +82,10 @@ const version = computed(() => stats.value?.version ?? "–")
           {{ n(downloads) }}
         </span>
       </UTooltip>
-
-      <UTooltip :delay-duration="0" :text="t('projects.stats.version')">
-        <span class="stat-badge">
-          <UIcon name="mdi:code-json" class="size-4 shrink-0" />
-          {{ version }}
-        </span>
-      </UTooltip>
     </div>
 
     <template #footer>
-      <ProjectsInstallCommand :command="`npm install --save ${repo}`" />
+      <ProjectsInstallCommand v-if="project.pkg" :pkg="project.pkg" :repo="project.repo" />
     </template>
   </UCard>
 </template>

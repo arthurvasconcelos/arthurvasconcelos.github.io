@@ -58,7 +58,7 @@ const issues = computed(() => stats.value?.openIssues ?? 0)
       </UTooltip>
     </div>
 
-    <ProjectsInstallCommand v-if="project.pkg" :command="project.pkg.installCommand" />
+    <ProjectsInstallCommand v-if="project.pkg" :pkg="project.pkg" :repo="project.repo" />
 
     <template v-if="project.subPackages?.length">
       <div class="mt-4 border-t border-slate-200 pt-4 dark:border-slate-700">
@@ -77,7 +77,7 @@ const issues = computed(() => stats.value?.openIssues ?? 0)
               <UIcon :name="pkg.languageIcon" class="size-4 shrink-0" />
               <span class="text-sm font-medium">{{ pkg.language }}</span>
             </div>
-            <ProjectsInstallCommand :command="pkg.pkg.installCommand" />
+            <ProjectsInstallCommand :pkg="pkg.pkg" :repo="pkg.repo" />
           </div>
         </div>
       </div>
