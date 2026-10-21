@@ -5,15 +5,15 @@ date: 2026-05-01
 translationKey: "rebuilding-my-portfolio-after-a-year"
 ---
 
-I have this repository open right now, and the previous commit before this year's work is from April 2025. The commit message is "add modernization plan and handoff convention." I wrote a plan. I committed it. And then I went 365 days without touching it.
+I have this repository open right now, and the last commit before this year's work is from May 2025. The message is "ClientOnly behaving weirdly with icons." It was the tail end of a one-day burst where I moved the site to Nuxt, hit an icon bug, committed, and then didn't open the repo again for eleven months.
 
 This is not a productivity post. I'm not going to tell you about my system for keeping side projects alive. I don't have one. What I have is a portfolio that kept saying "Currently at Kognity" months after I'd moved on, a `console.log("app.vue:", colorMode)` shipping to production, and a primary accent color that was literally `#ff0000`.
 
-Not a design choice. Pure red. There's even a comment next to it: `// TODO: figure out brand color`. At some point in 2025 I thought I'd remember to fix it. I did not.
+Not a design choice. Pure red, sitting in the app config with nothing around it to suggest I ever meant to come back. I assume past me thought I'd remember. I did not.
 
 ## What it looked like coming back
 
-The main thing I noticed when finally sitting down with this in April: a codebase that was mostly fine but full of small embarrassments. The red. The `console.log`. A `README2.md` (contents: Nuxt boilerplate docs, copied from the starter template and apparently never opened again). A `deploy.bat` file on a Mac that deploys to Linux. A footer component imported nowhere, doing nothing. Ten open Dependabot PRs I'd marked as approved and then never merged.
+The main thing I noticed when I finally sat down with this in April: a codebase that was mostly fine but full of small embarrassments. The red. The `console.log`. A `README2.md` (contents: Nuxt boilerplate docs, copied from the starter template and apparently never opened again). A `deploy.bat` file on a Mac that deploys to Linux. A footer component imported nowhere, doing nothing. Ten open Dependabot PRs I'd marked as approved and then never merged.
 
 The instinct when you see this kind of thing in your own code is to feel bad about it. I've mostly learned to treat it as sedimented evidence of past priorities. The code was functional enough to keep the site up; fixing it was never urgent enough to actually do.
 
@@ -41,7 +41,7 @@ The Portuguese was easier (obviously) but had its own edge cases. "Tech Lead" in
 
 ## What didn't make the cut
 
-I considered a projects section that auto-pulled from GitHub activity. Decided against it — auto-pulled data is lazy and the resulting lists are noise. The projects page now has a curated set: [Overseer](https://github.com/arthurvasconcelos/overseer), the Go CLI I built for managing multiple services locally and use daily, its Python and TypeScript SDKs, the sqlalchemy-seedling library I built for a seeding workflow I kept repeating across projects, and a legacy section for the two Vue component libraries I published in 2018 that still have some users.
+I considered a projects section that auto-pulled from GitHub activity. Decided against it — auto-pulled data is lazy and the resulting lists are noise. The projects page now has a curated set: [Overseer](https://github.com/arthurvasconcelos/overseer), the Go CLI I use every day for the boring parts of my workflow (morning briefings, standup notes, git identities, repo status), its Python and TypeScript SDKs, the sqlalchemy-seedling library I built for a seeding workflow I kept repeating across projects, and a legacy section for the two Vue component libraries I published in 2018 that still have some users.
 
 I also considered a more significant visual redesign. Left it mostly as-is. The dark gradient background works fine. Not everything needs to be rethought.
 
