@@ -5,6 +5,15 @@ const { t, locales, locale } = useI18n()
 const localePath = useLocalePath()
 const switchLocalePath = useSwitchLocalePath()
 
+const scrolled = ref(false)
+
+function updateScrolled() {
+  scrolled.value = window.scrollY > 0
+}
+
+useEventListener(window, "scroll", updateScrolled, { passive: true })
+onMounted(updateScrolled)
+
 const items = computed<NavigationMenuItem[][]>(() => [
   [
     {
@@ -41,9 +50,14 @@ const items = computed<NavigationMenuItem[][]>(() => [
 
 <template>
   <header
-    class="sticky top-0 z-50 border-b border-slate-300/60 bg-slate-100/70 backdrop-blur-md dark:border-slate-700/60 dark:bg-slate-900/70"
+    class="sticky top-0 z-50 border-b transition-colors duration-200"
+    :class="
+      scrolled
+        ? 'border-slate-300/60 bg-slate-100/70 backdrop-blur-md dark:border-slate-700/60 dark:bg-slate-900/70'
+        : 'border-transparent bg-transparent'
+    "
   >
-    <UContainer class="flex items-center justify-between">
+    <UContainer class="flex items-center justify-between py-3">
       <NuxtLink
         :to="localePath('/')"
         class="font-space-grotesk flex w-35.5 flex-wrap items-center justify-between text-2xl"
