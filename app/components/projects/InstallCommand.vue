@@ -9,6 +9,7 @@ const { pkg, repo } = defineProps<{
 const { t } = useI18n()
 const copied = ref(false)
 const packageVersion = usePackageVersion(pkg, repo)
+const tokens = computed(() => pkg.installCommand.split(" "))
 
 async function copy() {
   try {
@@ -25,10 +26,11 @@ async function copy() {
 
 <template>
   <div class="flex items-center gap-2 rounded-md bg-slate-200 py-1 pr-1 pl-2 dark:bg-slate-800">
-    <code
-      class="font-jetbrains grow text-xs break-all whitespace-pre-wrap text-slate-800 dark:text-slate-300"
-    >
-      {{ pkg.installCommand }}
+    <code class="font-jetbrains grow text-xs text-slate-800 dark:text-slate-300">
+      <template v-for="(token, index) in tokens" :key="index">
+        <span class="whitespace-nowrap">{{ token }}</span
+        >{{ index < tokens.length - 1 ? " " : "" }}
+      </template>
     </code>
     <UTooltip v-if="packageVersion" :text="t('projects.stats.version')" :delay-duration="0">
       <span
