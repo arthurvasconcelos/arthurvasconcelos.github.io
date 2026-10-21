@@ -68,6 +68,7 @@ export default {
   projects: {
     pageTitle: "Projects",
     archived: "Archived",
+    installCommand: "Install command for {name}",
     copy: "Copy command",
     copied: "Copied!",
     stats: {

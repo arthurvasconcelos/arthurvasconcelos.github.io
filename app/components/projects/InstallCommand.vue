@@ -9,7 +9,20 @@ const { pkg, repo } = defineProps<{
 const { t } = useI18n()
 const copied = ref(false)
 const packageVersion = usePackageVersion(pkg, repo)
-const tokens = computed(() => pkg.installCommand.split(" "))
+
+const scroller = useTemplateRef<HTMLElement>("scroller")
+const overflowing = ref(false)
+const clippedRight = ref(false)
+
+function measure() {
+  const el = scroller.value
+  if (!el) return
+  overflowing.value = el.scrollWidth > el.clientWidth + 1
+  clippedRight.value = overflowing.value && el.scrollLeft + el.clientWidth < el.scrollWidth - 1
+}
+
+useResizeObserver(scroller, measure)
+onMounted(measure)
 
 async function copy() {
   try {
@@ -26,12 +39,19 @@ async function copy() {
 
 <template>
   <div class="flex items-center gap-2 rounded-md bg-slate-200 py-1 pr-1 pl-2 dark:bg-slate-800">
-    <code class="font-jetbrains grow text-xs text-slate-800 dark:text-slate-300">
-      <template v-for="(token, index) in tokens" :key="index">
-        <span class="whitespace-nowrap">{{ token }}</span
-        >{{ index < tokens.length - 1 ? " " : "" }}
-      </template>
-    </code>
+    <div
+      ref="scroller"
+      class="scroller min-w-0 grow overflow-x-auto"
+      :class="{ 'scroller--clipped': clippedRight }"
+      :tabindex="overflowing ? 0 : undefined"
+      :role="overflowing ? 'group' : undefined"
+      :aria-label="overflowing ? t('projects.installCommand', { name: pkg.name }) : undefined"
+      @scroll.passive="measure"
+    >
+      <code class="font-jetbrains text-xs whitespace-nowrap text-slate-800 dark:text-slate-300">
+        {{ pkg.installCommand }}
+      </code>
+    </div>
     <UTooltip v-if="packageVersion" :text="t('projects.stats.version')" :delay-duration="0">
       <span
         class="font-jetbrains shrink-0 rounded bg-slate-300/60 px-1.5 py-0.5 text-[11px] text-slate-700 dark:bg-slate-700 dark:text-slate-200"
@@ -51,3 +71,24 @@ async function copy() {
     </UTooltip>
   </div>
 </template>
+
+<style scoped>
+.scroller {
+  scrollbar-width: none;
+  padding-block: 0.125rem;
+  border-radius: 0.25rem;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.scroller:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 2px;
+}
+
+.scroller--clipped {
+  mask-image: linear-gradient(to right, black calc(100% - 2.5rem), transparent);
+}
+</style>

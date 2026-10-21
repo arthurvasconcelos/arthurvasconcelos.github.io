@@ -68,6 +68,7 @@ export default {
   projects: {
     pageTitle: "Projetos",
     archived: "Arquivado",
+    installCommand: "Comando de instalação de {name}",
     copy: "Copiar comando",
     copied: "Copiado!",
     stats: {
