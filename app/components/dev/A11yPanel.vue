@@ -132,7 +132,7 @@ if (isDev) {
           variant="ghost"
           size="xs"
           aria-label="Close panel"
-          @click="panelOpen = false"
+          @click="panelOpen = false;"
         />
       </div>
 
