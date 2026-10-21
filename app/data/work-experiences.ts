@@ -7,6 +7,8 @@ import pilotiLogo from "~/assets/img/logos/companies/piloti.png"
 
 export type LocationType = "Remote" | "On-site" | "Hybrid"
 
+export type LocationKey = "stockholm" | "tallinn" | "rioDeJaneiro"
+
 export type WorkRoleData = {
   id: string
   title: string
@@ -22,7 +24,7 @@ export type WorkExperienceData = {
   company: string
   companyLogo?: string
   locationIcon: string
-  location: string
+  locationKey: LocationKey
   roles: WorkRoleData[]
 }
 
@@ -32,7 +34,7 @@ export const workExperiencesData: WorkExperienceData[] = [
     company: "Platform24",
     companyLogo: platform24Logo,
     locationIcon: "twemoji:flag-sweden",
-    location: "Stockholm, Sweden",
+    locationKey: "stockholm",
     roles: [
       {
         id: "senior-front-end-engineer",
@@ -49,7 +51,7 @@ export const workExperiencesData: WorkExperienceData[] = [
     company: "Kognity",
     companyLogo: kognityLogo,
     locationIcon: "twemoji:flag-sweden",
-    location: "Stockholm, Sweden",
+    locationKey: "stockholm",
     roles: [
       {
         id: "tech-lead",
@@ -97,7 +99,7 @@ export const workExperiencesData: WorkExperienceData[] = [
     company: "Genius Sports",
     companyLogo: geniusSportsLogo,
     locationIcon: "twemoji:flag-estonia",
-    location: "Tallinn, Estonia",
+    locationKey: "tallinn",
     roles: [
       {
         id: "software-engineer",
@@ -126,7 +128,7 @@ export const workExperiencesData: WorkExperienceData[] = [
     company: "Igarapé Institute",
     companyLogo: institutoIgarapeLogo,
     locationIcon: "twemoji:flag-brazil",
-    location: "Rio de Janeiro, Brazil",
+    locationKey: "rioDeJaneiro",
     roles: [
       {
         id: "software-developer",
@@ -154,7 +156,7 @@ export const workExperiencesData: WorkExperienceData[] = [
     company: "Getulio Vargas Foundation",
     companyLogo: fgvLogo,
     locationIcon: "twemoji:flag-brazil",
-    location: "Rio de Janeiro, Brazil",
+    locationKey: "rioDeJaneiro",
     roles: [
       {
         id: "full-stack-developer",
@@ -181,7 +183,7 @@ export const workExperiencesData: WorkExperienceData[] = [
     company: "Piloti Mobile & Internet",
     companyLogo: pilotiLogo,
     locationIcon: "twemoji:flag-brazil",
-    location: "Rio de Janeiro, Brazil",
+    locationKey: "rioDeJaneiro",
     roles: [
       {
         id: "full-stack-developer",
@@ -198,7 +200,7 @@ export const workExperiencesData: WorkExperienceData[] = [
     id: "brasil-ooh",
     company: "Brasil OOH",
     locationIcon: "twemoji:flag-brazil",
-    location: "Rio de Janeiro, Brazil",
+    locationKey: "rioDeJaneiro",
     roles: [
       {
         id: "junior-developer",
@@ -215,7 +217,7 @@ export const workExperiencesData: WorkExperienceData[] = [
     id: "help-ltda",
     company: "HELP LTDA",
     locationIcon: "twemoji:flag-brazil",
-    location: "Rio de Janeiro, Brazil",
+    locationKey: "rioDeJaneiro",
     roles: [
       {
         id: "junior-developer",

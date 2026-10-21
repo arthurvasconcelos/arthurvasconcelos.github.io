@@ -44,6 +44,11 @@ export default {
         "On-site": "På plats",
         Hybrid: "Hybrid",
       },
+      locations: {
+        stockholm: "Stockholm, Sverige",
+        tallinn: "Tallinn, Estland",
+        rioDeJaneiro: "Rio de Janeiro, Brasilien",
+      },
       descriptions: {
         platform24:
           "Bygger front-end-upplevelser för Platform24:s digitala vårdplattform, som kopplar samman patienter och vårdpersonal på nordiska och europeiska marknader genom digital triage, digital vård och integrerade kliniska arbetsflöden.",

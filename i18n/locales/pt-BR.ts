@@ -44,6 +44,11 @@ export default {
         "On-site": "Presencial",
         Hybrid: "Híbrido",
       },
+      locations: {
+        stockholm: "Estocolmo, Suécia",
+        tallinn: "Tallinn, Estônia",
+        rioDeJaneiro: "Rio de Janeiro, Brasil",
+      },
       descriptions: {
         platform24:
           "Desenvolvendo experiências front-end para a plataforma de saúde digital da Platform24, que conecta pacientes e profissionais de saúde nos mercados nórdico e europeu por meio de triagem digital, atendimento virtual e fluxos clínicos integrados.",

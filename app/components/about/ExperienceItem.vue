@@ -23,7 +23,7 @@ const { t } = useI18n()
             </h3>
             <p class="flex items-center gap-1 text-sm text-slate-600 dark:text-slate-400">
               <UIcon :name="experience.locationIcon" aria-hidden="true" />
-              {{ experience.location }}
+              {{ t(`about.workExperiences.locations.${experience.locationKey}`) }}
               <UIcon name="mdi:circle-medium" aria-hidden="true" />
               {{ experience.duration }}
             </p>

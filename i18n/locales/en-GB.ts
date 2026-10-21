@@ -44,6 +44,11 @@ export default {
         "On-site": "On-site",
         Hybrid: "Hybrid",
       },
+      locations: {
+        stockholm: "Stockholm, Sweden",
+        tallinn: "Tallinn, Estonia",
+        rioDeJaneiro: "Rio de Janeiro, Brazil",
+      },
       descriptions: {
         platform24:
           "Building front-end experiences for Platform24's digital healthcare platform, which connects patients and clinicians across Nordic and European markets through digital triage, virtual care, and integrated clinical workflows.",

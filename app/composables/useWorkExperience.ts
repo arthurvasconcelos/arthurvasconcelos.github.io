@@ -1,7 +1,12 @@
 import { format, intervalToDuration, formatDuration } from "date-fns"
 import { enGB } from "date-fns/locale"
 import type { Locale } from "date-fns"
-import type { LocationType, WorkExperienceData, WorkRoleData } from "~/data/work-experiences"
+import type {
+  LocationKey,
+  LocationType,
+  WorkExperienceData,
+  WorkRoleData,
+} from "~/data/work-experiences"
 import { workExperiencesData } from "~/data/work-experiences"
 
 type Period = {
@@ -25,7 +30,7 @@ export type WorkExperience = Period & {
   company: string
   companyLogo?: string
   locationIcon: string
-  location: string
+  locationKey: LocationKey
   roles: WorkRole[]
 }
 
@@ -78,7 +83,7 @@ export function formatWorkExperience(
     company: data.company,
     companyLogo: data.companyLogo,
     locationIcon: data.locationIcon,
-    location: data.location,
+    locationKey: data.locationKey,
     roles: data.roles.map((role) => formatWorkRole(role, locale)),
     ...formatPeriod(start, end, locale),
   }
