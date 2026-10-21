@@ -67,6 +67,8 @@ export default {
   },
   projects: {
     pageTitle: "Projetos",
+    copy: "Copiar comando",
+    copied: "Copiado!",
     sections: {
       flagship: "Projetos em Destaque",
       standalone: "Bibliotecas",

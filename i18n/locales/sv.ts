@@ -67,6 +67,8 @@ export default {
   },
   projects: {
     pageTitle: "Projekt",
+    copy: "Kopiera kommando",
+    copied: "Kopierat!",
     sections: {
       flagship: "Utvalda Projekt",
       standalone: "Bibliotek",

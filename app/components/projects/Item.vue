@@ -1,90 +1,77 @@
 <script setup lang="ts">
-import { format } from "date-fns";
-import type { Endpoints } from "@octokit/types";
-import type { PackageJson } from "type-fest";
+import { format } from "date-fns"
+import type { Endpoints } from "@octokit/types"
+import type { PackageJson } from "type-fest"
 
-type UserRepoResponse =
-  Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"];
+type UserRepoResponse = Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"]
 
 // https://github.com/npm/registry/blob/main/docs/download-counts.md
 type PackageDownloadCountsResponse = {
-  downloads: number;
-  start: string;
-  end: string;
-  package: string;
-};
+  downloads: number
+  start: string
+  end: string
+  package: string
+}
 
 const { repo, npmCreateDate } = defineProps<{
-  repo: string;
-  npmCreateDate: string;
-}>();
+  repo: string
+  npmCreateDate: string
+}>()
 
-const TODAY = format(new Date(), "yyyy-MM-dd");
-const REPO_URL = `https://github.com/arthurvasconcelos/${repo}`;
-const GITHUB_ENDPOINT = `https://api.github.com/repos/arthurvasconcelos/${repo}`;
-const NPM_ENDPOINT = `https://api.npmjs.org/downloads/point/${npmCreateDate}:${TODAY}/${repo}`;
-const PACKAGE_JSON_ENDPOINT = `https://raw.githubusercontent.com/arthurvasconcelos/${repo}/master/package.json`;
+const TODAY = format(new Date(), "yyyy-MM-dd")
+const REPO_URL = `https://github.com/arthurvasconcelos/${repo}`
+const GITHUB_ENDPOINT = `https://api.github.com/repos/arthurvasconcelos/${repo}`
+const NPM_ENDPOINT = `https://api.npmjs.org/downloads/point/${npmCreateDate}:${TODAY}/${repo}`
+const PACKAGE_JSON_ENDPOINT = `https://raw.githubusercontent.com/arthurvasconcelos/${repo}/master/package.json`
 
-const { status: ghStatus, data: ghRepo } = useFetch<UserRepoResponse>(
-  GITHUB_ENDPOINT,
+const { status: ghStatus, data: ghRepo } = useFetch<UserRepoResponse>(GITHUB_ENDPOINT, {
+  lazy: true,
+})
+const { status: npmStatus, data: npmDownloads } = useFetch<PackageDownloadCountsResponse>(
+  NPM_ENDPOINT,
   {
     lazy: true,
-  }
-);
-const { status: npmStatus, data: npmDownloads } =
-  useFetch<PackageDownloadCountsResponse>(NPM_ENDPOINT, {
-    lazy: true,
-  });
+  },
+)
 const { status: packageJsonStatus, data: packageJsonString } = useFetch<string>(
   PACKAGE_JSON_ENDPOINT,
-  { lazy: true }
-);
+  { lazy: true },
+)
 
 const isLoading = computed(
   () =>
     ghStatus.value === "pending" ||
     npmStatus.value === "pending" ||
-    packageJsonStatus.value === "pending"
-);
+    packageJsonStatus.value === "pending",
+)
 
-const packageJson = computed(
-  () => JSON.parse(packageJsonString.value || "{}") as PackageJson
-);
+const packageJson = computed(() => JSON.parse(packageJsonString.value || "{}") as PackageJson)
 
-const name = computed(() => ghRepo.value?.name || "");
-const archived = computed(() => ghRepo.value?.archived || false);
-const description = computed(() => ghRepo.value?.description || "");
-const watchers = computed(() => ghRepo.value?.subscribers_count || 0);
-const stars = computed(() => ghRepo.value?.stargazers_count || 0);
-const forks = computed(() => ghRepo.value?.forks_count || 0);
-const issues = computed(() => ghRepo.value?.open_issues_count || 0);
-const downloads = computed(() => npmDownloads.value?.downloads || 0);
-const version = computed(() => packageJson.value?.version || 0);
+const name = computed(() => ghRepo.value?.name || "")
+const archived = computed(() => ghRepo.value?.archived || false)
+const description = computed(() => ghRepo.value?.description || "")
+const watchers = computed(() => ghRepo.value?.subscribers_count || 0)
+const stars = computed(() => ghRepo.value?.stargazers_count || 0)
+const forks = computed(() => ghRepo.value?.forks_count || 0)
+const issues = computed(() => ghRepo.value?.open_issues_count || 0)
+const downloads = computed(() => npmDownloads.value?.downloads || 0)
+const version = computed(() => packageJson.value?.version || 0)
 </script>
 
 <template>
   <UCard>
     <template #header>
       <USkeleton v-if="isLoading" class="h-5 w-full" />
-      <h2
-        v-else
-        class="flex items-center justify-between font-space-grotesk text-2xl font-bold"
-      >
+      <h2 v-else class="font-space-grotesk flex items-center justify-between text-2xl font-bold">
         <ULink
           :href="REPO_URL"
           target="_blank"
-          class="inline-flex items-center gap-1 text-slate-900 dark:text-slate-100 hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
+          class="inline-flex items-center gap-1 text-slate-900 transition-colors hover:text-violet-600 dark:text-slate-100 dark:hover:text-violet-400"
         >
           {{ name }}
           <UIcon name="i-lucide:arrow-up-right" class="size-5 shrink-0" />
         </ULink>
-        <UBadge
-          v-if="archived"
-          icon="mdi:alert"
-          size="lg"
-          color="warning"
-          variant="solid"
-        >
+        <UBadge v-if="archived" icon="mdi:alert" size="lg" color="warning" variant="solid">
           Archived
         </UBadge>
       </h2>
@@ -92,7 +79,7 @@ const version = computed(() => packageJson.value?.version || 0);
 
     <USkeleton v-if="isLoading" class="h-5 w-full" />
     <template v-else>
-      <p class="text-base mb-6 text-[#475569] dark:text-slate-300">{{ description }}</p>
+      <p class="mb-6 text-base text-[#475569] dark:text-slate-300">{{ description }}</p>
 
       <div
         :class="[
@@ -151,27 +138,7 @@ const version = computed(() => packageJson.value?.version || 0);
     </template>
 
     <template #footer>
-      <code
-        :class="[
-          // Text
-          'font-jetbrains',
-          'text-xs',
-          'whitespace-nowrap',
-          // Colors
-          'text-gray-800',
-          'dark:text-gray-300',
-          'bg-gray-300',
-          'dark:bg-gray-800',
-          // Spacing
-          'p-2',
-          // Border
-          'rounded-md',
-          // Sizing
-          'block',
-        ]"
-      >
-        npm install --save {{ repo }}
-      </code>
+      <ProjectsInstallCommand :command="`npm install --save ${repo}`" />
     </template>
   </UCard>
 </template>
