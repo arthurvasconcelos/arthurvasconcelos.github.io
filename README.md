@@ -9,7 +9,10 @@ Built with Nuxt 3 (compatibility v4), `@nuxt/ui`, Vue 3, and deployed to GitHub 
 
 ## Development
 
+Tool versions (Node, pnpm) are pinned in `mise.toml`. With [mise](https://mise.jdx.dev/) installed, `mise install` sets them up; otherwise match the versions listed there.
+
 ```bash
+mise install
 pnpm install
 pnpm dev        # http://localhost:3000
 ```
@@ -25,7 +28,7 @@ Drop a markdown file in `content/en-gb/blog/my-post.md` with this frontmatter:
 title: "Post title"
 description: "Short description shown in the list."
 date: 2026-01-01
-translationKey: "my-post"   # optional — links translations across locales
+translationKey: "my-post" # optional — links translations across locales
 ---
 ```
 
