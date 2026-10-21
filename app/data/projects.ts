@@ -27,6 +27,7 @@ export type Project = {
   pkg?: ProjectPackage
   subPackages?: ProjectSubPackage[]
   subPackagesLabelKey?: "adapters" | "sdks"
+  docsUrl?: string
   npmCreateDate?: string
 }
 
@@ -36,6 +37,7 @@ export const projects: Project[] = [
     name: "a11y-hud",
     repo: "a11y-hud",
     type: "flagship",
+    docsUrl: "https://arthurvasconcelos.com.br/a11y-hud/",
     language: "TypeScript",
     languageIcon: "logos:typescript-icon",
     pkg: {
@@ -107,6 +109,7 @@ export const projects: Project[] = [
     name: "overseer",
     repo: "overseer",
     type: "flagship",
+    docsUrl: "https://arthurvasconcelos.com.br/overseer/",
     groupId: "overseer-family",
     language: "Go",
     languageIcon: "logos:go",
@@ -146,6 +149,7 @@ export const projects: Project[] = [
     name: "sqlalchemy-seedling",
     repo: "seedling",
     type: "standalone",
+    docsUrl: "https://arthurvasconcelos.com.br/seedling/",
     language: "Python",
     languageIcon: "logos:python",
     pkg: {

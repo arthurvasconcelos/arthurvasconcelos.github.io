@@ -28,6 +28,18 @@ const issues = computed(() => stats.value?.openIssues ?? 0)
             <UIcon name="i-lucide:arrow-up-right" class="size-4" />
           </ULink>
         </h2>
+        <UButton
+          v-if="project.docsUrl"
+          :to="project.docsUrl"
+          target="_blank"
+          icon="i-lucide:book-open"
+          trailing-icon="i-lucide:arrow-up-right"
+          color="neutral"
+          variant="subtle"
+          size="sm"
+        >
+          {{ t("projects.docs") }}
+        </UButton>
       </div>
     </template>
 
