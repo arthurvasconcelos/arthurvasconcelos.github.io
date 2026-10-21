@@ -155,6 +155,20 @@ export const projects: Project[] = [
     },
   },
   {
+    id: "driverseat",
+    name: "driverseat",
+    repo: "driverseat",
+    type: "standalone",
+    language: "Shell",
+    languageIcon: "logos:bash-icon",
+    pkg: {
+      ecosystem: "github",
+      name: "pair@driverseat",
+      installCommand:
+        "claude plugin marketplace add arthurvasconcelos/driverseat && claude plugin install pair@driverseat",
+    },
+  },
+  {
     id: "vue-izitoast",
     name: "vue-izitoast",
     repo: "vue-izitoast",
