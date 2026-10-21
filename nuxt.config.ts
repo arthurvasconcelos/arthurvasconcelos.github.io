@@ -1,10 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  future: {
-    compatibilityVersion: 4,
-  },
-
-  compatibilityDate: "2025-05-15",
+  compatibilityDate: "2026-10-21",
   devtools: { enabled: true },
 
   site: {
@@ -63,7 +59,6 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@nuxt/ui",
     "@nuxt/fonts",
-    "nuxt-lodash",
     "@vueuse/nuxt",
     "@nuxt/eslint",
     "@nuxtjs/i18n",
@@ -115,10 +110,6 @@ export default defineNuxtConfig({
       { code: "sv", language: "sv-SE", name: "Svenska", file: "sv.ts" },
     ],
     strategy: "prefix_except_default",
-    lazy: true,
-    bundle: {
-      optimizeTranslationDirective: false,
-    },
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: "i18n_redirected",

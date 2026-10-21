@@ -15,20 +15,20 @@
   },
   "dependencies": {
     "@nuxt/content": "^3.16.2",
-    "@nuxt/fonts": "^0.11.4",
-    "@nuxt/icon": "1.13.0",
-    "@nuxt/ui": "^3.3.7",
-    "@nuxtjs/color-mode": "3.5.2",
-    "@nuxtjs/i18n": "^9.5.6",
-    "@nuxtjs/sitemap": "^8.6.2",
-    "@vueuse/nuxt": "^13.9.0",
+    "@nuxt/fonts": "^0.14.0",
+    "@nuxt/icon": "^2.5.1",
+    "@nuxt/ui": "^4.8.1",
+    "@nuxtjs/color-mode": "^3.5.2",
+    "@nuxtjs/i18n": "^10.6.0",
+    "@nuxtjs/sitemap": "^9.1.0",
+    "@vueuse/nuxt": "^15.0.0",
     "better-sqlite3": "^12.11.1",
     "date-fns": "^4.4.0",
-    "nuxt": "^3.21.11",
-    "nuxt-lodash": "^2.5.3",
+    "nuxt": "^4.6.2",
     "type-fest": "^4.41.0",
     "vue": "^3.5.44",
-    "vue-router": "^4.6.4"
+    "vue-router": "^5.4.0",
+    "zod": "^4.6.7"
   },
   "packageManager": "pnpm@10.10.0",
   "pnpm": {
@@ -38,7 +38,10 @@
       "esbuild",
       "unrs-resolver",
       "vue-demi"
-    ]
+    ],
+    "overrides": {
+      "postcss-selector-parser@<7.1.6": "^7.1.7"
+    }
   },
   "devDependencies": {
     "@iconify-json/logos": "^1.2.17",
@@ -51,7 +54,6 @@
     "@octokit/types": "^14.1.0",
     "@tailwindcss/typography": "^0.5.20",
     "@types/better-sqlite3": "^7.6.13",
-    "@types/lodash": "^4.17.27",
     "@typescript-eslint/parser": "^8.72.0",
     "axe-core": "^4.14.0",
     "eslint": "^10.13.0",

@@ -9,10 +9,12 @@ const languages = ref([
   { id: "php", name: "PHP" },
 ]);
 
+const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+
 const wordLabels = computed(() => wordKeys.map((key) => t(`home.words.${key}`)));
 
 const h2Label = computed(() => {
-  const capitalizedWords = wordKeys.map((k) => useCapitalize(t(`home.words.${k}`)));
+  const capitalizedWords = wordKeys.map((k) => capitalize(t(`home.words.${k}`)));
   const lastWord = capitalizedWords.pop();
   const joinedWords = capitalizedWords.join(", ");
   const langNames = languages.value.map((lang) => lang.name);
