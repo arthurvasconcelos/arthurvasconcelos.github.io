@@ -20,7 +20,7 @@ const downloads = computed(() => stats.value?.downloads ?? 0)
 </script>
 
 <template>
-  <UCard>
+  <UCard class="flex h-full flex-col" :ui="{ body: 'grow' }">
     <template #header>
       <h2 class="font-space-grotesk flex items-center justify-between text-2xl font-bold">
         <ULink
