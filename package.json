@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "typecheck": "nuxt typecheck"
+    "typecheck": "nuxt typecheck",
+    "stats:refresh": "node --experimental-strip-types scripts/fetch-project-stats.ts"
   },
   "dependencies": {
     "@nuxt/content": "^3.16.2",
@@ -25,7 +26,6 @@
     "better-sqlite3": "^12.11.1",
     "date-fns": "^4.4.0",
     "nuxt": "^4.6.2",
-    "type-fest": "^4.41.0",
     "vue": "^3.5.44",
     "vue-router": "^5.4.0",
     "zod": "^4.6.7"
@@ -52,7 +52,6 @@
     "@iconify-json/simple-icons": "^1.2.100",
     "@iconify-json/twemoji": "^1.2.5",
     "@nuxt/eslint": "^1.17.0",
-    "@octokit/types": "^14.1.0",
     "@tailwindcss/typography": "^0.5.20",
     "@types/better-sqlite3": "^7.6.13",
     "@typescript-eslint/parser": "^8.72.0",

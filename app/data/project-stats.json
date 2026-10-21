@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-10-21T22:03:52.208Z",
+  "repos": {
+    "a11y-hud": {
+      "name": "a11y-hud",
+      "description": "Framework-agnostic dev overlay that runs axe-core accessibility audits in your running app — no DevTools required.",
+      "archived": false,
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 10,
+      "fetchedAt": "2026-10-21T22:03:52.666Z"
+    },
+    "overseer": {
+      "name": "overseer",
+      "description": "Personal machine bootstrap — dotfiles and CLI for setting up a new machine (macOS, Linux, and more).",
+      "archived": false,
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0,
+      "fetchedAt": "2026-10-21T22:03:52.949Z"
+    },
+    "seedling": {
+      "name": "seedling",
+      "description": "Async-native seeder and factory library for SQLAlchemy — dependency-aware runners, declarative factories, and a CLI. Laravel-style ergonomics for the Python async ecosystem.",
+      "archived": false,
+      "stars": 4,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0,
+      "fetchedAt": "2026-10-21T22:03:53.230Z"
+    },
+    "driverseat": {
+      "name": "driverseat",
+      "description": "A Claude Code plugin that keeps you in the driver's seat: you write the code, Claude scouts, critiques, hints and writes tests.",
+      "archived": false,
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0,
+      "fetchedAt": "2026-10-21T22:03:53.518Z"
+    },
+    "vue-izitoast": {
+      "name": "vue-izitoast",
+      "description": "Elegant, responsive, flexible and lightweight notification plugin implemented for Vue 2 of iziToast",
+      "archived": true,
+      "stars": 127,
+      "forks": 22,
+      "watchers": 5,
+      "openIssues": 33,
+      "fetchedAt": "2026-10-21T22:03:53.777Z",
+      "downloads": 95061,
+      "version": "1.2.1"
+    },
+    "vue-cbsc": {
+      "name": "vue-cbsc",
+      "description": "Lightweight color shader/blender/converter plugin implemented for Vue 2.",
+      "archived": true,
+      "stars": 6,
+      "forks": 2,
+      "watchers": 1,
+      "openIssues": 2,
+      "fetchedAt": "2026-10-21T22:03:54.273Z",
+      "downloads": 434,
+      "version": "1.0.1"
+    }
+  }
+}

@@ -1,32 +1,26 @@
 <script setup lang="ts">
 import type { Project } from "~/data/projects"
-import type { Endpoints } from "@octokit/types"
-
-type UserRepoResponse = Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"]
 
 const { project } = defineProps<{ project: Project }>()
 
 const { t, n } = useI18n()
 
 const REPO_URL = `https://github.com/arthurvasconcelos/${project.repo}`
-const GITHUB_ENDPOINT = `https://api.github.com/repos/arthurvasconcelos/${project.repo}`
 
-const { status, data: ghData } = useFetch<UserRepoResponse>(GITHUB_ENDPOINT, { lazy: true })
+const stats = useProjectStats(project.repo)
 
-const isLoading = computed(() => status.value === "pending")
-const name = computed(() => ghData.value?.name || project.name)
-const description = computed(() => ghData.value?.description || "")
-const stars = computed(() => ghData.value?.stargazers_count ?? 0)
-const forks = computed(() => ghData.value?.forks_count ?? 0)
-const watchers = computed(() => ghData.value?.subscribers_count ?? 0)
-const issues = computed(() => ghData.value?.open_issues_count ?? 0)
+const name = computed(() => stats.value?.name || project.name)
+const description = computed(() => stats.value?.description ?? "")
+const stars = computed(() => stats.value?.stars ?? 0)
+const forks = computed(() => stats.value?.forks ?? 0)
+const watchers = computed(() => stats.value?.watchers ?? 0)
+const issues = computed(() => stats.value?.openIssues ?? 0)
 </script>
 
 <template>
   <UCard>
     <template #header>
-      <USkeleton v-if="isLoading" class="h-6 w-48" />
-      <div v-else class="flex items-center justify-between">
+      <div class="flex items-center justify-between">
         <h2 class="font-space-grotesk flex items-center gap-2 text-2xl font-bold">
           <UIcon :name="project.languageIcon" class="size-6 shrink-0" />
           <ULink :href="REPO_URL" target="_blank" class="flex items-center gap-1">
@@ -37,35 +31,34 @@ const issues = computed(() => ghData.value?.open_issues_count ?? 0)
       </div>
     </template>
 
-    <USkeleton v-if="isLoading" class="h-20 w-full" />
-    <template v-else>
-      <p class="mb-4 text-base text-slate-600 dark:text-slate-400">{{ description }}</p>
+    <p v-if="description" class="mb-4 text-base text-slate-600 dark:text-slate-400">
+      {{ description }}
+    </p>
 
-      <div class="mb-4 flex flex-wrap gap-2">
-        <UTooltip :text="t('projects.stats.stars')" :delay-duration="0">
-          <UBadge icon="mdi:star-outline" color="primary" variant="subtle" size="md">
-            {{ n(stars) }}
-          </UBadge>
-        </UTooltip>
-        <UTooltip :text="t('projects.stats.forks')" :delay-duration="0">
-          <UBadge icon="mdi:source-fork" color="primary" variant="subtle" size="md">
-            {{ n(forks) }}
-          </UBadge>
-        </UTooltip>
-        <UTooltip :text="t('projects.stats.watchers')" :delay-duration="0">
-          <UBadge icon="mdi:eye-outline" color="neutral" variant="subtle" size="md">
-            {{ n(watchers) }}
-          </UBadge>
-        </UTooltip>
-        <UTooltip :text="t('projects.stats.openIssues')" :delay-duration="0">
-          <UBadge icon="mdi:alert-decagram-outline" color="neutral" variant="subtle" size="md">
-            {{ n(issues) }}
-          </UBadge>
-        </UTooltip>
-      </div>
+    <div class="mb-4 flex flex-wrap gap-2">
+      <UTooltip :text="t('projects.stats.stars')" :delay-duration="0">
+        <UBadge icon="mdi:star-outline" color="primary" variant="subtle" size="md">
+          {{ n(stars) }}
+        </UBadge>
+      </UTooltip>
+      <UTooltip :text="t('projects.stats.forks')" :delay-duration="0">
+        <UBadge icon="mdi:source-fork" color="primary" variant="subtle" size="md">
+          {{ n(forks) }}
+        </UBadge>
+      </UTooltip>
+      <UTooltip :text="t('projects.stats.watchers')" :delay-duration="0">
+        <UBadge icon="mdi:eye-outline" color="neutral" variant="subtle" size="md">
+          {{ n(watchers) }}
+        </UBadge>
+      </UTooltip>
+      <UTooltip :text="t('projects.stats.openIssues')" :delay-duration="0">
+        <UBadge icon="mdi:alert-decagram-outline" color="neutral" variant="subtle" size="md">
+          {{ n(issues) }}
+        </UBadge>
+      </UTooltip>
+    </div>
 
-      <ProjectsInstallCommand v-if="project.pkg" :command="project.pkg.installCommand" />
-    </template>
+    <ProjectsInstallCommand v-if="project.pkg" :command="project.pkg.installCommand" />
 
     <template v-if="project.subPackages?.length">
       <div class="mt-4 border-t border-slate-200 pt-4 dark:border-slate-700">

@@ -1,18 +1,4 @@
 <script setup lang="ts">
-import { format } from "date-fns"
-import type { Endpoints } from "@octokit/types"
-import type { PackageJson } from "type-fest"
-
-type UserRepoResponse = Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"]
-
-// https://github.com/npm/registry/blob/main/docs/download-counts.md
-type PackageDownloadCountsResponse = {
-  downloads: number
-  start: string
-  end: string
-  package: string
-}
-
 const { repo, npmCreateDate } = defineProps<{
   repo: string
   npmCreateDate: string
@@ -20,51 +6,25 @@ const { repo, npmCreateDate } = defineProps<{
 
 const { t, n } = useI18n()
 
-const TODAY = format(new Date(), "yyyy-MM-dd")
 const REPO_URL = `https://github.com/arthurvasconcelos/${repo}`
-const GITHUB_ENDPOINT = `https://api.github.com/repos/arthurvasconcelos/${repo}`
-const NPM_ENDPOINT = `https://api.npmjs.org/downloads/point/${npmCreateDate}:${TODAY}/${repo}`
-const PACKAGE_JSON_ENDPOINT = `https://raw.githubusercontent.com/arthurvasconcelos/${repo}/master/package.json`
 
-const { status: ghStatus, data: ghRepo } = useFetch<UserRepoResponse>(GITHUB_ENDPOINT, {
-  lazy: true,
-})
-const { status: npmStatus, data: npmDownloads } = useFetch<PackageDownloadCountsResponse>(
-  NPM_ENDPOINT,
-  {
-    lazy: true,
-  },
-)
-const { status: packageJsonStatus, data: packageJsonString } = useFetch<string>(
-  PACKAGE_JSON_ENDPOINT,
-  { lazy: true },
-)
+const stats = useProjectStats(repo, { npmCreateDate })
 
-const isLoading = computed(
-  () =>
-    ghStatus.value === "pending" ||
-    npmStatus.value === "pending" ||
-    packageJsonStatus.value === "pending",
-)
-
-const packageJson = computed(() => JSON.parse(packageJsonString.value || "{}") as PackageJson)
-
-const name = computed(() => ghRepo.value?.name || "")
-const archived = computed(() => ghRepo.value?.archived || false)
-const description = computed(() => ghRepo.value?.description || "")
-const watchers = computed(() => ghRepo.value?.subscribers_count || 0)
-const stars = computed(() => ghRepo.value?.stargazers_count || 0)
-const forks = computed(() => ghRepo.value?.forks_count || 0)
-const issues = computed(() => ghRepo.value?.open_issues_count || 0)
-const downloads = computed(() => npmDownloads.value?.downloads || 0)
-const version = computed(() => packageJson.value?.version || 0)
+const name = computed(() => stats.value?.name || repo)
+const archived = computed(() => stats.value?.archived ?? false)
+const description = computed(() => stats.value?.description ?? "")
+const watchers = computed(() => stats.value?.watchers ?? 0)
+const stars = computed(() => stats.value?.stars ?? 0)
+const forks = computed(() => stats.value?.forks ?? 0)
+const issues = computed(() => stats.value?.openIssues ?? 0)
+const downloads = computed(() => stats.value?.downloads ?? 0)
+const version = computed(() => stats.value?.version ?? "–")
 </script>
 
 <template>
   <UCard>
     <template #header>
-      <USkeleton v-if="isLoading" class="h-5 w-full" />
-      <h2 v-else class="font-space-grotesk flex items-center justify-between text-2xl font-bold">
+      <h2 class="font-space-grotesk flex items-center justify-between text-2xl font-bold">
         <ULink
           :href="REPO_URL"
           target="_blank"
@@ -85,65 +45,64 @@ const version = computed(() => packageJson.value?.version || 0)
       </h2>
     </template>
 
-    <USkeleton v-if="isLoading" class="h-5 w-full" />
-    <template v-else>
-      <p class="mb-6 text-base text-[#475569] dark:text-slate-300">{{ description }}</p>
+    <p v-if="description" class="mb-6 text-base text-[#475569] dark:text-slate-300">
+      {{ description }}
+    </p>
 
-      <div
-        :class="[
-          // display
-          'grid',
-          'grid-flow-dense',
-          // layout
-          'grid-cols-1',
-          'md:grid-cols-3',
-          // spacing
-          'gap-2',
-        ]"
-      >
-        <UTooltip :delay-duration="0" :text="t('projects.stats.watchers')">
-          <span class="stat-badge">
-            <UIcon name="mdi:eye-outline" class="size-4 shrink-0" />
-            {{ n(watchers) }}
-          </span>
-        </UTooltip>
+    <div
+      :class="[
+        // display
+        'grid',
+        'grid-flow-dense',
+        // layout
+        'grid-cols-1',
+        'md:grid-cols-3',
+        // spacing
+        'gap-2',
+      ]"
+    >
+      <UTooltip :delay-duration="0" :text="t('projects.stats.watchers')">
+        <span class="stat-badge">
+          <UIcon name="mdi:eye-outline" class="size-4 shrink-0" />
+          {{ n(watchers) }}
+        </span>
+      </UTooltip>
 
-        <UTooltip :delay-duration="0" :text="t('projects.stats.stars')">
-          <span class="stat-badge">
-            <UIcon name="mdi:star-outline" class="size-4 shrink-0" />
-            {{ n(stars) }}
-          </span>
-        </UTooltip>
+      <UTooltip :delay-duration="0" :text="t('projects.stats.stars')">
+        <span class="stat-badge">
+          <UIcon name="mdi:star-outline" class="size-4 shrink-0" />
+          {{ n(stars) }}
+        </span>
+      </UTooltip>
 
-        <UTooltip :delay-duration="0" :text="t('projects.stats.forks')">
-          <span class="stat-badge">
-            <UIcon name="mdi:source-fork" class="size-4 shrink-0" />
-            {{ n(forks) }}
-          </span>
-        </UTooltip>
+      <UTooltip :delay-duration="0" :text="t('projects.stats.forks')">
+        <span class="stat-badge">
+          <UIcon name="mdi:source-fork" class="size-4 shrink-0" />
+          {{ n(forks) }}
+        </span>
+      </UTooltip>
 
-        <UTooltip :delay-duration="0" :text="t('projects.stats.issues')">
-          <span class="stat-badge">
-            <UIcon name="mdi:alert-decagram-outline" class="size-4 shrink-0" />
-            {{ n(issues) }}
-          </span>
-        </UTooltip>
+      <UTooltip :delay-duration="0" :text="t('projects.stats.issues')">
+        <span class="stat-badge">
+          <UIcon name="mdi:alert-decagram-outline" class="size-4 shrink-0" />
+          {{ n(issues) }}
+        </span>
+      </UTooltip>
 
-        <UTooltip :delay-duration="0" :text="t('projects.stats.downloads')">
-          <span class="stat-badge">
-            <UIcon name="mdi:cloud-download-outline" class="size-4 shrink-0" />
-            {{ n(downloads) }}
-          </span>
-        </UTooltip>
+      <UTooltip :delay-duration="0" :text="t('projects.stats.downloads')">
+        <span class="stat-badge">
+          <UIcon name="mdi:cloud-download-outline" class="size-4 shrink-0" />
+          {{ n(downloads) }}
+        </span>
+      </UTooltip>
 
-        <UTooltip :delay-duration="0" :text="t('projects.stats.version')">
-          <span class="stat-badge">
-            <UIcon name="mdi:code-json" class="size-4 shrink-0" />
-            {{ version }}
-          </span>
-        </UTooltip>
-      </div>
-    </template>
+      <UTooltip :delay-duration="0" :text="t('projects.stats.version')">
+        <span class="stat-badge">
+          <UIcon name="mdi:code-json" class="size-4 shrink-0" />
+          {{ version }}
+        </span>
+      </UTooltip>
+    </div>
 
     <template #footer>
       <ProjectsInstallCommand :command="`npm install --save ${repo}`" />
