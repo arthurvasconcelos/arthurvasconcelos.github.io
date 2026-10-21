@@ -67,6 +67,7 @@ export default {
   },
   projects: {
     pageTitle: "Projekt",
+    archived: "Arkiverat",
     copy: "Kopiera kommando",
     copied: "Kopierat!",
     sections: {

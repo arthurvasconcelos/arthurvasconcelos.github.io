@@ -18,6 +18,8 @@ const { repo, npmCreateDate } = defineProps<{
   npmCreateDate: string
 }>()
 
+const { t } = useI18n()
+
 const TODAY = format(new Date(), "yyyy-MM-dd")
 const REPO_URL = `https://github.com/arthurvasconcelos/${repo}`
 const GITHUB_ENDPOINT = `https://api.github.com/repos/arthurvasconcelos/${repo}`
@@ -71,8 +73,14 @@ const version = computed(() => packageJson.value?.version || 0)
           {{ name }}
           <UIcon name="i-lucide:arrow-up-right" class="size-5 shrink-0" />
         </ULink>
-        <UBadge v-if="archived" icon="mdi:alert" size="lg" color="warning" variant="solid">
-          Archived
+        <UBadge
+          v-if="archived"
+          icon="mdi:archive-outline"
+          size="lg"
+          color="neutral"
+          variant="subtle"
+        >
+          {{ t("projects.archived") }}
         </UBadge>
       </h2>
     </template>

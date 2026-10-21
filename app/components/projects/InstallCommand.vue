@@ -21,7 +21,9 @@ async function copy() {
 
 <template>
   <div class="flex items-center gap-2 rounded-md bg-slate-200 py-1 pr-1 pl-2 dark:bg-slate-800">
-    <code class="font-jetbrains grow overflow-x-auto text-xs text-slate-800 dark:text-slate-300">
+    <code
+      class="font-jetbrains grow text-xs break-all whitespace-pre-wrap text-slate-800 dark:text-slate-300"
+    >
       {{ command }}
     </code>
     <UTooltip :text="copied ? t('projects.copied') : t('projects.copy')" :delay-duration="0">

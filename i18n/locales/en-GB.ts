@@ -68,6 +68,7 @@ export default {
   },
   projects: {
     pageTitle: "Projects",
+    archived: "Archived",
     copy: "Copy command",
     copied: "Copied!",
     sections: {
