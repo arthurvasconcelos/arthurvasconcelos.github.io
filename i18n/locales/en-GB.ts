@@ -98,6 +98,7 @@ export default {
     },
   },
   content: {
+    alsoAvailableIn: "Also available in:",
     machineTranslated: {
       title: "Translated with AI",
       description: "This translation was generated with AI and has not been reviewed yet.",
@@ -108,7 +109,6 @@ export default {
     pageTitle: "Blog",
     noPosts: "No posts yet. Check back soon.",
     readingTime: "{n} min read",
-    alsoAvailableIn: "Also available in:",
     backToBlog: "Back to blog",
     draft: "Draft",
   },

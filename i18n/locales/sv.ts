@@ -98,6 +98,7 @@ export default {
     },
   },
   content: {
+    alsoAvailableIn: "Även tillgänglig på:",
     machineTranslated: {
       title: "Översatt med AI",
       description: "Den här översättningen är gjord med AI och har inte granskats ännu.",
@@ -108,7 +109,6 @@ export default {
     pageTitle: "Blogg",
     noPosts: "Inga inlägg ännu. Kom tillbaka snart.",
     readingTime: "{n} min läsning",
-    alsoAvailableIn: "Även tillgänglig på:",
     backToBlog: "Tillbaka till bloggen",
     draft: "Utkast",
   },

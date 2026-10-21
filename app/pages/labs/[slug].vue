@@ -1,38 +1,43 @@
 <script setup lang="ts">
-const { t, locale } = useI18n();
-const localePath = useLocalePath();
-const route = useRoute();
+const { t, locale } = useI18n()
+const localePath = useLocalePath()
+const route = useRoute()
 
-const slug = route.params.slug as string;
-const localeDir = locale.value.toLowerCase();
+const slug = route.params.slug as string
+const localeDir = locale.value.toLowerCase()
 
 const { data: experiment } = await useAsyncData(`lab-${localeDir}-${slug}`, () =>
   queryCollection("labs").where("path", "=", `/${localeDir}/labs/${slug}`).first(),
-);
+)
 
 // No translation for this locale → send to the labs list instead of 404
 if (!experiment.value) {
-  await navigateTo(localePath("/labs"));
+  await navigateTo(localePath("/labs"))
 }
+
+const { data: translations } = useContentTranslations(
+  "labs",
+  () => experiment.value?.translationKey,
+)
 
 useHead({
   title: computed(() =>
     experiment.value ? `${experiment.value.title} — Arthur Vasconcelos` : "Labs",
   ),
-});
+})
 useSeoMeta({
   title: computed(() => experiment.value?.title ?? ""),
   description: computed(() => experiment.value?.description ?? ""),
   ogTitle: computed(() => experiment.value?.title ?? ""),
   ogDescription: computed(() => experiment.value?.description ?? ""),
-});
+})
 
 function formatDate(date: Date | string): string {
   return new Intl.DateTimeFormat(locale.value, {
     year: "numeric",
     month: "long",
     day: "numeric",
-  }).format(new Date(date));
+  }).format(new Date(date))
 }
 </script>
 
@@ -52,7 +57,7 @@ function formatDate(date: Date | string): string {
       </h1>
 
       <div
-        class="flex flex-wrap items-center gap-x-3 gap-y-1 font-jetbrains text-sm text-[#64748b] dark:text-slate-400"
+        class="font-jetbrains flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-[#64748b] dark:text-slate-400"
       >
         <time :datetime="new Date(experiment.date).toISOString()">
           {{ formatDate(experiment.date) }}
@@ -77,12 +82,14 @@ function formatDate(date: Date | string): string {
           {{ t("labs.draft") }}
         </UBadge>
       </div>
+
+      <TranslationLinks :translations="translations ?? []" class="mt-4" />
     </header>
 
     <TranslationNotice v-if="experiment.machineTranslated" class="mb-10" />
 
     <div
-      class="prose prose-slate max-w-none dark:prose-invert prose-p:text-base prose-p:leading-relaxed prose-headings:font-space-grotesk prose-headings:font-bold prose-code:rounded prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-jetbrains prose-code:text-sm prose-code:before:content-none prose-code:after:content-none prose-code:dark:bg-slate-800"
+      class="prose prose-slate dark:prose-invert prose-p:text-base prose-p:leading-relaxed prose-headings:font-space-grotesk prose-headings:font-bold prose-code:rounded prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-jetbrains prose-code:text-sm prose-code:before:content-none prose-code:after:content-none prose-code:dark:bg-slate-800 max-w-none"
     >
       <ContentRenderer :value="experiment" />
     </div>

@@ -98,6 +98,7 @@ export default {
     },
   },
   content: {
+    alsoAvailableIn: "Também disponível em:",
     machineTranslated: {
       title: "Traduzido com IA",
       description: "Esta tradução foi gerada com IA e ainda não foi revisada.",
@@ -108,7 +109,6 @@ export default {
     pageTitle: "Blog",
     noPosts: "Nenhum post por enquanto. Volte em breve.",
     readingTime: "{n} min de leitura",
-    alsoAvailableIn: "Também disponível em:",
     backToBlog: "Voltar ao blog",
     draft: "Rascunho",
   },
