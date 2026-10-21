@@ -4,13 +4,13 @@
       class="flex items-center gap-2 border-b border-slate-200 bg-slate-100 px-4 py-2 dark:border-slate-700/50 dark:bg-slate-800/80"
     >
       <UIcon v-if="iconName" :name="iconName" class="size-4 shrink-0" />
-      <span class="select-none font-jetbrains text-xs text-slate-500 dark:text-slate-400">
+      <span class="select-none font-jetbrains text-xs text-slate-600 dark:text-slate-400">
         {{ filename ?? language ?? 'code' }}
       </span>
       <button
         type="button"
         :aria-label="copied ? 'Copied' : 'Copy code'"
-        class="ml-auto flex cursor-pointer items-center gap-1.5 rounded px-2 py-1 text-xs font-jetbrains text-slate-500 transition-colors hover:bg-slate-200 hover:text-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-200"
+        class="ml-auto flex cursor-pointer items-center gap-1.5 rounded px-2 py-1 text-xs font-jetbrains text-slate-600 transition-colors hover:bg-slate-200 hover:text-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-200"
         @click="copyCode"
       >
         <UIcon
@@ -21,7 +21,7 @@
       </button>
     </div>
     <!-- v-bind="$attrs" passes Shiki's inline style (background-color + CSS vars) to the pre element -->
-    <pre v-bind="$attrs" :class="[$props.class, 'm-0 overflow-x-auto p-4 font-jetbrains text-sm leading-relaxed']"><slot /></pre>
+    <pre v-bind="$attrs" tabindex="0" :class="[$props.class, 'm-0 overflow-x-auto p-4 font-jetbrains text-sm leading-relaxed']"><slot /></pre>
   </div>
 </template>
 
