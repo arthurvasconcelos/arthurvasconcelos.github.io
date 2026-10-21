@@ -16,6 +16,8 @@
 
 html {
   font-family: var(--font-space-grotesk);
+  /* keep anchored headings clear of the sticky header */
+  scroll-padding-top: 5rem;
 }
 
 :root {
