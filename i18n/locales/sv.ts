@@ -22,7 +22,7 @@ export default {
     bio: {
       greeting: "HALLÅ DU,",
       intro:
-        "Jag är Arthur Vasconcelos, ett {age} gammalt nörd från Brasilien som bor i Stockholm, Sverige. Jag älskar att koda och bygga saker! Jag är för närvarande Senior Front-End Engineer på Platform24, där jag bygger digitala sjukvårdsupplevelser för nordiska och europeiska marknader. Jag är också aktiv i open source-communityn och bygger CLI-verktyg i Go och bibliotek i Python och TypeScript.",
+        "Jag är Arthur Vasconcelos, en {age} gammal nörd från Brasilien som bor i Stockholm, Sverige. Jag älskar att koda och bygga saker! Jag är för närvarande Senior Front-End Engineer på Platform24, där jag bygger digitala sjukvårdsupplevelser för nordiska och europeiska marknader. Jag är också aktiv i open source-communityn och bygger CLI-verktyg i Go och bibliotek i Python och TypeScript.",
       experience:
         "Jag har {years} erfarenhet som utvecklare. Mitt huvudsakliga fokus är frontend-ingenjörskap — med djupa kunskaper i TypeScript, Vue.js och React — men jag kan också arbeta i hela stacken.",
     },
@@ -43,6 +43,25 @@ export default {
         Remote: "Distans",
         "On-site": "På plats",
         Hybrid: "Hybrid",
+      },
+      descriptions: {
+        platform24:
+          "Bygger front-end-upplevelser för Platform24:s digitala vårdplattform, som kopplar samman patienter och vårdpersonal på nordiska och europeiska marknader genom digital triage, digital vård och integrerade kliniska arbetsflöden.",
+        kognityTechLead:
+          "Som Tech Lead arbetade jag nära min squads Product Manager, designer och utvecklare för att säkerställa kvaliteten och samordningen i våra leveranser. Ledde migreringsprojektet till Vue.js 3, projektet för införande av och migrering till TypeScript samt planeringen och genomförandet av vår kvartalsvisa process för förbättringar av hastighet och kvalitet. Deltog i jourrotationen för kärntjänsterna, var teknisk intervjuare i rekryteringsteamet och introducerade nyanställda.",
+        kognitySeniorSe:
+          "Som medlem i Engagement-teamet ansvarade jag för utveckling och underhåll av bokgränssnitten för lärare och elever samt stöd för systemet för innehållsskapande. Designade och implementerade funktionerna Glossary och Dictionary (med integration mot Oxfords API), lade till tillgänglighetsfunktioner i våra digitala böcker och hjälpte till att migrera front-enden från Angular 1.x till Vue.js 2.",
+        geniusSports:
+          "Som medlem i riskteamet var jag en av utvecklarna som ansvarade för ett system för övervakning av spel i realtid. Migrerade front-enden för trading risk från Preact till React, införde TypeScript i kodbasen och moderniserade end-to-end-testsviten med Cypress.",
+        igarape:
+          "Jag var en av utvecklarna som ansvarade för webb-, desktop- och mobilapplikationer, datavisualiseringar och gränssnitt för interna verktyg. Bland de viktigaste projekten fanns Copcast (en Android-app för övervakning av polisinsatser), Crime Radar och Forced Migration Observatory.",
+        fgv: "Jag var en av utvecklarna som ansvarade för gränssnitt och verktyg för datavisualisering, databehandling samt hantering och underhåll av servrar. Bland de viktigaste projekten fanns Budgetary Mosaic, Budgetary Geology och Budgetary Transfers — transparensverktyg för Brasiliens federala budgetdata.",
+        piloti:
+          "Jag var en av utvecklarna som ansvarade för webbplatser och system åt en rad olika kunder med ramverket Symfony.",
+        brasilOoh:
+          "Jag ansvarade för underhåll och utveckling av företagets interna system samt underhåll av deras WordPress-webbplats.",
+        helpLtda:
+          "Jag ansvarade för underhåll och utveckling av företagets interna system och webbplats.",
       },
     },
   },
@@ -77,4 +96,4 @@ export default {
       resetColours: "Återställ Googles färger",
     },
   },
-};
+}

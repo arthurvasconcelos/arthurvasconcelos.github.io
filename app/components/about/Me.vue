@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { formatDistanceToNowStrict } from "date-fns";
+import { formatDistanceToNowStrict } from "date-fns"
 
-const { t } = useI18n();
+const { t } = useI18n()
 
 const socials = [
   {
@@ -29,22 +29,29 @@ const socials = [
     icon: "logos:pypi",
     link: "https://pypi.org/user/arthurvasconcelos/",
   },
-];
+]
 
-const BIRTHDAY = "1989-09-16";
-const BEGIN_WORK = "2010-03-01";
-const age = ref(
-  formatDistanceToNowStrict(new Date(BIRTHDAY), { roundingMethod: "floor" })
-);
-const workExperience = ref(
-  formatDistanceToNowStrict(new Date(BEGIN_WORK), { roundingMethod: "floor" })
-);
+const BIRTHDAY = "1989-09-16"
+const BEGIN_WORK = "2010-03-01"
+const dateLocale = useDateLocale()
+const age = computed(() =>
+  formatDistanceToNowStrict(new Date(BIRTHDAY), {
+    roundingMethod: "floor",
+    locale: dateLocale.value,
+  }),
+)
+const workExperience = computed(() =>
+  formatDistanceToNowStrict(new Date(BEGIN_WORK), {
+    roundingMethod: "floor",
+    locale: dateLocale.value,
+  }),
+)
 </script>
 
 <template>
   <div class="flex gap-2.5">
     <div class="flex flex-col gap-2">
-      <PlaceholderBox class="w-60 h-60" />
+      <PlaceholderBox class="h-60 w-60" />
       <div class="flex items-center justify-center gap-3">
         <ULink
           v-for="social in socials"
@@ -73,9 +80,9 @@ const workExperience = ref(
       </div>
     </div>
     <div class="flex flex-col gap-2">
-      <p>{{ t('about.bio.greeting') }}</p>
-      <p>{{ t('about.bio.intro', { age, years: workExperience }) }}</p>
-      <p>{{ t('about.bio.experience', { years: workExperience }) }}</p>
+      <p>{{ t("about.bio.greeting") }}</p>
+      <p>{{ t("about.bio.intro", { age, years: workExperience }) }}</p>
+      <p>{{ t("about.bio.experience", { years: workExperience }) }}</p>
     </div>
   </div>
 </template>

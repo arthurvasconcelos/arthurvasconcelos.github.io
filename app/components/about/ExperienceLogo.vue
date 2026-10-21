@@ -1,40 +1,35 @@
 <script setup lang="ts">
-import type { WorkExperience } from "~/composables/useWorkExperience";
+import type { WorkExperience } from "~/composables/useWorkExperience"
 
 defineProps<{
-  experience: WorkExperience;
-}>();
+  experience: WorkExperience
+}>()
 </script>
 
 <template>
   <div
     :class="[
-      // Flex
-      'shrink-0',
       // Sizing
-      'w-25',
-      'h-25',
+      'size-14',
+      'sm:size-16',
       // Border
       'border-2',
-      'border-slate-700',
-      'dark:border-slate-200',
+      'border-slate-300',
+      'dark:border-slate-700',
       'rounded-full',
       // Background
-      'bg-slate-950',
-      'dark:bg-slate-50',
+      'bg-white',
+      'dark:bg-slate-950',
       // Content
       'overflow-hidden',
-      // Spacing
-      'group-odd/experience:ml-4',
-      'group-even/experience:mr-4',
     ]"
   >
     <img
       v-if="experience.companyLogo"
       :src="experience.companyLogo"
       :alt="experience.company"
-      class="w-full h-full object-contain"
+      class="h-full w-full object-contain"
     >
-    <PlaceholderBox v-else class="w-full h-full bg-white dark:bg-black" />
+    <PlaceholderBox v-else class="h-full w-full rounded-full" />
   </div>
 </template>

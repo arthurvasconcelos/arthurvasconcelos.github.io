@@ -44,6 +44,25 @@ export default {
         "On-site": "Presencial",
         Hybrid: "Híbrido",
       },
+      descriptions: {
+        platform24:
+          "Desenvolvendo experiências front-end para a plataforma de saúde digital da Platform24, que conecta pacientes e profissionais de saúde nos mercados nórdico e europeu por meio de triagem digital, atendimento virtual e fluxos clínicos integrados.",
+        kognityTechLead:
+          "Como Tech Lead, trabalhei em estreita colaboração com o Product Manager, a Designer e os engenheiros do meu squad para garantir a qualidade e o alinhamento das nossas entregas. Liderei o projeto de migração para Vue.js 3, o projeto de implementação e migração para TypeScript e o planejamento e execução do nosso processo trimestral de melhorias de velocidade e qualidade. Participei da rotação de on-call dos serviços principais, atuei como entrevistador técnico no time de contratação e fiz o onboarding de novos integrantes.",
+        kognitySeniorSe:
+          "Como membro do time de Engagement, fui responsável pelo desenvolvimento e manutenção das interfaces de livros para professores e alunos, além de dar suporte ao sistema de criação de conteúdo. Projetei e implementei as funcionalidades de Glossário e Dicionário (com integração à API da Oxford), adicionei recursos de acessibilidade aos nossos livros digitais e ajudei a migrar o front-end de Angular 1.x para Vue.js 2.",
+        geniusSports:
+          "Como membro do time de risco, fui um dos engenheiros responsáveis pelo desenvolvimento de um sistema de monitoramento de apostas em tempo real. Migrei o front-end de risco de trading de Preact para React, introduzi TypeScript na base de código e modernizei a suíte de testes end-to-end usando Cypress.",
+        igarape:
+          "Fui um dos engenheiros responsáveis pelo desenvolvimento de aplicações web, desktop e mobile, visualizações de dados e interfaces para ferramentas internas. Entre os principais projetos estavam o Copcast (um app Android para monitoramento de operações policiais), o Radar do Crime e o Observatório de Migrações Forçadas.",
+        fgv: "Fui um dos engenheiros responsáveis pelo desenvolvimento de interfaces e ferramentas de visualização de dados, processamento de dados, gerenciamento e manutenção de servidores. Entre os principais projetos estavam o Mosaico Orçamentário, a Geologia Orçamentária e as Transferências Orçamentárias — ferramentas de transparência para os dados do orçamento federal brasileiro.",
+        piloti:
+          "Fui um dos engenheiros responsáveis pelo desenvolvimento de sites e sistemas para diversos clientes usando o framework Symfony.",
+        brasilOoh:
+          "Fui responsável pela manutenção e desenvolvimento dos sistemas internos da empresa e pela manutenção do site em WordPress.",
+        helpLtda:
+          "Fui responsável pela manutenção e desenvolvimento dos sistemas internos e do site da empresa.",
+      },
     },
   },
   projects: {
@@ -77,4 +96,4 @@ export default {
       resetColours: "Restaurar as cores do Google",
     },
   },
-};
+}
