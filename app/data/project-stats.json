@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T11:07:47.291Z",
+  "generatedAt": "2026-11-15T11:49:02.598Z",
   "repos": {
     "a11y-hud": {
       "name": "a11y-hud",
@@ -9,7 +9,7 @@
       "forks": 0,
       "watchers": 0,
       "openIssues": 10,
-      "fetchedAt": "2026-11-08T11:07:47.678Z"
+      "fetchedAt": "2026-11-15T11:49:02.951Z"
     },
     "overseer": {
       "name": "overseer",
@@ -19,7 +19,7 @@
       "forks": 0,
       "watchers": 0,
       "openIssues": 0,
-      "fetchedAt": "2026-11-08T11:07:47.920Z"
+      "fetchedAt": "2026-11-15T11:49:03.210Z"
     },
     "seedling": {
       "name": "seedling",
@@ -29,7 +29,7 @@
       "forks": 0,
       "watchers": 0,
       "openIssues": 1,
-      "fetchedAt": "2026-11-08T11:07:48.131Z"
+      "fetchedAt": "2026-11-15T11:49:03.420Z"
     },
     "driverseat": {
       "name": "driverseat",
@@ -39,7 +39,7 @@
       "forks": 0,
       "watchers": 0,
       "openIssues": 0,
-      "fetchedAt": "2026-11-08T11:07:48.420Z"
+      "fetchedAt": "2026-11-15T11:49:03.613Z"
     },
     "vue-izitoast": {
       "name": "vue-izitoast",
@@ -49,8 +49,8 @@
       "forks": 22,
       "watchers": 5,
       "openIssues": 33,
-      "fetchedAt": "2026-11-08T11:07:48.661Z",
-      "downloads": 94637
+      "fetchedAt": "2026-11-15T11:49:03.820Z",
+      "downloads": 93859
     },
     "vue-cbsc": {
       "name": "vue-cbsc",
@@ -60,62 +60,62 @@
       "forks": 2,
       "watchers": 1,
       "openIssues": 2,
-      "fetchedAt": "2026-11-08T11:07:49.275Z",
-      "downloads": 463
+      "fetchedAt": "2026-11-15T11:49:04.174Z",
+      "downloads": 475
     }
   },
   "packages": {
     "npm:a11y-hud": {
       "version": "1.0.3",
-      "fetchedAt": "2026-11-08T11:07:49.546Z"
+      "fetchedAt": "2026-11-15T11:49:04.312Z"
     },
     "npm:@a11y-hud/react": {
       "version": "1.0.3",
-      "fetchedAt": "2026-11-08T11:07:49.654Z"
+      "fetchedAt": "2026-11-15T11:49:04.376Z"
     },
     "npm:@a11y-hud/vue": {
       "version": "1.0.3",
-      "fetchedAt": "2026-11-08T11:07:49.758Z"
+      "fetchedAt": "2026-11-15T11:49:04.457Z"
     },
     "npm:@a11y-hud/angular": {
       "version": "1.0.3",
-      "fetchedAt": "2026-11-08T11:07:49.876Z"
+      "fetchedAt": "2026-11-15T11:49:04.518Z"
     },
     "npm:@a11y-hud/svelte": {
       "version": "1.0.3",
-      "fetchedAt": "2026-11-08T11:07:49.976Z"
+      "fetchedAt": "2026-11-15T11:49:04.585Z"
     },
     "npm:@a11y-hud/solid": {
       "version": "1.0.3",
-      "fetchedAt": "2026-11-08T11:07:50.080Z"
+      "fetchedAt": "2026-11-15T11:49:04.666Z"
     },
     "brew:overseer": {
       "version": "0.28.2",
-      "fetchedAt": "2026-11-08T11:07:50.266Z"
+      "fetchedAt": "2026-11-15T11:49:04.844Z"
     },
     "pypi:overseer-sdk": {
       "version": "0.1.2",
-      "fetchedAt": "2026-11-08T11:07:50.361Z"
+      "fetchedAt": "2026-11-15T11:49:04.933Z"
     },
     "npm:overseer-sdk": {
       "version": "0.1.2",
-      "fetchedAt": "2026-11-08T11:07:50.458Z"
+      "fetchedAt": "2026-11-15T11:49:04.996Z"
     },
     "pypi:sqlalchemy-seedling": {
       "version": "1.0.0",
-      "fetchedAt": "2026-11-08T11:07:50.507Z"
+      "fetchedAt": "2026-11-15T11:49:05.072Z"
     },
     "github:pair@driverseat": {
       "version": "0.1.0",
-      "fetchedAt": "2026-11-08T11:07:50.726Z"
+      "fetchedAt": "2026-11-15T11:49:05.260Z"
     },
     "npm:vue-izitoast": {
       "version": "1.2.1",
-      "fetchedAt": "2026-11-08T11:07:50.865Z"
+      "fetchedAt": "2026-11-15T11:49:05.354Z"
     },
     "npm:vue-cbsc": {
       "version": "1.0.1",
-      "fetchedAt": "2026-11-08T11:07:50.959Z"
+      "fetchedAt": "2026-11-15T11:49:05.412Z"
     }
   }
 }
